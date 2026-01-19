@@ -11,6 +11,8 @@ Plug 'junegunn/fzf.vim'             " Fuzzy finder
 Plug 'dense-analysis/ale'           " Async linting (C errors on save)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  " LSP
 Plug 'machakann/vim-highlightedyank'
+Plug 'justinmk/vim-sneak'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -42,6 +44,11 @@ set signcolumn=yes
 set updatetime=300
 set backup
 
+
+" Draw a subtle line at the 80th character
+set colorcolumn=80
+highlight ColorColumn ctermbg=235 " Very dark grey
+
 "=============================================================
 " SEARCHING
 "=============================================================
@@ -57,6 +64,11 @@ set tabstop=8
 set shiftwidth=4
 set noexpandtab
 set cindent
+"---indentline plugin ---"
+"
+let g:indentLine_char = '·'
+let g:indentLine_color_term = 239 " Subtle grey
+
 
 "=============================================================
 " COMPILATION & LINTING
@@ -145,7 +157,7 @@ let g:highlightedyank_display_duration = 40
 
 
 "--- reload config---
-command! reload source $MYVIMRC
+command! Reload source $MYVIMRC
 nnoremap <leader>r :source $MYVIMRC<CR>
 
 "=============================================================
@@ -212,3 +224,8 @@ nnoremap <leader>r :source $MYVIMRC<CR>
 "=============================================================
 " END OF FILE
 "=============================================================
+
+
+
+
+
