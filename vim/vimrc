@@ -12,7 +12,6 @@ Plug 'dense-analysis/ale'           " Async linting (C errors on save)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  " LSP
 Plug 'machakann/vim-highlightedyank'
 Plug 'justinmk/vim-sneak'
-Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -70,16 +69,16 @@ set cindent
 " NATIVE INDENT GUIDES
 "=============================================================
 " Disable the plugin logic entirely
-"let g:indentLine_enabled = 0
+let g:indentLine_enabled = 0
 
 " Use Vim's built-in listchars to draw the lines
-"set list
+set list
 " This draws a '│' at every tab and a '·' for trailing spaces
-"set listchars=tab:│\ ,trail:·,extends:>,precedes:<,nbsp:+
+set listchars=tab:│\ ,trail:·,extends:>,precedes:<,nbsp:+
 
 " Make the lines subtle grey so they don't distract
-"highlight SpecialKey ctermfg=239 ctermbg=none
-"highlight NonText ctermfg=239 ctermbg=none
+highlight SpecialKey ctermfg=242 ctermbg=none
+highlight NonText ctermfg=242 ctermbg=none
 
 
 
