@@ -45,8 +45,8 @@ set updatetime=300
 set backup
 
 
-" Draw a subtle line at the 80th character
-set colorcolumn=80
+" Draw a subtle line at some distance
+set colorcolumn=93
 highlight ColorColumn ctermbg=235 " Very dark grey
 
 "=============================================================
@@ -64,11 +64,44 @@ set tabstop=8
 set shiftwidth=4
 set noexpandtab
 set cindent
-"---indentline plugin ---"
-"
-let g:indentLine_char = '·'
-let g:indentLine_color_term = 239 " Subtle grey
 
+
+"=============================================================
+" NATIVE INDENT GUIDES
+"=============================================================
+" Disable the plugin logic entirely
+"let g:indentLine_enabled = 0
+
+" Use Vim's built-in listchars to draw the lines
+"set list
+" This draws a '│' at every tab and a '·' for trailing spaces
+"set listchars=tab:│\ ,trail:·,extends:>,precedes:<,nbsp:+
+
+" Make the lines subtle grey so they don't distract
+"highlight SpecialKey ctermfg=239 ctermbg=none
+"highlight NonText ctermfg=239 ctermbg=none
+
+
+
+"=============================================================
+" INDENTLINE PLUGIN
+"=============================================================
+set nolist                  " CRITICAL: Disable native listchars
+let g:indentLine_enabled = 1
+let g:indentLine_char = '│'
+let g:indentLine_conceallevel = 2
+let g:indentLine_concealcursor = 'inc'
+
+" Force it to recognize real tabs
+let g:indentLine_setColors = 1
+let g:indentLine_color_term = 239
+highlight Conceal ctermbg=none ctermfg=239
+
+
+
+" Display tabs as vertical lines
+set list
+set listchars=tab:│\ ,trail:-,extends:>,precedes:<,nbsp:+
 
 "=============================================================
 " COMPILATION & LINTING
