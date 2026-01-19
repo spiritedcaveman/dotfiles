@@ -15,6 +15,6 @@
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
 
-# Vim swap files (so you don't commit temporary edits)
+# Vim swap files 
 *.swp
 *.swo
