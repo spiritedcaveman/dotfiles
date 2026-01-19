@@ -1,5 +1,5 @@
 "=============================================================
-" PLUGINS
+" PLUGINS (Vim-Plug)
 "=============================================================
 call plug#begin('~/.vim/plugged')
 
@@ -10,42 +10,37 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'             " Fuzzy finder
 Plug 'dense-analysis/ale'           " Async linting (C errors on save)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  " LSP
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
 "=============================================================
-" GENERAL UI
+" GENERAL UI & SETTINGS
 "=============================================================
 set nocompatible
 syntax enable
 colorscheme desert
 filetype plugin on
-filetype indent on        " Enable filetype-based indenting
+filetype indent on
 
-" Transparency / minimal blur
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 highlight LineNr ctermbg=none
 highlight SignColumn ctermbg=none
 highlight FoldColumn ctermbg=none
 highlight EndOfBuffer ctermbg=none
+
 set cursorline
 highlight CursorLine cterm=underline ctermbg=none
 
 set number
 set relativenumber
 set wildmenu
-"set mouse=a               " mouse support
-set showmatch              " Highlight matching braces
+set showmatch
 set nowrap
 set signcolumn=yes
 set updatetime=300
-set backup                  " Keep backup files
-" Alternative options:
-" set mouse=on            " For mouse support
-" set cursorline ctermbg=darkgray  " Slightly darker underline
-" set scrolloff=3         " Keep 3 lines visible around cursor
-" set lazyredraw          " For faster redraw on big files
+set backup
 
 "=============================================================
 " SEARCHING
@@ -62,39 +57,24 @@ set tabstop=8
 set shiftwidth=4
 set noexpandtab
 set cindent
-" Alternatives for reference:
-" set smartindent          " Simpler indentation for old-school C
-" set autoindent           " Generic autoindent (redundant with cindent)
-" set shiftwidth=8         " NetBSD style
-" set expandtab            " Use spaces instead of tabs
-" set cinoptions=:0,l1,t0 " Custom cindent tweaks
 
 "=============================================================
-" COMPILATION
+" COMPILATION & LINTING
 "=============================================================
 set makeprg=gcc\ -Wall\ -Wextra\ -std=c99\ -g\ %
 autocmd BufWritePost *.c silent make | cwindow
-" Alternative compilation commands:
-" set makeprg=clang\ -Wall\ -Wextra\ -std=c99\ -g\ %
-" autocmd BufWritePost *.c silent make %:r && ./ %:r  " compile and run on save
 
-"=============================================================
-" ALE LINTING
-"=============================================================
 let g:ale_linters = { 'c': ['gcc'] }
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 1
-let g:ale_disable_lsp = 1      " Stop ALE from fighting with CoC, make it 0 if CoC is not in used but ALE is needed
-" Alternatives:
-" let g:ale_linters_explicit = 1  " Only run explicitly defined linters
+let g:ale_disable_lsp = 1
 
 "=============================================================
 " CoC / LSP (clangd)
 "=============================================================
 let g:coc_global_extensions = ['coc-clangd']
 
-" Completion mappings
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "\<Tab>" : coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -104,7 +84,6 @@ function! CheckBackspace() abort
     return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 
-" Documentation hover
 nnoremap <silent> K :call ShowDocumentation()<CR>
 function! ShowDocumentation()
     if CocAction('hasProvider', 'hover')
@@ -114,106 +93,122 @@ function! ShowDocumentation()
     endif
 endfunction
 
-" Go-to / rename / toggle header
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 nnoremap <leader>a :CocCommand clangd.switchSourceHeader<CR>
 
 "=============================================================
-" KEY MAPPINGS (Navigation / NERDTree)
+" KEY MAPPINGS & QUICKFIX
 "=============================================================
 nnoremap <Space> :noh<CR>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-n> :NERDTreeToggle<CR>
-" Alternative mappings:
-" nnoremap <C-h> <C-W><C-H>
-" nnoremap <C-l> <C-W><C-L>
-" nnoremap <leader>e :NERDTreeFind<CR>  " Open NERDTree at current file
-
-" Toggle paste mode quickly
 nnoremap <F2> :set paste!<CR>
+nnoremap <F3> :call ToggleQuickfix()<CR>
 
+function! ToggleQuickfix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
 
 "=============================================================
-" AIRLINE MINIMALIST
+" AIRLINE & NETRW
 "=============================================================
 let g:airline_symbols_ascii = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_section_y = '%{&fileformat}'
 let g:airline_section_z = '%l:%c'
-" Alternative sections:
-" let g:airline_section_x = '%{FugitiveStatusline()}'
-" let g:airline_section_z = '%p%%/%L'  " Show progress
 
-" --- GENERAL TYPO FIXES ---
+let g:netrw_browse_split = 0
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+let g:netrw_liststyle = 3
+
+"=============================================================
+" SPIRITEDCAVEMAN CUSTOM LOGIC
+"=============================================================
+augroup spiritedcaveman
+    autocmd!
+    autocmd BufWritePre * %s/\s\+$//e
+augroup END
+
+augroup HighlightYank
+    autocmd!
+augroup END
+
+let g:highlightedyank_display_duration = 40
+
+
+"--- reload config---
+command! reload source $MYVIMRC
+nnoremap <leader>r :source $MYVIMRC<CR>
+
+"=============================================================
+" SCRAPBOOK / UNUSED ALTERNATIVES (NOT DELETED)
+"=============================================================
+" --- UI Alternatives ---
+" set mouse=a
+" set mouse=on
+" set cursorline ctermbg=darkgray
+" set scrolloff=3
+" set lazyredraw
+
+" --- Coding Style Alternatives ---
+" set smartindent
+" set autoindent
+" set shiftwidth=8
+" set expandtab
+" set cinoptions=:0,l1,t0
+
+" --- Compilation Alternatives ---
+" set makeprg=clang\ -Wall\ -Wextra\ -std=c99\ -g\ %
+" autocmd BufWritePost *.c silent make %:r && ./ %:r
+
+" --- ALE Alternatives ---
+" let g:ale_linters_explicit = 1
+
+" --- Mapping Alternatives ---
+" nnoremap <C-h> <C-W><C-H>
+" nnoremap <C-l> <C-W><C-L>
+" nnoremap <leader>e :NERDTreeFind<CR>
+
+" --- Airline Alternatives ---
+" let g:airline_section_x = '%{FugitiveStatusline()}'
+" let g:airline_section_z = '%p%%/%L'
+
+" --- Typo Fixes ---
 " iabbrev adn and
 " iabbrev waht what
 " iabbrev teh the
 
-" --- PROGRAMMING SNIPPETS ---
+" --- Snippets ---
 " iabbrev #!b #!/bin/bash<cr><cr>
 " iabbrev #!p #!/usr/bin/env python3<cr><cr>
 " iabbrev clg console.log();<left><left>
 
-" --- DYNAMIC DATE/TIME ---
-" Insert current date: 2026-01-17
+" --- Time/Date ---
 " iabbrev <expr> ddate strftime("%Y-%m-%d")
-" Insert current time: 10:56
 " iabbrev <expr> dtime strftime("%H:%M")
 
-" --- PLACEHOLDERS (Use with a jump mapping) ---
-" iabbrev todo " iabbrev lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+" --- Dvorak ---
+" noremap h <left>
+" noremap t <down>
+" noremap n <up>
+" noremap s <right>
+" noremap l n
+" noremap L N
 
-" --- REUSABLE DISCLOSURES/SIGNATURES ---
-" iabbrev mysig Regards,<cr>Your Name<cr>email@example.com
-
-" --- VIM COMMAND SHORTCUTS (Command-line mode) ---
+" --- Command Abbreviations ---
 " cabbrev W w
 " cabbrev Q q
 " cabbrev Wq wq
 " cabbrev help vertical help
 
-
-
-
-" --- cclose/copen keybind---
-
-nnoremap <F3> :call ToggleQuickfix()<CR>
-
-function! ToggleQuickfix()
-  if empty(filter(getwininfo(), 'v:val.quickfix'))
-    copen
-  else
-    cclose
-  endif
-endfunction
-
-
-
-
-
-
-
-
-
-
-
-
-"----dvorak
-"noremap h <left>
-"noremap t <down>
-"noremap n <up>   
-"noremap s <right>
-
-"noremap l n
-"noremap L N
-
-
-
 "=============================================================
-" END
+" END OF FILE
 "=============================================================
-
-
