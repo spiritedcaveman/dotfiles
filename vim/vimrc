@@ -1,35 +1,41 @@
-"=============================================================
-" PLUGINS (Vim-Plug)
-"=============================================================
+"=============================================================================
+" ~/.vimrc
+"=============================================================================
+
+"-----------------------------------------------------------------------------
+" PLUGINS (vim-plug)
+"-----------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'preservim/nerdtree'           " File explorer
-Plug 'vim-airline/vim-airline'      " Status bar
-Plug 'tpope/vim-fugitive'           " Git integration
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'             " Fuzzy finder
-Plug 'dense-analysis/ale'           " Async linting (C errors on save)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}  " LSP
+Plug 'junegunn/fzf.vim'
+Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'machakann/vim-highlightedyank'
 Plug 'justinmk/vim-sneak'
+Plug 'vim-utils/vim-man'
 
 call plug#end()
 
-"=============================================================
-" GENERAL UI & SETTINGS
-"=============================================================
+"-----------------------------------------------------------------------------
+" CORE SETTINGS / UI
+"-----------------------------------------------------------------------------
 set nocompatible
 syntax enable
 colorscheme desert
+
 filetype plugin on
 filetype indent on
 
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight LineNr ctermbg=none
-highlight SignColumn ctermbg=none
-highlight FoldColumn ctermbg=none
-highlight EndOfBuffer ctermbg=none
+highlight Normal       ctermbg=none
+highlight NonText      ctermbg=none
+highlight LineNr       ctermbg=none
+highlight SignColumn   ctermbg=none
+highlight FoldColumn   ctermbg=none
+highlight EndOfBuffer  ctermbg=none
 
 set cursorline
 highlight CursorLine cterm=underline ctermbg=none
@@ -43,68 +49,55 @@ set signcolumn=yes
 set updatetime=300
 set backup
 
-
-" Draw a subtle line at some distance
 set colorcolumn=93
-highlight ColorColumn ctermbg=235 " Very dark grey
+highlight ColorColumn ctermbg=235
 
-"=============================================================
-" SEARCHING
-"=============================================================
+"-----------------------------------------------------------------------------
+" SEARCH
+"-----------------------------------------------------------------------------
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
 
-"=============================================================
-" CODING STYLE (C / Unix)
-"=============================================================
+"-----------------------------------------------------------------------------
+" CODING STYLE (C / UNIX)
+"-----------------------------------------------------------------------------
 set tabstop=8
 set shiftwidth=4
 set noexpandtab
 set cindent
 
-
-"=============================================================
-" NATIVE INDENT GUIDES
-"=============================================================
-" Disable the plugin logic entirely
+"-----------------------------------------------------------------------------
+" NATIVE LISTCHARS (DISABLED PATH — KEPT)
+"-----------------------------------------------------------------------------
 let g:indentLine_enabled = 0
 
-" Use Vim's built-in listchars to draw the lines
 set list
-" This draws a '│' at every tab and a '·' for trailing spaces
 set listchars=tab:│\ ,trail:·,extends:>,precedes:<,nbsp:+
 
-" Make the lines subtle grey so they don't distract
 highlight SpecialKey ctermfg=242 ctermbg=none
-highlight NonText ctermfg=242 ctermbg=none
+highlight NonText    ctermfg=242 ctermbg=none
 
-
-
-"=============================================================
-" INDENTLINE PLUGIN
-"=============================================================
-set nolist                  " CRITICAL: Disable native listchars
+"-----------------------------------------------------------------------------
+" INDENTLINE PLUGIN (ACTIVE PATH)
+"-----------------------------------------------------------------------------
+set nolist
 let g:indentLine_enabled = 1
 let g:indentLine_char = '│'
 let g:indentLine_conceallevel = 2
 let g:indentLine_concealcursor = 'inc'
 
-" Force it to recognize real tabs
 let g:indentLine_setColors = 1
 let g:indentLine_color_term = 239
 highlight Conceal ctermbg=none ctermfg=239
 
-
-
-" Display tabs as vertical lines
 set list
 set listchars=tab:│\ ,trail:-,extends:>,precedes:<,nbsp:+
 
-"=============================================================
+"-----------------------------------------------------------------------------
 " COMPILATION & LINTING
-"=============================================================
+"-----------------------------------------------------------------------------
 set makeprg=gcc\ -Wall\ -Wextra\ -std=c99\ -g\ %
 autocmd BufWritePost *.c silent make | cwindow
 
@@ -114,14 +107,22 @@ let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 1
 let g:ale_disable_lsp = 1
 
-"=============================================================
+"-----------------------------------------------------------------------------
 " CoC / LSP (clangd)
-"=============================================================
+"-----------------------------------------------------------------------------
 let g:coc_global_extensions = ['coc-clangd']
 
-inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "\<Tab>" : coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+inoremap <expr><S-TAB>
+      \ coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+inoremap <silent><expr> <CR>
+      \ coc#pum#visible() ? coc#pum#confirm() :
+      \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
     let col = col('.') - 1
@@ -129,6 +130,7 @@ function! CheckBackspace() abort
 endfunction
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
+
 function! ShowDocumentation()
     if CocAction('hasProvider', 'hover')
         call CocActionAsync('doHover')
@@ -142,9 +144,32 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 nnoremap <leader>a :CocCommand clangd.switchSourceHeader<CR>
 
-"=============================================================
+"-----------------------------------------------------------------------------
+" MAN PAGES (default Vim behavior via K)
+"-----------------------------------------------------------------------------
+
+" Ensure :Man is available
+runtime ftplugin/man.vim
+
+" Use man pages for keyword lookup
+" K  → :Man <cword>
+" <C-T> returns (tag stack)
+set keywordprg=:Man
+
+" Treat dotted / dashed identifiers as single words
+augroup ManKeyword
+    autocmd!
+    autocmd FileType c,cpp,markdown,text setlocal iskeyword+=\.,-
+augroup END
+
+" Open man pages in a vertical split
+let g:man_vertical = 1
+
+
+
+"-----------------------------------------------------------------------------
 " KEY MAPPINGS & QUICKFIX
-"=============================================================
+"-----------------------------------------------------------------------------
 nnoremap <Space> :noh<CR>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -160,9 +185,9 @@ function! ToggleQuickfix()
     endif
 endfunction
 
-"=============================================================
+"-----------------------------------------------------------------------------
 " AIRLINE & NETRW
-"=============================================================
+"-----------------------------------------------------------------------------
 let g:airline_symbols_ascii = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_section_y = '%{&fileformat}'
@@ -173,9 +198,9 @@ let g:netrw_banner = 0
 let g:netrw_winsize = 25
 let g:netrw_liststyle = 3
 
-"=============================================================
-" SPIRITEDCAVEMAN CUSTOM LOGIC
-"=============================================================
+"-----------------------------------------------------------------------------
+" AUTOCMDS
+"-----------------------------------------------------------------------------
 augroup spiritedcaveman
     autocmd!
     autocmd BufWritePre * %s/\s\+$//e
@@ -187,14 +212,16 @@ augroup END
 
 let g:highlightedyank_display_duration = 40
 
-
-"--- reload config---
+"-----------------------------------------------------------------------------
+" RELOAD
+"-----------------------------------------------------------------------------
 command! Reload source $MYVIMRC
 nnoremap <leader>r :source $MYVIMRC<CR>
 
-"=============================================================
-" SCRAPBOOK / UNUSED ALTERNATIVES (NOT DELETED)
-"=============================================================
+"-----------------------------------------------------------------------------
+" SCRAPBOOK / UNUSED ALTERNATIVES (INTENTIONALLY KEPT)
+"-----------------------------------------------------------------------------
+
 " --- UI Alternatives ---
 " set mouse=a
 " set mouse=on
@@ -253,11 +280,7 @@ nnoremap <leader>r :source $MYVIMRC<CR>
 " cabbrev Wq wq
 " cabbrev help vertical help
 
-"=============================================================
-" END OF FILE
-"=============================================================
-
-
-
-
+"=============================================================================
+" END
+"=============================================================================
 
