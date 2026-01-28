@@ -346,7 +346,90 @@ nnoremap <leader>r :source $MYVIMRC<CR>
 " cabbrev Wq wq
 " cabbrev help vertical help
 
+
+
+
+
+
+
+
+
+
+"-----------------------------------------------------------------------------
+" LOW-LEVEL / ASM / BOMB-LAB EXTENSIONS (ADD-ONLY)
+"-----------------------------------------------------------------------------
+
+" -------------------------
+" Disassembly / objdump
+" -------------------------
+augroup objdump
+    autocmd!
+    autocmd BufReadPost *.dump,*.objdump setlocal \
+        readonly \
+        nomodifiable \
+        nowrap \
+        noswapfile \
+        filetype=asm
+augroup END
+
+
+" -------------------------
+" Debugging navigation
+" -------------------------
+set jumpoptions=stack
+set scrolloff=8
+set sidescrolloff=8
+
+
+" -------------------------
+" Hex / raw memory view
+" -------------------------
+command! Hex silent %!xxd
+command! UnHex silent %!xxd -r
+
+
+" -------------------------
+" Assembly semantic highlighting (desert-safe)
+" -------------------------
+highlight asmLabel      ctermfg=Yellow
+highlight asmDirective  ctermfg=Cyan
+highlight asmRegister   ctermfg=Green
+highlight asmNumber     ctermfg=Magenta
+
+
+" -------------------------
+" Control-flow visibility
+" -------------------------
+set showmatch
+set matchtime=2
+
+
+" -------------------------
+" ASM safety (no smart bullshit)
+" -------------------------
+augroup asm_safety
+    autocmd!
+    autocmd FileType asm setlocal \
+        formatoptions-=cro \
+        nosmartindent \
+        nocindent \
+        noautoindent
+augroup END
+
+
+
+
+
+
+
+
 "=============================================================================
 " END
 "=============================================================================
+
+
+
+
+
+
 
