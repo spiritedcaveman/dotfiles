@@ -20,11 +20,17 @@ Plug 'vim-utils/vim-man'
 
 call plug#end()
 
+
+
 "-----------------------------------------------------------------------------
 " CORE SETTINGS / UI
 "-----------------------------------------------------------------------------
 set nocompatible
+
+" Enable syntax highlighting
 syntax enable
+syntax on
+
 colorscheme desert
 
 filetype plugin on
@@ -51,6 +57,66 @@ set backup
 
 set colorcolumn=93
 highlight ColorColumn ctermbg=235
+
+
+"-----------------------------------------------------------------------------
+" ASSEMBLY / LOW-LEVEL DEVELOPMENT SUPPORT
+"-----------------------------------------------------------------------------
+
+" Auto-detect assembly files more aggressively
+augroup dev_asm
+    autocmd!
+    autocmd BufNewFile,BufRead *.s,*.S,*.asm,*.inc set filetype=asm
+    autocmd FileType asm setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
+augroup END
+
+" Make tabs visible (important for asm alignment)
+set list
+set listchars=tab:▸\ ,trail:·,extends:>,precedes:<
+
+" Better hex / binary readability
+set nrformats+=hex,bin
+
+" Keep cursor centered while stepping through code
+set scrolloff=5
+set sidescrolloff=5
+
+
+"-----------------------------------------------------------------------------
+" OPTIONAL / KERNEL & DEBUGGING (COMMENTED — ENABLE IF NEEDED)
+"-----------------------------------------------------------------------------
+
+" Highlight suspicious whitespace (useful in asm & Makefiles)
+" set list
+
+" Persistent undo (nice when refactoring low-level code)
+" set undofile
+" set undodir=~/.vim/undo
+
+" Faster redraw when stepping in debuggers
+" set lazyredraw
+
+" Highlight jumps and labels more clearly (depends on syntax file quality)
+" highlight asmLabel ctermfg=Yellow
+" highlight asmDirective ctermfg=Cyan
+
+" Show absolute line numbers only in insert mode (debugging comfort)
+" augroup numbertoggle
+"     autocmd!
+"     autocmd InsertEnter * set norelativenumber
+"     autocmd InsertLeave * set relativenumber
+" augroup END
+
+" Disable automatic comment insertion (very important for asm)
+" autocmd FileType asm setlocal formatoptions-=cro
+
+" Prevent Vim from being clever with indentation
+" set nosmartindent
+" set nocindent
+" set noautoindent
+
+
+
 
 "-----------------------------------------------------------------------------
 " SEARCH
