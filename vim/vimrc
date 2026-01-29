@@ -13,7 +13,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" only load heavy plugins if node is actually installed
+if executable('node')
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
+
 Plug 'machakann/vim-highlightedyank'
 Plug 'justinmk/vim-sneak'
 Plug 'vim-utils/vim-man'
