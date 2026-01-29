@@ -25,8 +25,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ### zsh environment (oh-my-zsh)
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
-
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 ### keyd setup
