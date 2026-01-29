@@ -17,8 +17,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ### tmux plugin manager (tpm)
 
 ```bash
-git clone [https://github.com/tmux-plugins/tpm](https://github.com/tmux-plugins/tpm) ~/.tmux/plugins/tpm
-
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 ### initial config editing (vim + tmux)
