@@ -102,9 +102,9 @@ set sidescrolloff=5
 
 " Show absolute line numbers only in insert mode (debugging comfort)
 " augroup numbertoggle
-"     autocmd!
-"     autocmd InsertEnter * set norelativenumber
-"     autocmd InsertLeave * set relativenumber
+"      autocmd!
+"      autocmd InsertEnter * set norelativenumber
+"      autocmd InsertLeave * set relativenumber
 " augroup END
 
 " Disable automatic comment insertion (very important for asm)
@@ -346,14 +346,15 @@ nnoremap <leader>r :source $MYVIMRC<CR>
 " cabbrev Wq wq
 " cabbrev help vertical help
 
+"-----------------------------------------------------------------------------
+" TAGS CONFIGURATION (APUE SUPPORT)
+"-----------------------------------------------------------------------------
+" Search upward for tags file
+set tags=./tags,tags;
 
-
-
-
-
-
-
-
+" Tag navigation shortcuts
+nnoremap <leader>v :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <leader>l :ts <C-R>=expand("<cword>")<CR><CR>
 
 "-----------------------------------------------------------------------------
 " LOW-LEVEL / ASM / BOMB-LAB EXTENSIONS (ADD-ONLY)
@@ -364,12 +365,12 @@ nnoremap <leader>r :source $MYVIMRC<CR>
 " -------------------------
 augroup objdump
     autocmd!
-    autocmd BufReadPost *.dump,*.objdump setlocal \
-        readonly \
-        nomodifiable \
-        nowrap \
-        noswapfile \
-        filetype=asm
+    autocmd BufReadPost *.dump,*.objdump setlocal
+        \ readonly
+        \ nomodifiable
+        \ nowrap
+        \ noswapfile
+        \ filetype=asm
 augroup END
 
 
@@ -409,27 +410,14 @@ set matchtime=2
 " -------------------------
 augroup asm_safety
     autocmd!
-    autocmd FileType asm setlocal \
-        formatoptions-=cro \
-        nosmartindent \
-        nocindent \
-        noautoindent
+    autocmd FileType asm setlocal
+        \ formatoptions-=cro
+        \ nosmartindent
+        \ nocindent
+        \ noautoindent
 augroup END
-
-
-
-
-
-
 
 
 "=============================================================================
 " END
 "=============================================================================
-
-
-
-
-
-
-
