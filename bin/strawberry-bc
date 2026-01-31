@@ -1,1 +1,25 @@
-/home/spiritedcaveman/bin/strawberry-bc
+#!/bin/bash
+
+[ -z "$1" ] && { echo "Usage: strawberry-bc <album-or-playlist-url>"; exit 1; }
+
+URL="$1"
+
+echo "Fetching all tracks…"
+
+# Get all track URLs from playlist/album (works for Bandcamp, YouTube, etc.)
+mapfile -t URLS < <(
+    yt-dlp --yes-playlist --get-url "$URL" --quiet --no-warnings
+)
+
+if [ ${#URLS[@]} -eq 0 ]; then
+    echo "No tracks found. Exiting."
+    exit 1
+fi
+
+echo "Sending ${#URLS[@]} tracks to Strawberry…"
+
+# Append everything in one call
+strawberry --append "${URLS[@]}" >/dev/null 2>&1
+
+echo "Done. Check your Strawberry window!"
+
