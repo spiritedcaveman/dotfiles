@@ -1,25 +1,26 @@
+
 #!/bin/bash
 
-[ -z "$1" ] && { echo "Usage: strawberry-bc <album-or-playlist-url>"; exit 1; }
+[ -z "$1" ] && { echo "Usage: strawberry-bc <url>"; exit 1; }
 
 URL="$1"
+PLAYLIST="/tmp/strawberry_temp.m3u"
 
-echo "Fetching all tracks…"
+echo "Fetching tracks and titles..."
 
-# Get all track URLs from playlist/album (works for Bandcamp, YouTube, etc.)
-mapfile -t URLS < <(
-    yt-dlp --yes-playlist --get-url "$URL" --quiet --no-warnings
-)
+echo "#EXTM3U" > "$PLAYLIST"
+yt-dlp --yes-playlist --get-title --get-url --no-warnings "$URL" | while read -r TITLE; read -r TRACK_URL; do
+    echo "#EXTINF:-1,$TITLE" >> "$PLAYLIST"
+    echo "$TRACK_URL" >> "$PLAYLIST"
+    echo "Found: $TITLE"
+done
 
-if [ ${#URLS[@]} -eq 0 ]; then
-    echo "No tracks found. Exiting."
+if [ ! -f "$PLAYLIST" ] || [ $(wc -l < "$PLAYLIST") -le 1 ]; then
+    echo "No tracks found."
     exit 1
 fi
 
-echo "Sending ${#URLS[@]} tracks to Strawberry…"
+strawberry --append "$PLAYLIST" >/dev/null 2>&1
+rm "$PLAYLIST"
 
-# Append everything in one call
-strawberry --append "${URLS[@]}" >/dev/null 2>&1
-
-echo "Done. Check your Strawberry window!"
-
+echo "Done."
