@@ -1,0 +1,97 @@
+### ===============================================================
+### SWAY CONFIG — UPDATED WITH BAR AND RELIABLE BINDINGS
+### ===============================================================
+
+### -------------------------
+### BASICS
+### -------------------------
+set $mod Mod4
+set $term konsole
+set $menu wofi --show drun
+
+font pango:monospace 10
+
+### -------------------------
+### OUTPUT / INPUT
+### -------------------------
+# Your specific wallpaper path preserved
+output * bg /mnt/WD1TB/FDRIVE/wallpaper/photos/artificial_brain.jpg fill
+
+input type:keyboard {
+    xkb_layout us
+}
+
+### -------------------------
+### KEYBINDINGS (CORE ONLY)
+### -------------------------
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+e exec swaymsg exit
+bindsym $mod+Shift+c reload
+
+### -------------------------
+### FOCUS (VI-STYLE)
+### -------------------------
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+### -------------------------
+### MOVE WINDOWS
+### -------------------------
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+### -------------------------
+### WORKSPACES (FIXED WITH BINDCODE)
+### -------------------------
+# Using bindcode ensures the terminal doesn't "steal" the numbers
+bindcode $mod+10 workspace number 1
+bindcode $mod+11 workspace number 2
+bindcode $mod+12 workspace number 3
+
+bindcode $mod+Shift+10 move container to workspace number 1
+bindcode $mod+Shift+11 move container to workspace number 2
+bindcode $mod+Shift+12 move container to workspace number 3
+
+### -------------------------
+### LAYOUT / FLOATING
+### -------------------------
+bindsym $mod+v split v
+bindsym $mod+b split h
+bindsym $mod+f fullscreen toggle
+floating_modifier $mod normal
+
+### -------------------------
+### STATUS BAR (ENABLED TO SHOW WORKSPACES)
+### -------------------------
+bar {
+    position top
+    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    colors {
+        statusline #ffffff
+        background #323232
+        focused_workspace  #4c7899 #285577 #ffffff
+        active_workspace   #323232 #5f676a #ffffff
+        inactive_workspace #323232 #323232 #888888
+    }
+}
+
+### -------------------------
+### IDLE / LOCK (SAFE)
+### -------------------------
+exec swayidle -w \
+    timeout 300 'swaylock -f' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"'
+
+### -------------------------
+### KDE / SYSTEMD PORTALS
+### -------------------------
+exec dbus-update-activation-environment --systemd \
+    WAYLAND_DISPLAY \
+    XDG_CURRENT_DESKTOP=sway
