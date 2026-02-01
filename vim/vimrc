@@ -422,6 +422,28 @@ augroup asm_safety
         \ noautoindent
 augroup END
 
+" Function to randomize string case (sPoNGeBoBiFy)
+function! s:SpongeBobify(str)
+    let l:result = ""
+    for l:i in range(len(a:str))
+        " Randomly choose 0 (lowercase) or 1 (uppercase)
+        if reltime()[1] % 2 == 0
+            let l:result .= toupper(a:str[l:i])
+        else
+            let l:result .= tolower(a:str[l:i])
+        endif
+    endfor
+    return l:result
+endfunction
+
+" Command to sponge-case the current line or selection
+command! -range SpOnGeBoBiFy <line1>,<line2>call s:SpongeBobifyRange()
+
+function! s:SpongeBobifyRange() range
+    let l:lines = getline(a:firstline, a:lastline)
+    let l:new_lines = map(l:lines, 's:SpongeBobify(v:val)')
+    call setline(a:firstline, l:new_lines)
+endfunction
 
 "=============================================================================
 " END
