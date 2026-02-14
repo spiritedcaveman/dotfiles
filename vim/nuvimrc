@@ -17,6 +17,8 @@ endif
 
 Plug 'machakann/vim-highlightedyank'
 Plug 'justinmk/vim-sneak'
+Plug 'vim-utils/vim-man'
+
 
 call plug#end()
 
@@ -188,6 +190,41 @@ let g:highlightedyank_display_duration = 40
 "-----------------------------------------------------------------------------
 command! Reload source $MYVIMRC
 nnoremap <leader>r :source $MYVIMRC<CR>
+
+
+"=============================================================================
+" whatever
+"=============================================================================
+
+" ---------------------------------------------------------------------------
+" Better man-page keyword handling
+" ---------------------------------------------------------------------------
+augroup ManKeyword
+    autocmd!
+    autocmd FileType c,cpp,markdown,text setlocal iskeyword+=\.,-
+augroup END
+
+
+" ---------------------------------------------------------------------------
+" Preserve jump stack when navigating tags / definitions
+" ---------------------------------------------------------------------------
+set jumpoptions=stack
+
+
+" ---------------------------------------------------------------------------
+" Make disassembly / objdump dumps safe
+" ---------------------------------------------------------------------------
+augroup objdump
+    autocmd!
+    autocmd BufReadPost *.dump,*.objdump setlocal
+        \ readonly
+        \ nomodifiable
+        \ nowrap
+        \ noswapfile
+        \ filetype=asm
+augroup END
+
+
 
 "=============================================================================
 " END
