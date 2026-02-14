@@ -247,6 +247,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <F2> :set paste!<CR>
 nnoremap <F3> :call ToggleQuickfix()<CR>
+" move up in directory from a file when vim was initialized from a directory
+nnoremap - :NERDTreeFind<CR>
 
 function! ToggleQuickfix()
     if empty(filter(getwininfo(), 'v:val.quickfix'))

@@ -98,6 +98,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 #   export EDITOR='nvim'
 # fi
 
+
+# screw nvim
+export EDITOR='vim'
+export EDITOR='vim'
 # Compilation flags (optional)
 # export ARCHFLAGS="-arch $(uname -m)"
 
@@ -117,6 +121,10 @@ alias gc17='gcc -std=c17 -Wall -lm'
 alias health='sensors | grep -iE "RAM|Package|Composite|PECI"'
 alias health-info='cat ~/hardware_health.txt'
 
+# some shit
+alias edzsh='vim ~/dotfiles/zsh/zshrc'
+alias reload='source ~/.zshrc'
+
 # Optional filesystem / ls aliases
 # alias ls='ls --color=auto'
 # alias ll='ls -lh'
@@ -125,6 +133,11 @@ alias health-info='cat ~/hardware_health.txt'
 # Quick navigation / personal convenience
 # alias zshconfig="nano ~/.zshrc"
 # alias ohmyzsh="nano ~/.oh-my-zsh"
+
+# ==========
+# Theme
+# ==========
+
 
 # ================================================================
 # END OF FILE

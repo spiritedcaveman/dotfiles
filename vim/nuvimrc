@@ -1,0 +1,195 @@
+"=============================================================================
+" ~/.vimrc  — Stable Integrated Build
+"=============================================================================
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'dense-analysis/ale'
+
+if executable('node')
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
+
+Plug 'machakann/vim-highlightedyank'
+Plug 'justinmk/vim-sneak'
+
+call plug#end()
+
+"-----------------------------------------------------------------------------
+" CORE
+"-----------------------------------------------------------------------------
+set nocompatible
+syntax enable
+filetype plugin indent on
+
+set termguicolors
+set background=dark
+colorscheme desert
+
+highlight Normal       guifg=#ffffff guibg=NONE ctermfg=231 ctermbg=NONE
+highlight NonText      guibg=NONE ctermbg=NONE
+highlight LineNr       guibg=NONE ctermbg=NONE
+highlight SignColumn   guibg=NONE ctermbg=NONE
+highlight FoldColumn   guibg=NONE ctermbg=NONE
+highlight EndOfBuffer  guibg=NONE ctermbg=NONE
+
+"-----------------------------------------------------------------------------
+" UI
+"-----------------------------------------------------------------------------
+set number
+set relativenumber
+set cursorline
+highlight CursorLine cterm=underline guibg=NONE
+
+set wildmenu
+set showmatch
+set nowrap
+set signcolumn=yes
+set updatetime=300
+set scrolloff=8
+set sidescrolloff=8
+set colorcolumn=93
+highlight ColorColumn ctermbg=235
+
+set list
+set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:+
+
+"-----------------------------------------------------------------------------
+" SEARCH
+"-----------------------------------------------------------------------------
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+nnoremap <Space> :noh<CR>
+
+"-----------------------------------------------------------------------------
+" CODING STYLE
+"-----------------------------------------------------------------------------
+set tabstop=8
+set shiftwidth=4
+set noexpandtab
+set cindent
+set nrformats+=hex,bin
+
+"-----------------------------------------------------------------------------
+" ASM SUPPORT
+"-----------------------------------------------------------------------------
+augroup dev_asm
+    autocmd!
+    autocmd BufNewFile,BufRead *.s,*.S,*.asm,*.inc set filetype=asm
+    autocmd FileType asm setlocal shiftwidth=8 tabstop=8 noexpandtab
+augroup END
+
+highlight asmLabel      ctermfg=Yellow
+highlight asmDirective  ctermfg=Cyan
+highlight asmRegister   ctermfg=Green
+highlight asmNumber     ctermfg=Magenta
+
+augroup asm_safety
+    autocmd!
+    autocmd FileType asm setlocal
+        \ formatoptions-=cro
+        \ nosmartindent
+        \ nocindent
+        \ noautoindent
+augroup END
+
+"-----------------------------------------------------------------------------
+" HEX VIEW (restored safely)
+"-----------------------------------------------------------------------------
+command! Hex silent %!xxd
+command! UnHex silent %!xxd -r
+
+"-----------------------------------------------------------------------------
+" TAGS (restored)
+"-----------------------------------------------------------------------------
+set tags=./tags,tags;
+
+nnoremap <leader>v :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <leader>l :ts <C-R>=expand("<cword>")<CR><CR>
+
+"-----------------------------------------------------------------------------
+" COMPILATION
+"-----------------------------------------------------------------------------
+set makeprg=gcc\ -Wall\ -Wextra\ -std=c99\ -g\ %
+autocmd BufWritePost *.c silent make | cwindow
+
+function! ToggleQuickfix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
+nnoremap <F3> :call ToggleQuickfix()<CR>
+
+let g:ale_linters = { 'c': ['gcc'] }
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 1
+let g:ale_disable_lsp = 1
+
+"-----------------------------------------------------------------------------
+" CoC (clangd)
+"-----------------------------------------------------------------------------
+let g:coc_global_extensions = ['coc-clangd']
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+inoremap <expr><S-TAB>
+      \ coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+inoremap <silent><expr> <CR>
+      \ coc#pum#visible() ? coc#pum#confirm() :
+      \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
+
+"-----------------------------------------------------------------------------
+" NERDTREE
+"-----------------------------------------------------------------------------
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+"-----------------------------------------------------------------------------
+" AIRLINE
+"-----------------------------------------------------------------------------
+let g:airline_symbols_ascii = 1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_section_z = '%l:%c'
+
+"-----------------------------------------------------------------------------
+" AUTOCMDS
+"-----------------------------------------------------------------------------
+augroup cleanups
+    autocmd!
+    autocmd BufWritePre * %s/\s\+$//e
+augroup END
+
+let g:highlightedyank_display_duration = 40
+
+"-----------------------------------------------------------------------------
+" Reload
+"-----------------------------------------------------------------------------
+command! Reload source $MYVIMRC
+nnoremap <leader>r :source $MYVIMRC<CR>
+
+"=============================================================================
+" END
+"=============================================================================
+
