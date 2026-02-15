@@ -1,0 +1,39 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/nvme0n1p2
+UUID=5b856d8e-0a25-402e-b4aa-b7db69764545	/         	btrfs     	rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@	0 0
+
+# /dev/nvme0n1p2
+UUID=5b856d8e-0a25-402e-b4aa-b7db69764545	/home     	btrfs     	rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@home	0 0
+
+# /dev/nvme0n1p2
+UUID=5b856d8e-0a25-402e-b4aa-b7db69764545	/var/log  	btrfs     	rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@log	0 0
+
+# /dev/nvme0n1p2
+UUID=5b856d8e-0a25-402e-b4aa-b7db69764545	/var/cache/pacman/pkg	btrfs     	rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@pkg	0 0
+
+# /dev/nvme0n1p1
+UUID=2AC3-AC18      	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+
+/swapfile                                 none          swap      defaults                                                                0 0
+
+
+# Western Digital 1TB - Partition 1 (C)
+UUID=447B530F1E350A96    /mnt/WD1TB/CDrive    ntfs-3g    defaults,noatime,uid=1000,gid=1000,dmask=022,fmask=133    0 0
+
+# Western Digital 1TB - Partition 2 (D)
+UUID=A08E779C8E7769A4    /mnt/WD1TB/DDrive    ntfs-3g    defaults,noatime,uid=1000,gid=1000,dmask=022,fmask=133    0 0
+
+# Western Digital 1TB - Partition 3 (E)
+UUID=62889CBF889C9361    /mnt/WD1TB/EDrive    ntfs-3g    defaults,noatime,uid=1000,gid=1000,dmask=022,fmask=133    0 0
+
+# Western Digital 1TB - Partition 4 (F)
+UUID=F27E9AB57E9A7259    /mnt/WD1TB/FDrive    ntfs-3g    defaults,noatime,uid=1000,gid=1000,dmask=022,fmask=133    0 0
+
+# music mount with read only perms
+/mnt/WD1TB/EDrive/moozik    /mnt/music/moozik    none  bind,ro  0  0
+/mnt/WD1TB/FDrive/m00zik    /mnt/music/m00zik    none  bind,ro  0  0
+/mnt/WD1TB/FDrive/audiobook /mnt/music/audiobook none  bind,ro  0  0
