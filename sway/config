@@ -17,7 +17,7 @@ set $right l
 set $term foot
 # Your preferred application launcher
 set $menu wmenu-run
-
+font pango:JetBrains Mono 10
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -210,7 +210,7 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
-    bindsym Print exec grim
+    # bindsym Sys_Req exec grimshot copy area
 
 #
 # Status Bar:
@@ -232,3 +232,21 @@ bar {
 # Manifest the theme variable for all child processes
 
 include /etc/sway/config.d/*
+
+
+
+# --- Screenshot & Clipboard Section ---
+
+# Capture Area -> Clipboard (The 'P' for Photo)
+bindsym $mod+p exec grimshot copy area
+
+# Capture Full Screen -> Clipboard
+bindsym $mod+Shift+p exec grimshot copy screen
+
+# Clipboard History Management (using wmenu)
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+bindsym $mod+v exec cliphist list | wmenu | cliphist decode | wl-copy
+
+# --- End Section ---
+
