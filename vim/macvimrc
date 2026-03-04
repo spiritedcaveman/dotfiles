@@ -1,0 +1,67 @@
+" --- Plugin Section ---
+"call plug#begin('~/.vim/plugged')
+"Plug 'preservim/nerdtree'           " File explorer
+"Plug 'vim-airline/vim-airline'      " Status bar
+"Plug 'tpope/vim-fugitive'           " Git integration
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'             " Fuzzy finder
+"call plug#end()
+
+" --- General UI ---
+set nocompatible
+filetype plugin indent on           " Improved: Added 'indent'
+syntax on                           " Improved: 'on' is more robust than 'enable'
+
+" --- VIBRANCY & COLOR FIX (The SSH Cure) ---
+set background=dark
+set t_Co=256                        " Force 256 colors for the 'desert' scheme
+if has("termguicolors")
+    set termguicolors               " Enable True Color if terminal supports it
+endif
+
+colorscheme desert
+
+" --- TRANSPARENCY FIX ---
+" We move this AFTER the colorscheme so it doesn't get overwritten
+highlight Normal ctermbg=none guibg=none
+highlight NonText ctermbg=none guibg=none
+highlight LineNr ctermbg=none guibg=none
+highlight SignColumn ctermbg=none guibg=none
+highlight EndOfBuffer ctermbg=none guibg=none
+
+" --- UI Tweak ---
+set number
+set relativenumber
+set cursorline
+set wildmenu
+set mouse=a
+set termguicolors                   " Ensure this is active for the cursorline to look right
+
+" --- Searching ---
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+" --- C-Style (Kernel Style) ---
+set tabstop=8
+set softtabstop=8
+set shiftwidth=8
+set noexpandtab                     " Standard C/Kernel style uses real tabs
+set smartindent
+
+" --- Key Mappings ---
+let mapleader = " "                 " Set space as leader
+nnoremap <leader><CR> :noh<CR>
+nnoremap <C-h> <C-W>h               " Added left/right navigation
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+" --- MINIMALIST AIRLINE ---
+let g:airline_theme='dark'          " Force a dark high-contrast theme
+let g:airline_symbols_ascii = 1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_section_y = '%{&fileformat}'
+let g:airline_section_z = '%l:%c'

@@ -1,0 +1,46 @@
+" =============================================================================
+" practice
+" =============================================================================
+
+" --- PLUGIN SECTION ---
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+call plug#end()
+
+" --- GENERAL UI ---
+set nocompatible
+syntax on
+colorscheme desert
+filetype plugin indent on
+set termguicolors
+
+" --- TRANSPARENCY FIX ---
+highlight Normal       guibg=NONE ctermbg=NONE
+highlight NonText      guibg=NONE ctermbg=NONE
+highlight LineNr       guibg=NONE ctermbg=NONE
+highlight SignColumn   guibg=NONE ctermbg=NONE
+highlight EndOfBuffer  guibg=NONE ctermbg=NONE
+
+" --- UI TWEAK ---
+set number
+set relativenumber
+set cursorline
+" FIX: Only underline the current line, no gray background block
+highlight CursorLine   cterm=underline gui=underline guibg=NONE ctermbg=NONE
+set mouse=a
+set laststatus=2
+
+" --- C-STYLE ---
+set tabstop=8
+set shiftwidth=8
+set noexpandtab    " Real tabs for kernel work
+set smartindent
+
+" --- MINIMALIST AIRLINE  ---
+let g:airline_symbols_ascii = 1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_section_y = '%{&fileformat}'
+let g:airline_section_z = '%l:%c'
+" This ensures the bar uses the colorscheme's mode colors
+let g:airline_theme='dark'
