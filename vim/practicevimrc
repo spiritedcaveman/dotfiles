@@ -42,5 +42,5 @@ let g:airline_symbols_ascii = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_section_y = '%{&fileformat}'
 let g:airline_section_z = '%l:%c'
-" This ensures the bar uses the colorscheme's mode colors
+" colorscheme's mode colors
 let g:airline_theme='dark'
