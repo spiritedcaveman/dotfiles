@@ -6,6 +6,8 @@
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 " --- GENERAL UI ---
@@ -44,3 +46,7 @@ let g:airline_section_y = '%{&fileformat}'
 let g:airline_section_z = '%l:%c'
 " colorscheme's mode colors
 let g:airline_theme='dark'
+
+
+" Automatically search for tags file in parent directories
+set tags=./tags;,tags;
