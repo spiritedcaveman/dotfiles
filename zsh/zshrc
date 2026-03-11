@@ -124,7 +124,7 @@ alias health-info='cat ~/hardware_health.txt'
 # some shit
 alias edzsh='vim ~/dotfiles/zsh/zshrc'
 alias reload='source ~/.zshrc'
-
+alias mutt='mutt -F ~/.mutt/muttrc'
 # Optional filesystem / ls aliases
 # alias ls='ls --color=auto'
 # alias ll='ls -lh'

@@ -22,3 +22,10 @@ unset use_domain        # because joe@localhost is just embarrassing
 set realname = "Your Name"
 set from = "yourusername@gmail.com"
 set use_from = yes
+
+# --- Basic UI ---
+set sort = threads
+set status_format = "───[ %f ]───[%r]───[ Msgs:%?M?%M/?%m%?n? New:%n? ]───(%P)───"
+
+# ---  SOURCE COLORS ---
+source ~/.mutt/colors.muttrc
