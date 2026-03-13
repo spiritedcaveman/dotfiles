@@ -29,3 +29,6 @@ set status_format = "───[ %f ]───[%r]───[ Msgs:%?M?%M/?%m%?n? 
 
 # ---  SOURCE COLORS ---
 source ~/.mutt/colors.muttrc
+
+# --- gmail will keep a copy ---
+set copy = no

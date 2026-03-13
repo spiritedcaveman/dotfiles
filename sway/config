@@ -250,3 +250,6 @@ bindsym $mod+v exec cliphist list | wmenu | cliphist decode | wl-copy
 
 # --- End Section ---
 
+# Critical for Screen Sharing
+exec dbus-update-activation-environment --all
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP

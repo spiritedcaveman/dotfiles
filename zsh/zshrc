@@ -93,9 +93,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Preferred editor (optional, can be conditional)
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+#    export EDITOR='vim'
 # else
-#   export EDITOR='nvim'
+#    export EDITOR='nvim'
 # fi
 
 
@@ -130,6 +130,11 @@ alias mutt='mutt -F ~/.mutt/muttrc'
 # alias ll='ls -lh'
 # alias la='ls -lha'
 
+
+# Sway-specific fixes (Safe for KDE)
+alias strawberry='env QT_STYLE_OVERRIDE=fusion strawberry'
+alias discord='discord --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland'
+
 # Quick navigation / personal convenience
 # alias zshconfig="nano ~/.zshrc"
 # alias ohmyzsh="nano ~/.oh-my-zsh"
@@ -138,8 +143,14 @@ alias mutt='mutt -F ~/.mutt/muttrc'
 # Theme
 # ==========
 
+# These only run if you are in Sway, so KDE stays clean
+if [[ "$XDG_CURRENT_DESKTOP" == "sway" ]]; then
+    export QT_QPA_PLATFORMTHEME=qt6ct
+    export QT_QPA_PLATFORM=wayland
+    export XDG_CURRENT_DESKTOP=sway
+    export XDG_SESSION_TYPE=wayland
+fi
 
 # ================================================================
 # END OF FILE
 # ================================================================
-

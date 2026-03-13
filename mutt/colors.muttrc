@@ -26,5 +26,12 @@ color quoted2     red            default
 color quoted3     magenta        default
 
 # --- Fixed URL Regex (No "Invalid Range") ---
-color body        brightblue     default  "(https?|ftp|news)://[^[:space:]]+"
+color body        yellow         default  "(https?|ftp|news)://[^[:space:]]+"
 color body        brightblue     default  "[-a-z_0-9.%]+@[-a-z_0-9.]+\.[-a-z][-a-z]+"
+
+
+#  scrolling inside the email
+bind pager d half-down
+bind pager u half-up
+bind pager j next-line
+bind pager k previous-line
