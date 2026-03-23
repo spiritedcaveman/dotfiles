@@ -38,6 +38,7 @@ set tabstop=8
 set shiftwidth=8
 set noexpandtab    " Real tabs for kernel work
 set smartindent
+set shiftround
 
 " --- MINIMALIST AIRLINE  ---
 let g:airline_symbols_ascii = 1

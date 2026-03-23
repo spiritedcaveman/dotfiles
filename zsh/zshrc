@@ -101,7 +101,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # screw nvim
 export EDITOR='vim'
-export EDITOR='vim'
+export VISUAL='vim'
+export SUDO_EDITOR='vim'
 # Compilation flags (optional)
 # export ARCHFLAGS="-arch $(uname -m)"
 

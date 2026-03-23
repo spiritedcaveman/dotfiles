@@ -1,0 +1,24 @@
+mpd_host = "localhost"
+mpd_port = "6600"
+mpd_music_dir = "/mnt/music"
+# Set this to your FLAC library for tag editing
+ncmpcpp_directory = "~/.config/ncmpcpp"
+
+
+# --- Media Library Layout ---
+# This sets the hierarchy: Artist -> Album -> Track
+media_library_primary_tag = "artist"
+media_library_albums_split_by_date = "no"
+
+# Format for the browser (View 2)
+browser_display_mode = "classic"
+browser_sort_mode = "name"
+browser_sort_format = "{%a - }{%b (%y)}|{%f}"
+
+# How the tracks look once you enter an album
+song_list_format = "$8%n $7- $8%t$R$7%l"
+
+# Keep the selected album centered
+autocenter_mode = "yes"
+centered_cursor = "yes"
+# Clean up the library interface
