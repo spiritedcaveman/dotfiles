@@ -1,0 +1,107 @@
+set $mod Mod4
+
+# directions
+set $left h
+set $down j
+set $up k
+set $right l
+
+# terminal + launcher
+set $term alacritty
+set $menu dmenu_run
+
+font pango:JetBrains Mono 10
+
+# start terminal
+bindsym $mod+Return exec $term
+
+# kill window
+bindsym $mod+Shift+q kill
+
+# launcher
+bindsym $mod+d exec $menu
+
+# focus movement
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# move windows
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+
+# splits
+bindsym $mod+v split v
+bindsym $mod+b split h
+
+# layouts
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# fullscreen
+bindsym $mod+f fullscreen toggle
+
+# floating
+bindsym $mod+Shift+space floating toggle
+
+# resize mode
+mode "resize" {
+    bindsym h resize shrink width 10 px
+    bindsym j resize grow height 10 px
+    bindsym k resize shrink height 10 px
+    bindsym l resize grow width 10 px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# restart / exit
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec "i3-msg exit"
+
+# --- X11 replacements ---
+
+# volume (pipewire/pulse)
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+# brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# screenshot (X11)
+bindsym Print exec scrot -s ~/Pictures/%Y-%m-%d-%T-screenshot.png
+
+# clipboard manager (simple)
+exec --no-startup-id copyq
+
+# compositing (optional but helps tearing)
+exec --no-startup-id picom --config /dev/null
+
+# status bar
+bar {
+    position top
+    status_command i3status
+}

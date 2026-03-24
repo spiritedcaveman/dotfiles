@@ -134,7 +134,7 @@ alias mutt='mutt -F ~/.mutt/muttrc'
 
 # Sway-specific fixes (Safe for KDE)
 alias strawberry='env QT_STYLE_OVERRIDE=fusion strawberry'
-alias discord='discord --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland'
+#alias discord='discord --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland'
 
 # Quick navigation / personal convenience
 # alias zshconfig="nano ~/.zshrc"

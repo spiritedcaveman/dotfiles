@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# 1. Clean up any lingering portal variables from other sessions
+unset XDG_CURRENT_DESKTOP
+unset WAYLAND_DISPLAY
+
+# 2. Set the variables Discord and Grim need for Sway
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland
+export MOZ_ENABLE_WAYLAND=1
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# 3. Import these into the systemd/dbus user session
+systemctl --user import-environment XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+
+# 4. Restart the portals so they pick up the 'sway' identity
+systemctl --user stop xdg-desktop-portal-kde
+systemctl --user restart xdg-desktop-portal-wlr xdg-desktop-portal
+
+# 5. Launch Sway
+exec sway "$@"
