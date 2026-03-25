@@ -1,0 +1,7 @@
+[env]
+WINIT_X11_SCALE_FACTOR = "1"
+
+[font]
+size = 11.0
+# Optional: Use the same font as your editor for consistency
+normal = { family = "Ubuntu Mono", style = "Regular" }
