@@ -1,7 +1,43 @@
+# === ENVIRONMENT & SCALING ===
 [env]
+# Force 1:1 scaling to fix your "massive font" issue
 WINIT_X11_SCALE_FACTOR = "1"
+# Tells apps you're a high-end terminal
+TERM = "alacritty"
 
+# === WINDOW SETTINGS ===
+[window]
+# 1.0 Opacity saves ~30-50MB of alpha-buffer RAM per window
+opacity = 1.0
+padding = { x = 6, y = 7 }
+decorations = "None"
+dynamic_title = false # Stops constant polling of the shell
+
+# === PERFORMANCE & MEMORY ===
+[scrolling]
+# Dropping this from 10k to 2k significantly reduces RAM per instance
+history = 7000
+multiplier = 9
+
+# === FONT (Sized for your 14700 setup) ===
 [font]
-size = 11.0
-# Optional: Use the same font as your editor for consistency
-normal = { family = "Ubuntu Mono", style = "Regular" }
+# 10.5 is the "sweet spot" for Ubuntu Mono on X11
+size = 13.5
+
+[font.normal]
+family = "Ubuntu Mono"
+style = "Regular"
+
+# === CURSOR ===
+[cursor]
+style = { shape = "Block", blinking = "Never" }
+unfocused_hollow = true
+
+# === COLORS (Slightly muted to match your i3 status bar) ===
+[colors.primary]
+background = "#1a1b26"
+foreground = "#c0caf5"
+
+[colors.cursor]
+text = "CellBackground"
+cursor = "#f8f8f2"

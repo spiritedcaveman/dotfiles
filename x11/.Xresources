@@ -1,0 +1,45 @@
+! --- Appearance ---
+URxvt.font: xft:Ubuntu Mono:size=10
+URxvt.letterSpace: -1
+URxvt.lineSpace: 0
+URxvt.geometry: 90x25
+URxvt.internalBorder: 12
+URxvt.scrollBar: false
+URxvt.saveLines: 5000
+
+! --- Dark Mode Colors ---
+URxvt.background: #282a36
+URxvt.foreground: #f8f8f2
+URxvt.color0:  #21222c
+URxvt.color8:  #6272a4
+URxvt.color1:  #ff5555
+URxvt.color9:  #ff6e6e
+URxvt.color2:  #50fa7b
+URxvt.color10: #69ff94
+URxvt.color3:  #f1fa8c
+URxvt.color11: #ffffa5
+URxvt.color4:  #bd93f9
+URxvt.color12: #d6acff
+URxvt.color5:  #ff79c6
+URxvt.color13: #ff92df
+URxvt.color6:  #8be9fd
+URxvt.color14: #a4ffff
+URxvt.color7:  #f8f8f2
+URxvt.color15: #ffffff
+
+! --- Perl Extensions ---
+! Load the extensions (matcher and selection-to-clipboard are usually builtin)
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard
+
+! Clickable URLs settings
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.underlineURLs: true
+
+! Copy-on-select (Saves your hands!)
+! Anything you highlight with the mouse is now in your Ctrl+V clipboard
+URxvt.selection-to-clipboard: true
+
+! --- Custom Keybinds ---
+! Paste with Ctrl+Shift+V (closer to modern terminals)
+URxvt.keysym.Shift-Control-V: eval:paste

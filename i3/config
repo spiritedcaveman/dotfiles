@@ -237,8 +237,20 @@ client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 client.background       #F8F8F2
+####
+# Set border thickness (2 or 3 pixels usually works best)
+default_border pixel 1
 
+# Specific rule for Alacritty to ensure it always has a border
+for_window [class="Alacritty"] border pixel 1
+
+# Optional: Change the color of the active border so it stands out
+# class                 border  backgr. text    indicator child_border
+client.focused          #6272a4 #6272a4 #f8f8f2 #6272a4   #6272a4
 
 
 # wallpaper/background
 exec_always --no-startup-id sh -c "sleep 0.5; xsetroot -solid '#282A36'"
+# Tell i3 to find the resources in custom .config path
+exec_always --no-startup-id xrdb -merge ~/.config/x11/.Xresources
+
