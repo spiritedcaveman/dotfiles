@@ -19,9 +19,12 @@ shopt -s cdspell
 # PROMPT (minimal, no flash)
 # ================================================================
 
-# Simple, readable prompt
-PS1='\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '
+# git branch in prompt
+source /usr/share/git/completion/git-prompt.sh
+# prompt
+PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'
 
+PS1='\[\e[92m\]\[\e[0m\] \[\e[38;5;79;1m\]\W\[\e[0m\]\[\e[38;5;160m\]${PS1_CMD1}\[\e[0m\] \$ '
 # ================================================================
 # EDITOR
 # ================================================================
@@ -65,8 +68,7 @@ alias health-info='cat ~/hardware_health.txt'
 
 # Config editing
 alias edbash='vim ~/.bashrc'
-alias reload='source ~/.bashrc'
-
+alias reload='source ~/.config/bash/bashrc'
 # Mail
 alias mutt='mutt -F ~/.mutt/muttrc'
 
@@ -85,6 +87,10 @@ alias rm='rm -i'
 # ================================================================
 
 # (Removed Wayland/Sway-specific garbage — you're on i3/X11 now)
+
+# incremental history search with arrows
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
 
 # ================================================================
 # MISC
