@@ -7,11 +7,12 @@ TERM = "alacritty"
 
 # === WINDOW SETTINGS ===
 [window]
+decorations = "Full"
 # 1.0 Opacity saves ~30-50MB of alpha-buffer RAM per window
 opacity = 1.0
-padding = { x = 6, y = 7 }
-decorations = "None"
-dynamic_title = false # Stops constant polling of the shell
+padding = { x = 3, y = 1 }
+dynamic_padding = true
+dynamic_title = true 
 
 # === PERFORMANCE & MEMORY ===
 [scrolling]

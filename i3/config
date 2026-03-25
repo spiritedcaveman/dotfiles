@@ -254,3 +254,23 @@ exec_always --no-startup-id sh -c "sleep 0.5; xsetroot -solid '#282A36'"
 # Tell i3 to find the resources in custom .config path
 exec_always --no-startup-id xrdb -merge ~/.config/x11/.Xresources
 
+
+
+### shitt terminals
+# This is the actual i3 command to stop terminal gap "shittiness"
+for_window [class="Alacritty"] floating_modifier $mod
+for_window [class="Alacritty"] border pixel 2
+# This forces i3 to ignore the terminal's request for "perfect grid" sizing
+# Note: In some i3 versions, 'smart_gaps inverse_outer' also helps
+for_window [class="^.*$"] set_from_resource $background i3wm.background
+
+
+
+# --- Gaps & Fill Logic ---
+smart_gaps on
+smart_borders on
+
+gaps inner 0
+gaps outer 2
+
+smart_borders no_gaps
