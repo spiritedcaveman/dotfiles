@@ -1,0 +1,23 @@
+#!/bin/bash
+# Metadata Injection: No Playlist, No Disk I/O for audio
+
+[ -z "$1" ] && { echo "Usage: mbc <url>"; exit 1; }
+
+echo "Scraping and Injecting..."
+
+yt-dlp --get-title --get-url --no-warnings "$1" | while read -r TITLE; do
+    read -r URL
+    
+    # Add the URL to the end of the queue
+    mpc add "$URL"
+    
+    # Get the position of what we just added
+    POS=$(mpc playlist | wc -l)
+    
+    # This is the secret: we 'edit' the title in the current queue 
+    # by using the sticker database if your MPD supports it.
+    mpc sticker "$URL" set title "$TITLE"
+    mpc sticker "$URL" set artist "Dolentia"
+done
+
+mpc play

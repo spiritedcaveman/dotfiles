@@ -22,3 +22,11 @@ song_list_format = "$8%n $7- $8%t$R$7%l"
 autocenter_mode = "yes"
 centered_cursor = "yes"
 # Clean up the library interface
+
+
+# --- Visualizer ---
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_in_stereo = "yes"
+visualizer_type = "spectrum"
+visualizer_look = "+|"

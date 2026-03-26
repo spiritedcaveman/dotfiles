@@ -81,11 +81,13 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
+alias bplay='mpv --no-video --ytdl-format="bestaudio" --term-playing-msg="Title: ${metadata/title}\nArtist: ${metadata/artist}"'
 # Optional (uncomment if you want)
 # alias ls='ls --color=auto'
 # alias ll='ls -lh'
 # alias la='ls -lha'
-
+### bandcamp
+alias bca='_bca(){ yt-dlp -g -f "ba" "$1" | xargs -I {} mpc add "{}"; }; _bca'
 # ================================================================
 # SYSTEM / ENVIRONMENT FIXES
 # ================================================================
