@@ -254,7 +254,7 @@ exec_always --no-startup-id sh -c "sleep 0.5; xsetroot -solid '#282A36'"
 # Tell i3 to find the resources in custom .config path
 exec_always --no-startup-id xrdb -merge ~/.config/x11/.Xresources
 
-
+exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 
 ### shitt terminals
 # This is the actual i3 command to stop terminal gap "shittiness"
