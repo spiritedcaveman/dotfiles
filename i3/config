@@ -239,10 +239,10 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 ####
 # Set border thickness (2 or 3 pixels usually works best)
-default_border pixel 3
+default_border pixel 2
 
 # Specific rule for Alacritty to ensure it always has a border
-for_window [class="Alacritty"] border pixel 2
+for_window [class="Alacritty"] border pixel 1
 
 # Optional: Change the color of the active border so it stands out
 # class                 border  backgr. text    indicator child_border
