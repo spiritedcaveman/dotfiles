@@ -82,6 +82,8 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 alias bplay='mpv --no-video --ytdl-format="bestaudio" --term-playing-msg="Title: ${metadata/title}\nArtist: ${metadata/artist}"'
+
+alias bplai='mpv --no-video --ytdl-format="bestaudio"'
 # Optional (uncomment if you want)
 # alias ls='ls --color=auto'
 # alias ll='ls -lh'
