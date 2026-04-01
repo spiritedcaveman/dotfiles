@@ -260,7 +260,7 @@ exec_always --no-startup-id xrdb -merge ~/.config/x11/.Xresources
 exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 
 ### shitt terminals
-# This is the actual i3 command to stop terminal gap "shittiness"
+# command to stop terminal gap 
 for_window [class="Alacritty"] floating_modifier $mod
 for_window [class="Alacritty"] border pixel 2
 # This forces i3 to ignore the terminal's request for "perfect grid" sizing
