@@ -81,7 +81,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-alias bplay='mpv --no-video --ytdl-format="bestaudio" --term-playing-msg="Title: ${metadata/title}\nArtist: ${metadata/artist}"'
+alias wplay='mpv --no-video --ytdl-format="bestaudio" --term-playing-msg="Title: ${metadata/title}\nArtist: ${metadata/artist}"'
 
 alias bplai='mpv --no-video --ytdl-format="bestaudio"'
 # Optional (uncomment if you want)
