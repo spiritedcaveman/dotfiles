@@ -1,0 +1,16 @@
+# VIM KEYS
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+bind-key g home
+bind-key G end
+
+# BROWSER (Stay in the terminal)
+# This opens the full patch in w3m when you hit 'o'
+browser "w3m %u"
+
+# UI CLEANUP
+show-read-feeds no
+auto-reload yes
+reload-time 120  # Refresh every 2 hours
