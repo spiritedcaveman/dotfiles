@@ -43,3 +43,13 @@ URxvt.selection-to-clipboard: true
 ! --- Custom Keybinds ---
 ! Paste with Ctrl+Shift+V (closer to modern terminals)
 URxvt.keysym.Shift-Control-V: eval:paste
+
+
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+! MuPDF Configuration
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mupdf*backgroundColor: #2E3440
+mupdf*scrollbarWidth: 0
+mupdf*presentationMode: false
+! This ensures the "i" key inversion uses your background color
+mupdf*recolor: true

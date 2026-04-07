@@ -1,0 +1,24 @@
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" ZATHURA CONFIGURATION
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+" Use system clipboard for selections (essential for code snippets)
+set selection-clipboard clipboard
+
+" Color Inversion (Toggle with Ctrl+r)
+" Using a Nord-style palette to reduce eye strain during late sessions
+set recolor "true"
+set recolor-darkcolor "#D8DEE9"   " Frost/Light Gray text
+set recolor-lightcolor "#2E3440"  " Deep Polar Night background
+
+" UI Minimalism
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set show-recent 5
+set guioptions ""
+
+" Search settings
+set incremental-search true
+
+" Smooth scrolling for long kernel docs
+set scroll-step 50

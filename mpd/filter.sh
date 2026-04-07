@@ -1,21 +1,23 @@
 #!/bin/bash
+# Read 4 lines from rescrobbled
 read -r artist
 read -r title
 read -r album
 read -r genre
 
-# --- NEW: ABORT IF NO ALBUM ---
-# If the album string is empty, we exit 1 to stop rescrobbled from scrobbling.
-if [[ -z "$album" ]]; then
-    echo "DEBUG: Skipping $title - No album info found" >&2
-    exit 1
+# 1. Skip if no album (Your 'No Garbage' Rule)
+[[ -z "$album" ]] && exit 0
+
+# 2. THE CHOP: Delete everything up to the LAST " - "
+# This handles "DECAYED - Pagan Winds" -> "Pagan Winds"
+# And handles "DECAYED - DECAYED - Pagan Winds" -> "Pagan Winds"
+if [[ "$title" == *" - "* ]]; then
+    clean_title="${title##* - }"
+else
+    clean_title="$title"
 fi
 
-# --- EXISTING LOGIC ---
-echo "DEBUG: Filtering $artist - $title" >&2
-
-clean_title=$(echo "$title" | sed "s/^$artist - //")
-
+# 3. Output the 3 required lines
 echo "$artist"
 echo "$clean_title"
 echo "$album"
