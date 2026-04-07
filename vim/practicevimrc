@@ -16,6 +16,8 @@ syntax on
 colorscheme desert
 filetype plugin indent on
 set termguicolors
+set t_Co=256
+set background=dark
 
 " --- TRANSPARENCY FIX ---
 highlight Normal       guibg=NONE ctermbg=NONE
