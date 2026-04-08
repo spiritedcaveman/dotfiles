@@ -34,7 +34,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # notification daemon
-exec_always --no-startup-id killall -q dunst; dbus-run-session dunst &
+exec_always --no-startup-id killall -q dunst; /usr/bin/dunst &
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -42,6 +42,41 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Manual Sink Aliases
+bindsym F13 exec --no-startup-id wpctl set-default 52
+bindsym F14 exec --no-startup-id wpctl set-default 51
+
+###
+### i3-volume setup
+#
+#
+#
+## Path to volume control, without trailing slash
+#set $volumepath ~/i3-volume
+#
+## Command for the status line
+##   ie: i3blocks, i3status
+#set $statuscmd i3blocks
+#
+## Signal used to update the status line
+##   i3blocks uses SIGRTMIN+10 by default
+##   i3status uses SIGUSR1 by default
+#set $statussig SIGRTMIN+10
+#
+## Volume control keybindings
+#bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig up 5
+#bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig down 5
+#bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -n -t $statuscmd -u $statussig mute
+#
+#
+#
+#
+#
+###
+###
+
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -224,10 +259,10 @@ bindsym Print exec --no-startup-id "maim -s | copyq write image/png - && copyq s
 # Screenshot full screen and copy to CopyQ
 bindsym Shift+Print exec --no-startup-id "maim | copyq write image/png - && copyq select 0"
 # clipboard manager
-exec --no-startup-id copyq
+# exec --no-startup-id copyq
 
 # compositor (screen tearing fix)
-exec --no-startup-id picom --config /dev/null
+# exec --no-startup-id picom --config /dev/null
 
 
 # ===== SAFE VISUALS ONLY (no keybind / no bar conflicts) =====
@@ -257,7 +292,7 @@ exec_always --no-startup-id sh -c "sleep 0.5; xsetroot -solid '#282A36'"
 # Tell i3 to find the resources in custom .config path
 exec_always --no-startup-id xrdb -merge ~/.config/x11/.Xresources
 
-exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
+exec_always --no-startup-id killall -q picom; picom -b --config ~/.config/picom/picom.conf
 
 ### shitt terminals
 # command to stop terminal gap 
