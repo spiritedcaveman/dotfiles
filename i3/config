@@ -253,16 +253,21 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 # screenshot
-# Screenshot a selection and copy to CopyQ
-bindsym Print exec --no-startup-id "maim -s | copyq write image/png - && copyq select 0"
+# Screenshot selection to clipboard
+bindsym Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
-# Screenshot full screen and copy to CopyQ
-bindsym Shift+Print exec --no-startup-id "maim | copyq write image/png - && copyq select 0"
+# Screenshot full screen to clipboard
+bindsym Shift+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+
 # clipboard manager
 # exec --no-startup-id copyq
+# Use absolute paths so i3 never gets lost
+exec --no-startup-id /home/spiritedcaveman/.local/bin/clipmenud
+bindsym $mod+c exec /home/spiritedcaveman/.local/bin/clipmenu
 
 # compositor (screen tearing fix)
 # exec --no-startup-id picom --config /dev/null
+exec_always --no-startup-id killall -q picom; picom -b --config ~/.config/picom/picom.conf
 
 
 # ===== SAFE VISUALS ONLY (no keybind / no bar conflicts) =====
@@ -292,7 +297,6 @@ exec_always --no-startup-id sh -c "sleep 0.5; xsetroot -solid '#282A36'"
 # Tell i3 to find the resources in custom .config path
 exec_always --no-startup-id xrdb -merge ~/.config/x11/.Xresources
 
-exec_always --no-startup-id killall -q picom; picom -b --config ~/.config/picom/picom.conf
 
 ### shitt terminals
 # command to stop terminal gap 
