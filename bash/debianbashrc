@@ -19,6 +19,17 @@ shopt -s histappend
 HISTSIZE=5000
 HISTFILESIZE=20000
 
+# The magic line: syncs history across all open terminal windows immediately
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# Bind Up and Down arrows to search history based on current input
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+# Optional: Improve tab completion directly in bashrc
+bind 'set completion-ignore-case on'
+bind 'set show-all-if-ambiguous on'
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
