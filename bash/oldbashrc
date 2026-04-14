@@ -1,0 +1,116 @@
+# ================================================================
+# CORE SETTINGS
+# ================================================================
+
+# PATH
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+
+# History
+HISTSIZE=10000
+HISTFILESIZE=20000
+HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
+
+# Better navigation
+shopt -s autocd
+shopt -s cdspell
+
+# ================================================================
+# PROMPT (minimal, no flash)
+# ================================================================
+
+# git branch in prompt
+# prompt
+source /usr/share/git/completion/git-prompt.sh
+
+
+
+
+PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\[\e[38;5;79;1m\]\W\[\e[0;38;5;160m\]${PS1_CMD1}\[\e[0m\] \\$ '
+
+
+# ================================================================
+# EDITOR
+# ================================================================
+
+export EDITOR='vim'
+export VISUAL='vim'
+export SUDO_EDITOR='vim'
+
+# ================================================================
+# COMPLETION
+# ================================================================
+
+# Enable bash completion if installed
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+fi
+
+# ================================================================
+# FZF (if installed)
+# ================================================================
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# ================================================================
+# USER PATHS
+# ================================================================
+
+# Rust / Cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# ================================================================
+# ALIASES
+# ================================================================
+
+# Compiler
+alias gc17='gcc -std=c17 -Wall -lm'
+
+# System health
+alias health='sensors | grep -iE "RAM|Package|Composite|PECI"'
+alias health-info='cat ~/hardware_health.txt'
+
+# Config editing
+alias edbash='vim ~/.bashrc'
+alias reload='source ~/.config/bash/bashrc'
+# Mail
+alias mutt='mutt -F ~/.mutt/muttrc'
+
+# Safer defaults
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+alias wplay='mpv --no-video --ytdl-format="bestaudio" --term-playing-msg="Title: ${metadata/title}\nArtist: ${metadata/artist}"'
+
+alias bplai='mpv --no-video --ytdl-format="bestaudio"'
+# Optional (uncomment if you want)
+# alias ls='ls --color=auto'
+# alias ll='ls -lh'
+# alias la='ls -lha'
+### bandcamp
+alias bca='_bca(){ yt-dlp -g -f "ba" "$1" | xargs -I {} mpc add "{}"; }; _bca'
+# ================================================================
+# SYSTEM / ENVIRONMENT FIXES
+# ================================================================
+
+# (Removed Wayland/Sway-specific garbage — you're on i3/X11 now)
+
+# incremental history search with arrows
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+# ================================================================
+# MISC
+# ================================================================
+
+# Fix less colors
+export LESS='-R'
+
+# Better man pages
+export MANPAGER='less -R'
+
+# ================================================================
+# END
+# ================================================================
+

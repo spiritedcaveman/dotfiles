@@ -201,16 +201,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 3 px or 3 ppt
-        bindsym k resize grow height 3 px or 3 ppt
-        bindsym l resize shrink height 3 px or 3 ppt
-        bindsym semicolon resize grow width 3 px or 3 ppt
+        bindsym j resize shrink width 1 px or 1 ppt
+        bindsym k resize grow height 1 px or 1 ppt
+        bindsym l resize shrink height 1 px or 1 ppt
+        bindsym semicolon resize grow width 1 px or 1 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 3 px or 3 ppt
-        bindsym Down resize grow height 3 px or 3 ppt
-        bindsym Up resize shrink height 3 px or 3 ppt
-        bindsym Right resize grow width 3 px or 3 ppt
+        bindsym Left resize shrink width 1 px or 1 ppt
+        bindsym Down resize grow height 1 px or 1 ppt
+        bindsym Up resize shrink height 1 px or 1 ppt
+        bindsym Right resize grow width 1 px or 1 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -259,11 +259,13 @@ bindsym Print exec --no-startup-id maim -s | xclip -selection clipboard -t image
 # Screenshot full screen to clipboard
 bindsym Shift+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 
-# clipboard manager
-# exec --no-startup-id copyq
-# Use absolute paths so i3 never gets lost
-exec --no-startup-id /home/spiritedcaveman/.local/bin/clipmenud
-bindsym $mod+c exec /home/spiritedcaveman/.local/bin/clipmenu
+# ... existing screenshot binds ...
+
+# Clipboard manager
+# Use env to set the selections explicitly so both buffers are updated
+exec --no-startup-id env CM_SELECTIONS="clipboard primary" /home/spiritedcaveman/.local/bin/clipmenud
+bindsym $mod+c exec --no-startup-id env CM_SELECTIONS="clipboard primary" /home/spiritedcaveman/.local/bin/clipmenu
+
 
 # compositor (screen tearing fix)
 # exec --no-startup-id picom --config /dev/null

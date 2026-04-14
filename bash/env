@@ -1,0 +1,16 @@
+# Colorize Man Pages
+export LESS_TERMCAP_mb=$'\e[1;31m'      # blink -> red
+export LESS_TERMCAP_md=$'\e[1;38;5;74m' # bold -> light blue
+export LESS_TERMCAP_me=$'\e[0m'         # reset
+export LESS_TERMCAP_so=$'\e[01;33m'     # standout (search results) -> yellow
+export LESS_TERMCAP_se=$'\e[0m'         # reset
+export LESS_TERMCAP_us=$'\e[1;32m'      # underline -> green
+export LESS_TERMCAP_ue=$'\e[0m'         # reset
+
+# Ensure man uses these colors
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+
+
+# gcc output
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
