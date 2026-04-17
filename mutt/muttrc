@@ -28,7 +28,7 @@ set sort = threads
 set status_format = "───[ %f ]───[%r]───[ Msgs:%?M?%M/?%m%?n? New:%n? ]───(%P)───"
 
 # ---  SOURCE COLORS ---
-source ~/.mutt/colors.muttrc
+source ~/.config/mutt/colors.muttrc
 
 # --- gmail will keep a copy ---
 set copy = no
