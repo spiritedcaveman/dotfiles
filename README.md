@@ -2,7 +2,7 @@
 
 ## core files
 * **keyd**: system-wide key remapping.
-* **.vimrc**: the editor.
+* **.practicevimrc**: the editor.
 * **.tmux.conf**: the multiplexer.
 
 
@@ -20,5 +20,5 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 
 ### keyd setup
-
+started using colemak aftet the metacarpal fracture 19/02/2026
 
