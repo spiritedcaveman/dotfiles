@@ -141,7 +141,7 @@ bindsym $mod+c exec cliphist list | wmenu | cliphist decode | wl-copy
 
 ### Status Bar (Waybar is better, but keeping swaybar per  your request)
 bar {
-    position top
+    position bottom
     status_command while date +'%A %d | %H:%M:%S'; do sleep 1; done
     colors {
         background #282A36
