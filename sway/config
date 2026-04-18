@@ -13,7 +13,9 @@ set $down j
 set $up k
 set $right l
 set $term footclient
-set $menu wmenu-run
+#set $menu wmenu-run
+# Force the environment directly into the menu launcher
+set $menu env QT_STYLE_OVERRIDE=Fusion wmenu-run | xargs swaymsg exec --
 
 # Font from your i3 config
 font pango:Ubuntu Mono 11 

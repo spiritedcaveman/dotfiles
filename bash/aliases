@@ -7,3 +7,6 @@ alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 
 alias tree='tree -C'
+
+
+alias fusion= 'QT_STYLE_OVERRIDE=Fusion'
