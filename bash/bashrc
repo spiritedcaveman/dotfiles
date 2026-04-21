@@ -141,3 +141,7 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 export PAGER="most"
 
+
+if [ -f /usr/share/nnn/quitcd/quitcd.bash_sh_zsh ]; then
+    source /usr/share/nnn/quitcd/quitcd.bash_sh_zsh
+fi
