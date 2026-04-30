@@ -5,7 +5,7 @@
 * **.practicevimrc**: the editor.
 * **.tmux.conf**: the multiplexer.
 
-# honestly i use a lot of things at this point, would document one day
+# honestly i use some other tools atp, would(have to) document one day
 
 ### vim plugin manager (vim-plug)
 ```bash
@@ -23,3 +23,4 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ### keyd setup
 started using colemak after the right metacarpal fracture on 19/02/2026
 
+### x11/wayland
