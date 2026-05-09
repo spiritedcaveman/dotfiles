@@ -1,0 +1,39 @@
+#  htoprc for high-core-count
+fields=0 48 17 18 38 39 40 2 46 47 1
+sort_key=46
+sort_direction=-1
+tree_sort_key=0
+tree_sort_direction=1
+hide_threads=0
+hide_kernel_threads=1
+hide_userland_threads=0
+shadow_other_users=1
+show_thread_names=1
+show_program_path=0
+highlight_base_name=1
+highlight_megabytes=1
+highlight_threads=1
+detailed_cpu_time=1
+cpu_count_from_one=1
+show_cpu_usage=1
+show_cpu_frequency=1
+show_cpu_temperature=1
+degree_unit=C
+color_scheme=6
+delay=15
+hide_function_bar=2
+
+# 4-Column Header Layout: CPU meters split into 4
+header_layout=25,25,25,25
+column_meters_0=AllCPUs4
+column_meter_modes_0=1
+column_meters_1=Blank
+column_meter_modes_1=1
+column_meters_2=Blank
+column_meter_modes_2=1
+column_meters_3=Blank
+column_meter_modes_3=1
+
+# System metrics placed in the wide "Below" section
+column_meters_4=Memory Swap Tasks LoadAverage Uptime Clock
+column_meter_modes_4=1 1 1 1 1 1
