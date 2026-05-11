@@ -82,3 +82,16 @@ let g:mkdp_preview_options = {
     \ 'sync_scroll_type': 'middle',
     \ 'hide_yaml_meta': 1
     \ }
+
+" =============================================================================
+" x86 code reading
+" =============================================================================
+
+" 1. Clear the path and only add the local project directories
+set path=.,include,arch/x86/include,,
+
+" 2. Ensure Vim knows to try adding .h to names
+set suffixesadd=.h
+
+" 3. Handle the < > and " " in C includes
+set includeid=\%(\k\|[./]\)\+
