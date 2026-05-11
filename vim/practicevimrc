@@ -94,4 +94,4 @@ set path=.,include,arch/x86/include,,
 set suffixesadd=.h
 
 " 3. Handle the < > and " " in C includes
-set includeid=\%(\k\|[./]\)\+
+"set includeid=\%(\k\|[./]\)\+
