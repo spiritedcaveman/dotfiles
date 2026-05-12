@@ -67,7 +67,6 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-
 # Source this first
 source /usr/lib/git-core/git-sh-prompt
 

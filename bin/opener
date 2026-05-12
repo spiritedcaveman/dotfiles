@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Get the file path
+FILE="$1"
+
+# Extract extension and convert to lowercase
+EXT="${FILE##*.}"
+EXT_LOWER=$(echo "$EXT" | tr '[:upper:]' '[:lower:]' )
+
+case "$EXT_LOWER" in
+    epub)
+	epr "$FILE"
+	/usr/local/bin/epr "$FILE"
+	;;
+    pdf)
+        sioyek "$FILE" >/dev/null 2>&1 &
+        ;;
+    # Add other "suckless" tools here
+    # png|jpg|jpeg) sxiv "$FILE" >/dev/null 2>&1 & ;;
+    *)
+        # Fallback to xdg-open for everything else
+        xdg-open "$FILE" >/dev/null 2>&1
+        ;;
+esac
