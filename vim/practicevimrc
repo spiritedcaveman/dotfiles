@@ -48,7 +48,7 @@ highlight CursorLineNr cterm=bold,underline gui=bold,underline ctermfg=11 guifg=
 
 
 " Set the boundary line at column 80 for kernel standards
-set colorcolumn=80
+set colorcolumn=80,100
 
 " For GUI / True-Color Terminals
 highlight ColorColumn guibg=#98c379 guifg=NONE
