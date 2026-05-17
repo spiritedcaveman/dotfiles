@@ -40,14 +40,31 @@ set cursorline
 "highlight CursorLine cterm=NONE ctermbg=234
 
 
-" Clear the text line formatting completely
+
+" Clean gutter-only current line
 highlight CursorLine cterm=NONE gui=NONE guibg=NONE ctermbg=NONE
-" Make the gutter line number pop out instead
 highlight CursorLineNr cterm=bold,underline gui=bold,underline ctermfg=11 guifg=#98c379
+
+
+
+" Set the boundary line at column 80 for kernel standards
+set colorcolumn=80
+
+" For GUI / True-Color Terminals
+highlight ColorColumn guibg=#98c379 guifg=NONE
+
+" For 256-color Terminals
+highlight ColorColumn ctermbg=234 ctermfg=NONE
+
 
 
 set mouse=a
 set laststatus=2
+
+
+" Force Vim to render highlights smoothly while scrolling
+set ttyfast
+set lazyredraw
 
 " --- C-STYLE ---
 set tabstop=8
