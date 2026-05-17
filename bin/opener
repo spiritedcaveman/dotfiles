@@ -15,6 +15,9 @@ case "$EXT_LOWER" in
     pdf)
         sioyek "$FILE" >/dev/null 2>&1 &
         ;;
+    png|jpg|jpeg|gif|webp)
+        nsxiv -a "$FILE" >/dev/null 2>&1 &
+        ;;
     # Add other "suckless" tools here
     # png|jpg|jpeg) sxiv "$FILE" >/dev/null 2>&1 & ;;
     *)

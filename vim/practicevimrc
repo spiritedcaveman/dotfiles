@@ -32,8 +32,20 @@ highlight EndOfBuffer  guibg=NONE ctermbg=NONE
 set number
 set relativenumber
 set cursorline
-" FIX: Only underline the current line, no gray background block
-highlight CursorLine   cterm=underline gui=underline guibg=NONE ctermbg=NONE
+
+" Only underline the current line, no gray background block
+"highlight CursorLine cterm=underline gui=underline guibg=NONE ctermbg=NONE guisp=#585858
+
+" Gray background block
+"highlight CursorLine cterm=NONE ctermbg=234
+
+
+" Clear the text line formatting completely
+highlight CursorLine cterm=NONE gui=NONE guibg=NONE ctermbg=NONE
+" Make the gutter line number pop out instead
+highlight CursorLineNr cterm=bold,underline gui=bold,underline ctermfg=11 guifg=#98c379
+
+
 set mouse=a
 set laststatus=2
 
