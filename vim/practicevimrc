@@ -91,17 +91,17 @@ set tags=./tags;,tags;
 " Toggle preview with Leader+p (usually \p)
 nmap <Leader>p <Plug>MarkdownPreviewToggle
 nmap <Leader>s <Plug>MarkdownPreviewStop
-" 2. Performance & Behavior
+" Performance & Behavior
 let g:mkdp_auto_start = 0          " Don't open a browser every time you touch a .md file
 let g:mkdp_auto_close = 1          " Close the browser tab when you switch buffers (clean)
 let g:mkdp_refresh_slow = 0         " Real-time refresh (your 14700 can handle it easily)
 let g:mkdp_theme = 'dark'           " Matches your Dracula/Dark setup
 let g:mkdp_open_to_the_world = 1
 
-" 3. Browser Path
+" Browser Path
 let g:mkdp_browser = '/usr/bin/firefox'
 
-" 4. Mathematical Maturity (KaTeX)
+" Mathematical Maturity (KaTeX)
 let g:mkdp_preview_options = {
     \ 'mkit': {},
     \ 'katex': {'macros': {'\R': '\mathbb{R}'}},
@@ -116,11 +116,14 @@ let g:mkdp_preview_options = {
 " x86 code reading
 " =============================================================================
 
-" 1. Clear the path and only add the local project directories
+" Clear the path and only add the local project directories
 set path=.,include,arch/x86/include,,
 
-" 2. Ensure Vim knows to try adding .h to names
+" Ensure Vim knows to try adding .h to names
 set suffixesadd=.h
 
-" 3. Handle the < > and " " in C includes
+" C and not cpp
+let g:c_syntax_for_h = 1
+
+" Handle the < > and " " in C includes
 "set includeid=\%(\k\|[./]\)\+
