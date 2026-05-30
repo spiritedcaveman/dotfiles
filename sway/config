@@ -145,10 +145,11 @@ exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 bindsym $mod+c exec cliphist list | wmenu | cliphist decode | wl-copy
 
-### Status Bar (Waybar is better, but keeping swaybar per  your request)
+
+### Status Bar (Waybar is better, but keeping swaybar)
 bar {
     position bottom
-    status_command while date +'%A %d | %H:%M:%S'; do sleep 1; done
+    status_command ~/dotfiles/bin/swaybar-status.sh
     colors {
         background #282A36
         statusline #F8F8F2
@@ -157,6 +158,7 @@ bar {
         inactive_workspace #282A36 #282A36 #BFBFBF
     }
 }
+
 
 ### Essential Environment Logic (Do not delete)
 include /etc/sway/config.d/*
