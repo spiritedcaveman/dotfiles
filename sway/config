@@ -149,7 +149,7 @@ bindsym $mod+c exec cliphist list | wmenu | cliphist decode | wl-copy
 ### Status Bar (Waybar is better, but keeping swaybar)
 bar {
     position bottom
-    status_command ~/dotfiles/bin/swaybar-status.sh
+    status_command ~/dotfiles/sway/swaybar-status.sh
     colors {
         background #282A36
         statusline #F8F8F2
