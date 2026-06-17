@@ -10,3 +10,11 @@ alias tree='tree -C'
 
 
 alias fusion= 'QT_STYLE_OVERRIDE=Fusion'
+
+
+alias stackcollapse-perf.pl='/path/to/FlameGraph/stackcollapse-perf.pl'
+alias flamegraph.pl='/path/to/FlameGraph/flamegraph.pl'
+
+
+
+alias mpva='mpv --no-video --audio-display=no --ytdl-format="bestaudio"'

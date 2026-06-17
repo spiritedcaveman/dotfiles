@@ -73,6 +73,7 @@ set shiftwidth=8
 set noexpandtab    " Real tabs for kernel work
 set smartindent
 set shiftround
+set autoindent
 
 " --- MINIMALIST AIRLINE  ---
 let g:airline_symbols_ascii = 1
@@ -128,3 +129,6 @@ let g:c_syntax_for_h = 1
 
 " Handle the < > and " " in C includes
 "set includeid=\%(\k\|[./]\)\+
+
+"set change directory when doing :e .
+set autochdir
