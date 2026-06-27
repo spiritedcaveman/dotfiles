@@ -1,3 +1,4 @@
+![massacra-rules](images/hacking-the-mainframe.png)
 
 
 ## core files
