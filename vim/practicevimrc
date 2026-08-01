@@ -9,6 +9,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'vimsence/vimsence'
 " Use the pre-built binary to avoid installing nodejs/yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 call plug#end()
@@ -135,3 +137,33 @@ let g:NERDTreeChDirMode = 0
 
 " Make sure Vim isn't auto-changing directory based on the active tab/buffer
 set noautochdir
+
+
+
+
+" =============================================================================
+" discord presence
+" =============================================================================
+
+" Vimsence Configuration
+let g:vimsence_client_id = '439476230543245312'
+
+" Change small image text and icon from Neovim to standard Vim
+let g:vimsence_small_text = 'Vim'
+let g:vimsence_small_image = 'vim'
+
+" Status formatting
+let g:vimsence_editing_details = 'Editing: {}'
+let g:vimsence_editing_state = 'Working on: {}'
+
+" File explorer status
+let g:vimsence_file_explorer_text = 'In NERDTree'
+let g:vimsence_file_explorer_details = 'Looking for files'
+
+" Custom filetype icons mapping
+" Replace 'python', 'javascript', etc. with your actual filetypes
+let g:vimsence_custom_icons = {
+\   'python': 'python',
+\   'javascript': 'javascript',
+\   'html': 'html'
+\ }
