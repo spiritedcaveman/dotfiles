@@ -1,4 +1,4 @@
-![massacra-rules](images/hacking-the-mainframe.png)
+![massacra-rules](images/vim-is-inconvenient.png)
 
 
 ## core files
