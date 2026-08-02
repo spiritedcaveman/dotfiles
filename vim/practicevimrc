@@ -149,8 +149,8 @@ set noautochdir
 let g:vimsence_client_id = '439476230543245312'
 
 " Change small image text and icon from Neovim to standard Vim
-let g:vimsence_small_text = 'Vim'
-let g:vimsence_small_image = 'vim'
+let g:vimsence_small_text = 'Vi'
+let g:vimsence_small_image = 'vi'
 
 " Status formatting
 let g:vimsence_editing_details = 'editing: {}'
