@@ -22,3 +22,5 @@ alias mpva='mpv --no-video --audio-display=no --ytdl-format="bestaudio"'
 
 alias nosleep='systemd-inhibit --what=idle:sleep --who="spiritedcaveman" \
 --why="Preventing sleep temporarily" sleep infinity'
+
+alias ..='cd ..'

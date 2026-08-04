@@ -116,6 +116,16 @@ let g:mkdp_preview_options = {
     \ 'hide_yaml_meta': 1
     \ }
 
+
+
+
+" =============================================================================
+" Advanced hacks
+" =============================================================================
+
+
+
+
 " =============================================================================
 " x86 code reading
 " =============================================================================
@@ -149,8 +159,8 @@ set noautochdir
 let g:vimsence_client_id = '439476230543245312'
 
 " Change small image text and icon from Neovim to standard Vim
-let g:vimsence_small_text = 'Vi'
-let g:vimsence_small_image = 'vi'
+let g:vimsence_small_text = 'Vim'
+let g:vimsence_small_image = 'vim'
 
 " Status formatting
 let g:vimsence_editing_details = 'editing: {}'
@@ -167,3 +177,4 @@ let g:vimsence_custom_icons = {
 \   'javascript': 'javascript',
 \   'html': 'html'
 \ }
+
