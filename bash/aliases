@@ -24,3 +24,4 @@ alias nosleep='systemd-inhibit --what=idle:sleep --who="spiritedcaveman" \
 --why="Preventing sleep temporarily" sleep infinity'
 
 alias ..='cd ..'
+alias ker6='cd ~/Documents/kernel/v6-0'
