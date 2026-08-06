@@ -1,21 +1,36 @@
+" ┏┓╻┏━┓╺┳╸┏━╸┏━┓   ┏━┓┏┓╻╺┳┓   ╻ ╻┏━┓┏━┓   ┏┳┓┏━╸╺┳╸┏━┓╻
+" ┃┗┫┃ ┃ ┃ ┣╸ ┗━┓   ┣━┫┃┗┫ ┃┃   ┏╋┛┣━┫┣━┓   ┃┃┃┣╸  ┃ ┣━┫┃
+" ╹ ╹┗━┛ ╹ ┗━╸┗━┛   ╹ ╹╹ ╹╺┻┛   ╹ ╹┗━┛┗━┛   ╹ ╹┗━╸ ╹ ╹ ╹┗━╸
+
+
 " =============================================================================
-" practice
+" --- PLUGIN SECTION --- 
 " =============================================================================
 
-" --- PLUGIN SECTION ---
 call plug#begin('~/.vim/plugged')
+" UI tab colours
 Plug 'vim-airline/vim-airline'
+" C navigtor to swtich between source files and header files quickly
+Plug 'vim-scripts/a.vim'
+" Git wrapper
 Plug 'tpope/vim-fugitive'
+" Nerd tree
 Plug 'preservim/nerdtree'
+" Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Tmux companion
 Plug 'christoomey/vim-tmux-navigator'
-
+" Discord presence
 Plug 'vimsence/vimsence'
 " Use the pre-built binary to avoid installing nodejs/yarn
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 call plug#end()
 
-" --- GENERAL UI ---
+
+" =============================================================================
+" GENERAL UI
+" =============================================================================
+
 set nocompatible
 syntax on
 colorscheme desert
@@ -31,7 +46,11 @@ highlight LineNr       guibg=NONE ctermbg=NONE
 highlight SignColumn   guibg=NONE ctermbg=NONE
 highlight EndOfBuffer  guibg=NONE ctermbg=NONE
 
-" --- UI TWEAK ---
+
+" =============================================================================
+" UI TWEAK
+" =============================================================================
+
 set number
 set relativenumber
 set cursorline
@@ -71,26 +90,31 @@ set lazyredraw
 
 " --- C-STYLE ---
 set tabstop=8
-set shiftwidth=8
-set noexpandtab    " Real tabs for kernel work
+set shiftwidth=8	
+set noexpandtab		" Real tabs for kernel work
 set smartindent
 set shiftround
 set autoindent
 
+
+" =============================================================================
 " --- MINIMALIST AIRLINE  ---
+" =============================================================================
+
 let g:airline_symbols_ascii = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_section_y = '%{&fileformat}'
 let g:airline_section_z = '%l:%c'
+
 " colorscheme's mode colors
 let g:airline_theme='dark'
 
 
-" Automatically search for tags file in parent directories
-set tags=./tags;,tags;
 
 
+" =============================================================================
 " --- Markdown Preview Logic ---
+" =============================================================================
 
 " Toggle preview with Leader+p (usually \p)
 nmap <Leader>p <Plug>MarkdownPreviewToggle
@@ -105,7 +129,11 @@ let g:mkdp_open_to_the_world = 1
 " Browser Path
 let g:mkdp_browser = '/usr/bin/firefox'
 
-" Mathematical Maturity (KaTeX)
+
+" =============================================================================
+" --- Mathematical Maturity (KaTeX) ---
+" =============================================================================
+
 let g:mkdp_preview_options = {
     \ 'mkit': {},
     \ 'katex': {'macros': {'\R': '\mathbb{R}'}},
@@ -122,44 +150,48 @@ let g:mkdp_preview_options = {
 " =============================================================================
 " Advanced hacks
 " =============================================================================
+
+" turn on to paste long buffer
 set pastetoggle=<F2>
 
 
+" Automatically search for tags file in parent directories
+set tags=./tags;,tags;
 
 
 " =============================================================================
 " x86 code reading
 " =============================================================================
 
-" Clear the path and only add the local project directories
+" clear the path and only add the local project directories
 set path=.,include,arch/x86/include,,
 
-" Ensure Vim knows to try adding .h to names
+" ensure Vim knows to try adding .h to names
 set suffixesadd=.h
 
-" C and not cpp
+" c and not cpp
 let g:c_syntax_for_h = 1
 
-" Handle the < > and " " in C includes
+" handle the < > and " " in C includes
 "set includeid=\%(\k\|[./]\)\+
 
-" Tell NERDTree NEVER to change Vim's current working directory
+" tell NERDTree NEVER to change Vim's current working directory
 let g:NERDTreeChDirMode = 0
 
-" Make sure Vim isn't auto-changing directory based on the active tab/buffer
+" make sure Vim isn't auto-changing directory based on the active tab/buffer
 set noautochdir
 
 
 
 
 " =============================================================================
-" discord presence
+" --- discord presence ---
 " =============================================================================
 
 " Vimsence Configuration
 let g:vimsence_client_id = '439476230543245312'
 
-" Change small image text and icon from Neovim to standard Vim
+" change small image text and icon from Neovim to standard Vim
 let g:vimsence_small_text = 'Vim'
 let g:vimsence_small_image = 'vim'
 
@@ -172,7 +204,7 @@ let g:vimsence_file_explorer_text = 'In NERDTree'
 let g:vimsence_file_explorer_details = 'Looking for files'
 
 " Custom filetype icons mapping
-" Replace 'python', 'javascript', etc. with your actual filetypes
+" replace 'python', 'javascript', etc. with your actual filetypes
 let g:vimsence_custom_icons = {
 \   'python': 'python',
 \   'javascript': 'javascript',
