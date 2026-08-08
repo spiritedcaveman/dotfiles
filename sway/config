@@ -14,6 +14,7 @@ set $up k
 set $right l
 set $term footclient
 #set $menu wmenu-run
+
 # Force the environment directly into the menu launcher
 set $menu env QT_STYLE_OVERRIDE=Fusion wmenu-run | xargs swaymsg exec --
 
@@ -62,7 +63,7 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# Workspaces (Variables match your i3 intent)
+# Workspaces (Variables match i3 content)
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
@@ -172,5 +173,3 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 
 
-# Talk to systemd for afk
-exec swayidle -w timeout 2220 'systemctl suspend'
