@@ -16,7 +16,7 @@ alias stackcollapse-perf.pl='/path/to/FlameGraph/stackcollapse-perf.pl'
 alias flamegraph.pl='/path/to/FlameGraph/flamegraph.pl'
 
 
-
+# Stream bandcamp
 alias mpva='mpv --no-video --audio-display=no --ytdl-format="bestaudio"'
 
 
@@ -25,3 +25,6 @@ alias nosleep='systemd-inhibit --what=idle:sleep --who="spiritedcaveman" \
 
 alias ..='cd ..'
 alias ker6='cd ~/Documents/kernel/v6-0'
+
+# Hardcoded display alias
+alias swayimg='WAYLAND_DISPLAY=wayland-1 swayimg'

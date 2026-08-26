@@ -21,7 +21,7 @@ HISTFILESIZE=20000
 
 # The magic line: syncs history across all open terminal windows immediately
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
+export TERM=xterm-256color
 # Bind Up and Down arrows to search history based on current input
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
@@ -66,6 +66,7 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
+
 
 # Source this first
 source /usr/lib/git-core/git-sh-prompt
@@ -138,9 +139,69 @@ if ! shopt -oq posix; then
   fi
 fi
 export PATH="$HOME/.local/bin:$PATH"
-export PAGER="most"
+
+# --- locale ---
+export LANG=en_US.UTF-8
+unset LC_ALL
+
+# --- man page colors (THIS is the key fix) ---
+export MANROFFOPT="-c"
+
+# --- pager ---
+export MANPAGER="less -R"
+export LESS='-R'
+
+# --- color mapping ---
+export LESS_TERMCAP_mb=$'\e[1;31m'
+export LESS_TERMCAP_md=$'\e[1;31m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[1;33;44m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[4;1;32m'
+export LESS_TERMCAP_mr=$'\e[7m'
+export LESS_TERMCAP_mh=$'\e[2m'
+export LESS_TERMCAP_ZN=$'\e[74m'
+export LESS_TERMCAP_ZV=$'\e[75m'
+export LESS_TERMCAP_ZO=$'\e[73m'
+export LESS_TERMCAP_ZW=$'\e[75m'
+export MANPAGER='less'
 
 
-if [ -f /usr/share/nnn/quitcd/quitcd.bash_sh_zsh ]; then
-    source /usr/share/nnn/quitcd/quitcd.bash_sh_zsh
-fi
+# --- misc ---
+export EDITOR=vim
+
+# Explicitly set the MANPATH so it doesn't have to "guess"
+export MANPATH="/usr/share/man:/usr/local/share/man"
+
+
+# Fix Wayland display variable inside tmux
+fixwayland() {
+    export WAYLAND_DISPLAY=$(tmux show-environment WAYLAND_DISPLAY 2>/dev/null | cut -d= -f2)
+}
+
+# Automatically update display before running swayimg
+alias swayimg='fixwayland && swayimg'
+
+
+# Optional: Fix it for all GUI apps in current & future tmux panes
+export WAYLAND_DISPLAY=wayland-1
+
+## Load modular configs from dotfiles
+#if [ -d "$HOME/.config/bash" ]; then
+#    for file in "$HOME/.config/bash/"*; do
+#        [ -r "$file" ] && source "$file"
+#    done
+#fi
+
+## --- Locale (safe, minimal) ---
+#export LANG=en_US.UTF-8
+#
+## --- Fix man page rendering (disable broken SGR sequences) ---
+#export GROFF_NO_SGR=1
+#
+## --- Pager: allow basic formatting safely ---
+#export LESS='-R'# Modern Debian Color Man Pages
+
+
+export QT_QPA_PLATFORMTHEME=qt6ct
