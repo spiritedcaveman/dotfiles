@@ -205,6 +205,6 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 
 
-
-
+# Talk to systemd for afk
+exec swayidle -w timeout 2220 'systemctl suspend'
 
