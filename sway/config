@@ -147,6 +147,8 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+floating_modifier Mod4
+
 ### Visuals (Ported from i3 Dracula Colors)
 # class                 border  backgr. text    indicator child_border
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
