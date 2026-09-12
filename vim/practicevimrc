@@ -24,6 +24,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'vimsence/vimsence'
 " Use the pre-built binary to avoid installing nodejs/yarn
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
+"
+" fancy themes
+Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
 call plug#end()
 
 
@@ -34,6 +37,7 @@ call plug#end()
 set nocompatible
 syntax on
 colorscheme desert
+"colorscheme catppuccin_frappe
 filetype plugin indent on
 set termguicolors
 set t_Co=256
@@ -46,6 +50,9 @@ highlight LineNr       guibg=NONE ctermbg=NONE
 highlight SignColumn   guibg=NONE ctermbg=NONE
 highlight EndOfBuffer  guibg=NONE ctermbg=NONE
 
+" extra themes
+let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+let g:airline_theme = 'catppuccin_mocha'
 
 " =============================================================================
 " UI TWEAK
