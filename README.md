@@ -13,7 +13,4 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
-
-### keyd setup
-
-started using colemak after the right metacarpal fracture on 19/02/2026
+## adversity is a privilege
