@@ -1,5 +1,6 @@
 ![massacra-rules](images/hacking-the-mainframe.png)
 
+# there is no real suffering at all, than to not know God
 
 ### vim plugin manager (vim-plug)
 ```bash
