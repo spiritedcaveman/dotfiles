@@ -184,30 +184,30 @@ set noautochdir
 
 
 
-" =============================================================================
-" --- discord presence ---
-" =============================================================================
-
-" Vimsence Configuration
-let g:vimsence_client_id = '439476230543245312'
-
-" change small image text and icon from Neovim to standard Vim
-let g:vimsence_small_text = 'Vim'
-let g:vimsence_small_image = 'vim'
-
-" Status formatting
-let g:vimsence_editing_details = 'editing: {}'
-let g:vimsence_editing_state = 'working on: {}'
-
-" File explorer status
-let g:vimsence_file_explorer_text = 'In NERDTree'
-let g:vimsence_file_explorer_details = 'Looking for files'
-
-" Custom filetype icons mapping
-" replace 'python', 'javascript', etc. with your actual filetypes
-let g:vimsence_custom_icons = {
-\   'python': 'python',
-\   'javascript': 'javascript',
-\   'html': 'html'
-\ }
+"" =============================================================================
+"" --- discord presence ---
+"" =============================================================================
+"
+"" Vimsence Configuration
+"let g:vimsence_client_id = '439476230543245312'
+"
+"" change small image text and icon from Neovim to standard Vim
+"let g:vimsence_small_text = 'Vim'
+"let g:vimsence_small_image = 'vim'
+"
+"" Status formatting
+"let g:vimsence_editing_details = 'editing: {}'
+"let g:vimsence_editing_state = 'working on: {}'
+"
+"" File explorer status
+"let g:vimsence_file_explorer_text = 'In NERDTree'
+"let g:vimsence_file_explorer_details = 'Looking for files'
+"
+"" Custom filetype icons mapping
+"" replace 'python', 'javascript', etc. with your actual filetypes
+"let g:vimsence_custom_icons = {
+"\   'python': 'python',
+"\   'javascript': 'javascript',
+"\   'html': 'html'
+"\ }
 
