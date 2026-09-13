@@ -28,3 +28,7 @@ alias ker6='cd ~/Documents/kernel/v6-0'
 
 # Hardcoded display alias
 alias swayimg='WAYLAND_DISPLAY=wayland-1 swayimg'
+
+
+#reader terminal
+alias reader='foot -c ~/.config/foot/reader.ini -e'

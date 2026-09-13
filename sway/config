@@ -20,7 +20,7 @@ set $menu env QT_STYLE_OVERRIDE=Fusion wmenu-run | xargs swaymsg exec --
 
 # Font from your i3 config
 # font pango:Ubuntu Mono 11 
-font pango:Iosevka Term 11
+font pango:Iosevka Term 9.5
 
 ### Output Configuration (X11 xsetroot/feh replacement)
 output * bg #282A36 solid_color
