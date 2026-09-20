@@ -167,6 +167,8 @@ set tags=./tags;,tags;
 
 " Enable Cscope tag mapping (Ctrl+] works for cscope)
 set cscopetag
+set csto=0
+set cscopeverbose
 
 " Automatically load cscope.out if found in the current directory
 if filereadable("cscope.out")
