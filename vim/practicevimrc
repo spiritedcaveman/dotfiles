@@ -22,8 +22,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'christoomey/vim-tmux-navigator'
 " Discord presence
 Plug 'vimsence/vimsence'
-" Use the pre-built binary to avoid installing nodejs/yarn
-" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
+" fancy themes
+Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
 call plug#end()
 
 
@@ -34,6 +34,7 @@ call plug#end()
 set nocompatible
 syntax on
 colorscheme desert
+"colorscheme catppuccin_frappe
 filetype plugin indent on
 set termguicolors
 set t_Co=256
@@ -46,6 +47,9 @@ highlight LineNr       guibg=NONE ctermbg=NONE
 highlight SignColumn   guibg=NONE ctermbg=NONE
 highlight EndOfBuffer  guibg=NONE ctermbg=NONE
 
+" extra themes
+let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+let g:airline_theme = 'catppuccin_mocha'
 
 " =============================================================================
 " UI TWEAK
@@ -130,22 +134,6 @@ let g:mkdp_open_to_the_world = 1
 let g:mkdp_browser = '/usr/bin/firefox'
 
 
-" =============================================================================
-" --- Mathematical Maturity (KaTeX) ---
-" =============================================================================
-
-let g:mkdp_preview_options = {
-    \ 'mkit': {},
-    \ 'katex': {'macros': {'\R': '\mathbb{R}'}},
-    \ 'uml': {},
-    \ 'maid': {},
-    \ 'disable_sync_scroll': 0,
-    \ 'sync_scroll_type': 'middle',
-    \ 'hide_yaml_meta': 1
-    \ }
-
-
-
 
 " =============================================================================
 " Advanced hacks
@@ -157,6 +145,14 @@ set pastetoggle=<F2>
 
 " Automatically search for tags file in parent directories
 set tags=./tags;,tags;
+
+" Enable Cscope tag mapping (Ctrl+] works for cscope)
+set cscopetag
+
+" Automatically load cscope.out if found in the current directory
+if filereadable("cscope.out")
+    cs add cscope.out
+endif
 
 
 " =============================================================================
@@ -181,33 +177,4 @@ let g:NERDTreeChDirMode = 0
 " make sure Vim isn't auto-changing directory based on the active tab/buffer
 set noautochdir
 
-
-
-
-"" =============================================================================
-"" --- discord presence ---
-"" =============================================================================
-"
-"" Vimsence Configuration
-"let g:vimsence_client_id = '439476230543245312'
-"
-"" change small image text and icon from Neovim to standard Vim
-"let g:vimsence_small_text = 'Vim'
-"let g:vimsence_small_image = 'vim'
-"
-"" Status formatting
-"let g:vimsence_editing_details = 'editing: {}'
-"let g:vimsence_editing_state = 'working on: {}'
-"
-"" File explorer status
-"let g:vimsence_file_explorer_text = 'In NERDTree'
-"let g:vimsence_file_explorer_details = 'Looking for files'
-"
-"" Custom filetype icons mapping
-"" replace 'python', 'javascript', etc. with your actual filetypes
-"let g:vimsence_custom_icons = {
-"\   'python': 'python',
-"\   'javascript': 'javascript',
-"\   'html': 'html'
-"\ }
 
