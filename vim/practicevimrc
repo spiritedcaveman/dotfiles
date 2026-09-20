@@ -165,6 +165,14 @@ set pastetoggle=<F2>
 " Automatically search for tags file in parent directories
 set tags=./tags;,tags;
 
+" Enable Cscope tag mapping (Ctrl+] works for cscope)
+set cscopetag
+
+" Automatically load cscope.out if found in the current directory
+if filereadable("cscope.out")
+    cs add cscope.out
+endif
+
 
 " =============================================================================
 " x86 code reading
