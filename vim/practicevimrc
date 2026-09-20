@@ -20,13 +20,21 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Tmux companion
 Plug 'christoomey/vim-tmux-navigator'
+" Popup terminal
+Plug 'voldikss/vim-floaterm'
+" Git diff
+Plug 'airblade/vim-gitgutter'
+" Magic
+Plug 'wincent/command-t'
+
+
+" fancy themes
+Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
 " Discord presence
 Plug 'vimsence/vimsence'
 " Use the pre-built binary to avoid installing nodejs/yarn
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
-"
-" fancy themes
-Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
+
 call plug#end()
 
 
@@ -60,7 +68,19 @@ let g:airline_theme = 'catppuccin_mocha'
 
 set number
 set relativenumber
+set foldcolumn=2   " Show fold column on the left (adjust width 1 to 4)
+set foldmethod=indent " Or syntax, to automatically calculate code folds
 set cursorline
+
+
+"" Colorize fold column (e.g., dark gray background with bright white/cyan icons)
+"highlight FoldColumn ctermbg=235 ctermfg=14 guibg=#222222 guifg=#00afff
+"highlight Folded     ctermbg=235 ctermfg=14 guibg=#222222 guifg=#00afffO
+
+" Desert theme matching fold column (warm brownish-gray background with khaki/yellow text)
+highlight FoldColumn ctermbg=238 ctermfg=220 guibg=#4e4e4e guifg=#ffd75f
+highlight Folded     ctermbg=238 ctermfg=220 guibg=#4e4e4e guifg=#ffd75f
+
 
 " Only underline the current line, no gray background block
 "highlight CursorLine cterm=underline gui=underline guibg=NONE ctermbg=NONE guisp=#585858
@@ -165,15 +185,31 @@ set pastetoggle=<F2>
 " Automatically search for tags file in parent directories
 set tags=./tags;,tags;
 
-" Enable Cscope tag mapping (Ctrl+] works for cscope)
-set cscopetag
-set csto=0
-set cscopeverbose
 
-" Automatically load cscope.out if found in the current directory
-if filereadable("cscope.out")
-    cs add cscope.out
+
+" =============================================================================
+" --- CSCOPE --- 
+" =============================================================================
+
+
+if has("cscope")
+    " Use cscope instead of ctags for vim where possible
+    set cscopetag
+    set cscopeprg=cscope
+
+    "" Check cscope.out in current directory, then parent directories up the tree
+    "if filereadable("cscope.out")
+    "    silent cs add cscope.out
+    "elseif $CSCOPE_DB != ""
+    "    silent cs add $CSCOPE_DB
+    "endif
+
+    " Set cscope behavior
+    set csto=0         " Search cscope database first, then tag file
+    set cst            " Tag commands (e.g. ^]) search cscope too
+    set csverb         " Show verbose messages when adding databases (optional)
 endif
+
 
 
 " =============================================================================
