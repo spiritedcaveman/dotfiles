@@ -205,3 +205,24 @@ export WAYLAND_DISPLAY=wayland-1
 
 
 export QT_QPA_PLATFORMTHEME=qt6ct
+
+
+## timer implementation
+
+stopwatch() {
+    start=$(date +%s)
+    while true; do
+        printf '%s\r' "$(date -u -d "@$(( $(date +%s) - start ))" +%H:%M:%S)"
+        sleep 0.1
+    done
+}
+
+countdown() {
+    start="$(( $(date +%s) + $1))"
+    while [ $start -ge $(date +%s) ]; do
+        printf '%s\r' "$(date -u -d "@$(( $start - $(date +%s) ))" +%H:%M:%S)"
+        sleep 0.1
+    done
+    echo -e "\nDone!"
+}
+
