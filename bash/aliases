@@ -25,6 +25,7 @@ alias nosleep='systemd-inhibit --what=idle:sleep --who="spiritedcaveman" \
 
 alias ..='cd ..'
 alias ker6='cd ~/Documents/kernel/v6-0'
+alias kernel='cd ~/Documents/kernel/linux-upstream'
 
 # Hardcoded display alias
 alias swayimg='WAYLAND_DISPLAY=wayland-1 swayimg'
