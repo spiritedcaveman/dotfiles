@@ -26,9 +26,6 @@ Plug 'voldikss/vim-floaterm'
 Plug 'airblade/vim-gitgutter'
 " Magic
 Plug 'wincent/command-t'
-" Maps shortcuts for cscope
-Plug 'dr-kino/cscope-maps'
-
 " fancy themes
 Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
 " Discord presence
