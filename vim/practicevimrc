@@ -110,11 +110,13 @@ highlight ColorColumn guibg=#98c379 guifg=NONE
 " For 256-color Terminals
 highlight ColorColumn ctermbg=234 ctermfg=NONE
 
-
-
 set mouse=a
 set laststatus=2
 
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 " Force Vim to render highlights smoothly while scrolling
 set ttyfast
