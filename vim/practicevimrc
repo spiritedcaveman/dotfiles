@@ -34,10 +34,14 @@ Plug 'dr-kino/cscope-maps'
 " Browse the tags
 Plug 'preservim/tagbar'
 
-"" fancy themes
-"Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
+" Build and test dispatcher
+Plug 'tpope/vim-dispatch'
+" Managing tags
+Plug 'ludovicchabant/vim-gutentags'
+
 " Discord presence
 Plug 'vimsence/vimsence'
+
 " Use the pre-built binary to avoid installing nodejs/yarn
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 
@@ -64,12 +68,6 @@ highlight LineNr       guibg=NONE ctermbg=NONE
 highlight SignColumn   guibg=NONE ctermbg=NONE
 highlight EndOfBuffer  guibg=NONE ctermbg=NONE
 
-" extra themes
-" visit for fancy themeshttps://github.com/vim-airline/vim-airline/wiki/Screenshots
-"let g:airline_theme='<theme>'
-
-"let g:lightline = {'colorscheme': 'catppuccin_mocha'}
-"let g:airline_theme = 'catppuccin_mocha'
 
 " =============================================================================
 " UI TWEAK
@@ -94,7 +92,6 @@ highlight Folded     ctermbg=238 ctermfg=220 guibg=#4e4e4e guifg=#ffd75f
 
 " Gray background block
 "highlight CursorLine cterm=NONE ctermbg=234
-
 
 
 " Clean gutter-only current line
@@ -138,15 +135,17 @@ set autoindent
 " =============================================================================
 
 let g:airline_symbols_ascii = 1
-let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#enabled = 1
 let g:airline_section_y = '%{&fileformat}'
-let g:airline_section_z = '%l:%c'
+let g:airline_section_z = '%l:%c [%L]'
+let g:airline_section_b = '%{get(b:, "fugitive_head", "")}'
 
 " colorscheme's mode colors
-let g:airline_theme='dark'
+let g:airline_theme='badwolf'
 
 
-
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
 
 " =============================================================================
 " --- Markdown Preview Logic ---
