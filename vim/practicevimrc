@@ -8,8 +8,12 @@
 " =============================================================================
 
 call plug#begin('~/.vim/plugged')
-" UI tab colours
+
+" Status line 
 Plug 'vim-airline/vim-airline'
+" Status line theme
+Plug 'vim-airline/vim-airline-themes'
+
 " C navigtor to swtich between source files and header files quickly
 Plug 'vim-scripts/a.vim'
 " Git wrapper
@@ -18,19 +22,18 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " Tmux companion
 Plug 'christoomey/vim-tmux-navigator'
 " Popup terminal
 Plug 'voldikss/vim-floaterm'
 " Git diff
 Plug 'airblade/vim-gitgutter'
-" Magic
-Plug 'wincent/command-t'
 " Maps shortcuts for cscope
 Plug 'dr-kino/cscope-maps'
 
-" fancy themes
-Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
+"" fancy themes
+"Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
 " Discord presence
 Plug 'vimsence/vimsence'
 " Use the pre-built binary to avoid installing nodejs/yarn
@@ -60,8 +63,11 @@ highlight SignColumn   guibg=NONE ctermbg=NONE
 highlight EndOfBuffer  guibg=NONE ctermbg=NONE
 
 " extra themes
-let g:lightline = {'colorscheme': 'catppuccin_mocha'}
-let g:airline_theme = 'catppuccin_mocha'
+" visit for fancy themeshttps://github.com/vim-airline/vim-airline/wiki/Screenshots
+"let g:airline_theme='<theme>'
+
+"let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+"let g:airline_theme = 'catppuccin_mocha'
 
 " =============================================================================
 " UI TWEAK
@@ -213,7 +219,7 @@ if has("cscope")
 
     set csto=0
     set cst
-    set csverb
+    set nocsverb
 endif
 
 " =============================================================================
