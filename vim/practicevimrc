@@ -190,16 +190,25 @@ let g:mkdp_preview_options = {
 " turn on to paste long buffer
 set pastetoggle=<F5>
 
-" instantly open FZF
-nnoremap <F3> :FZF<CR>
 
 " Toggle floating terminal from Normal mode
-nnoremap <F2> :FloatermToggle<CR>
+nnoremap <F3> :FloatermToggle<CR>
 " Toggle floating terminal from inside the terminal (Terminal mode)
-tnoremap <F2> <C-\><C-n>:FloatermToggle<CR>
+tnoremap <F3> <C-\><C-n>:FloatermToggle<CR>
 
 " Tagbar
 nmap <F4> :TagbarToggle<CR>
+
+
+" instantly open FZF
+nnoremap <F2> :Files<CR>
+
+" Search through recently opened files (MRU)
+nnoremap <silent> <leader>m :History<CR>
+
+" Search through currently open buffers
+nnoremap <silent> <leader>b :Buffers<CR>
+
 
 " Automatically search for tags file in parent directories
 set tags=./tags;,tags;
