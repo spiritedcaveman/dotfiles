@@ -26,6 +26,9 @@ Plug 'voldikss/vim-floaterm'
 Plug 'airblade/vim-gitgutter'
 " Magic
 Plug 'wincent/command-t'
+" Maps shortcuts for cscope
+Plug 'dr-kino/cscope-maps'
+
 " fancy themes
 Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
 " Discord presence
@@ -197,23 +200,21 @@ set tags=./tags;,tags;
 
 
 if has("cscope")
-    " Use cscope instead of ctags for vim where possible
     set cscopetag
     set cscopeprg=cscope
 
-    "" Check cscope.out in current directory, then parent directories up the tree
-    "if filereadable("cscope.out")
-    "    silent cs add cscope.out
-    "elseif $CSCOPE_DB != ""
-    "    silent cs add $CSCOPE_DB
-    "endif
+    " Walk up directories to find cscope.out in kernel root
+    let s:cscope_file = findfile("cscope.out", ".;")
+    if !empty(s:cscope_file)
+        silent execute "cs add" . fnameescape(s:cscope_file)
+    elseif $CSCOPE_DB != ""
+        silent cs add $CSCOPE_DB
+    endif
 
-    " Set cscope behavior
-    set csto=0         " Search cscope database first, then tag file
-    set cst            " Tag commands (e.g. ^]) search cscope too
-    set csverb         " Show verbose messages when adding databases (optional)
+    set csto=0
+    set cst
+    set csverb
 endif
-
 
 " =============================================================================
 " --- Custom Cscope Shortcuts ---
