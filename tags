@@ -1,0 +1,397 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/spiritedcaveman/dotfiles/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+<cr>	vim/autoload/plug.vim	/^      nmap <buffer> <cr> <plug>(plug-preview)$/;"	m
+<plug>(plug-preview)	vim/autoload/plug.vim	/^    nnoremap <silent> <buffer> <plug>(plug-preview) :silent! call <SID>preview_commit()<cr>$/;"	m
+Architecture	system-configs/pacman/pacman.conf	/^Architecture = auto$/;"	k	section:options
+BUILDENV	system-configs/pacman/makepkg.conf	/^BUILDENV=(!distcc color !ccache check !sign)$/;"	k
+CARCH	system-configs/pacman/makepkg.conf	/^CARCH="x86_64"$/;"	k
+CFLAGS	system-configs/pacman/makepkg.conf	/^CFLAGS="-march=x86-64 -mtune=generic -O2 -pipe -fno-plt -fexceptions \\$/;"	k
+CHOST	system-configs/pacman/makepkg.conf	/^CHOST="x86_64-pc-linux-gnu"$/;"	k
+COMPRESSBZ2	system-configs/pacman/makepkg.conf	/^COMPRESSBZ2=(bzip2 -c -f)$/;"	k
+COMPRESSGZ	system-configs/pacman/makepkg.conf	/^COMPRESSGZ=(gzip -c -f -n)$/;"	k
+COMPRESSLRZ	system-configs/pacman/makepkg.conf	/^COMPRESSLRZ=(lrzip -q)$/;"	k
+COMPRESSLZ	system-configs/pacman/makepkg.conf	/^COMPRESSLZ=(lzip -c -f)$/;"	k
+COMPRESSLZ4	system-configs/pacman/makepkg.conf	/^COMPRESSLZ4=(lz4 -q)$/;"	k
+COMPRESSLZO	system-configs/pacman/makepkg.conf	/^COMPRESSLZO=(lzop -q)$/;"	k
+COMPRESSXZ	system-configs/pacman/makepkg.conf	/^COMPRESSXZ=(xz -c -z -)$/;"	k
+COMPRESSZ	system-configs/pacman/makepkg.conf	/^COMPRESSZ=(compress -c -f)$/;"	k
+COMPRESSZST	system-configs/pacman/makepkg.conf	/^COMPRESSZST=(zstd -c -T0 -)$/;"	k
+CXXFLAGS	system-configs/pacman/makepkg.conf	/^CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"$/;"	k
+D	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> D  :PlugDiff<cr>$/;"	m
+DBGSRCDIR	system-configs/pacman/makepkg.conf	/^DBGSRCDIR="\/usr\/src\/debug"$/;"	k
+DEBUG_CFLAGS	system-configs/pacman/makepkg.conf	/^DEBUG_CFLAGS="-g"$/;"	k
+DEBUG_CXXFLAGS	system-configs/pacman/makepkg.conf	/^DEBUG_CXXFLAGS="$DEBUG_CFLAGS"$/;"	k
+DLAGENTS	system-configs/pacman/makepkg.conf	/^DLAGENTS=('file::\/usr\/bin\/curl -qgC - -o %o %u'$/;"	k
+DOC_DIRS	system-configs/pacman/makepkg.conf	/^DOC_DIRS=(usr\/{,local\/}{,share\/}{doc,gtk-doc})$/;"	k
+DownloadUser	system-configs/pacman/pacman.conf	/^DownloadUser = alpm$/;"	k	section:options
+HoldPkg	system-configs/pacman/pacman.conf	/^HoldPkg     = pacman glibc$/;"	k	section:options
+I	tmux/tmux.conf	/^set -g window-status-current-format " #I:#W#F "$/;"	k
+I	tmux/tmux.conf	/^set -g window-status-format " #I:#W#F "$/;"	k
+INTEGRITY_CHECK	system-configs/pacman/makepkg.conf	/^INTEGRITY_CHECK=(sha256)$/;"	k
+Include	system-configs/pacman/pacman.conf	/^Include = \/etc\/pacman.d\/mirrorlist$/;"	k	section:core
+Include	system-configs/pacman/pacman.conf	/^Include = \/etc\/pacman.d\/mirrorlist$/;"	k	section:extra
+L	vim/autoload/plug.vim	/^    nnoremap <silent> <buffer> L :call <SID>status_load(line('.'))<cr>$/;"	m
+L	vim/autoload/plug.vim	/^    xnoremap <silent> <buffer> L :call <SID>status_load(line('.'))<cr>$/;"	m
+LDFLAGS	system-configs/pacman/makepkg.conf	/^LDFLAGS="-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \\$/;"	k
+LIB_DIRS	system-configs/pacman/makepkg.conf	/^LIB_DIRS=('lib:usr\/lib' 'lib32:usr\/lib32')$/;"	k
+LTOFLAGS	system-configs/pacman/makepkg.conf	/^LTOFLAGS="-flto=auto"$/;"	k
+LocalFileSigLevel	system-configs/pacman/pacman.conf	/^LocalFileSigLevel = Optional$/;"	k	section:options
+MAN_DIRS	system-configs/pacman/makepkg.conf	/^MAN_DIRS=(usr{,\/local}{,\/share}\/{man,info})$/;"	k
+NOTE	system-configs/samba/smb.conf	/^NOTE: Service homes is flagged unavailable.$/;"	k
+OPTIONS	system-configs/pacman/makepkg.conf	/^OPTIONS=(strip docs !libtool !staticlibs emptydirs zipman purge debug lto)$/;"	k
+PKGEXT	system-configs/pacman/makepkg.conf	/^PKGEXT='.pkg.tar.zst'$/;"	k
+PURGE_TARGETS	system-configs/pacman/makepkg.conf	/^PURGE_TARGETS=(usr\/{,share}\/info\/dir .packlist *.pod)$/;"	k
+ParallelDownloads	system-configs/pacman/pacman.conf	/^ParallelDownloads = 5$/;"	k	section:options
+Plug	vim/autoload/plug.vim	/^  command! -nargs=+ -bar Plug call plug#(<args>)$/;"	c
+PlugClean	vim/autoload/plug.vim	/^  command! -nargs=0 -bar -bang PlugClean call s:clean(<bang>0)$/;"	c
+PlugDiff	vim/autoload/plug.vim	/^  command! -nargs=0 -bar PlugDiff    call s:diff()$/;"	c
+PlugInstall	vim/autoload/plug.vim	/^  command! -nargs=* -bar -bang -complete=customlist,s:names PlugInstall call s:install(<bang>0, /;"	c
+PlugLOD	vim/autoload/plug.vim	/^    augroup PlugLOD$/;"	a
+PlugSnapshot	vim/autoload/plug.vim	/^  command! -nargs=? -bar -bang -complete=file PlugSnapshot call s:snapshot(<bang>0, <f-args>)$/;"	c
+PlugStatus	vim/autoload/plug.vim	/^  command! -nargs=0 -bar PlugStatus  call s:status()$/;"	c
+PlugUpdate	vim/autoload/plug.vim	/^  command! -nargs=* -bar -bang -complete=customlist,s:names PlugUpdate  call s:update(<bang>0, [/;"	c
+PlugUpgrade	vim/autoload/plug.vim	/^  command! -nargs=0 -bar PlugUpgrade if s:upgrade() | execute 'source' s:esc(s:me) | endif$/;"	c
+R	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> R  :call <SID>retry()<cr>$/;"	m
+S	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> S  :PlugStatus<cr>$/;"	m
+SRCEXT	system-configs/pacman/makepkg.conf	/^SRCEXT='.src.tar.gz'$/;"	k
+STRIP_BINARIES	system-configs/pacman/makepkg.conf	/^STRIP_BINARIES="--strip-all"$/;"	k
+STRIP_SHARED	system-configs/pacman/makepkg.conf	/^STRIP_SHARED="--strip-unneeded"$/;"	k
+STRIP_STATIC	system-configs/pacman/makepkg.conf	/^STRIP_STATIC="--strip-debug"$/;"	k
+ScreenCast	sway/sway-portals.conf	/^org.freedesktop.impl.portal.ScreenCast=kde;wlr;$/;"	k	section:preferred
+Screenshot	sway/sway-portals.conf	/^org.freedesktop.impl.portal.Screenshot=kde;wlr;$/;"	k	section:preferred
+Server role	system-configs/samba/smb.conf	/^Server role: ROLE_STANDALONE$/;"	k
+SigLevel	system-configs/pacman/pacman.conf	/^SigLevel    = Required DatabaseOptional$/;"	k	section:options
+U	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> U  :call <SID>status_update()<cr>$/;"	m
+U	vim/autoload/plug.vim	/^  xnoremap <silent> <buffer> U  :call <SID>status_update()<cr>$/;"	m
+VCSCLIENTS	system-configs/pacman/makepkg.conf	/^VCSCLIENTS=('bzr::breezy'$/;"	k
+WD1TB	system-configs/samba/smb.conf	/^[WD1TB]$/;"	s
+X	vim/autoload/plug.vim	/^    nnoremap <silent> <buffer> X :call <SID>revert()<cr>$/;"	m
+[[	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> [[ :silent! call <SID>section('b')<cr>$/;"	m
+]]	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> ]] :silent! call <SID>section('')<cr>$/;"	m
+adversity is a privilege	README.md	/^## adversity is a privilege$/;"	s	chapter:there is no real suffering at all, than to not know God
+aware	foot/foot.ini	/^dpi-aware=no                        # Fixes the "massive font" scaling issue$/;"	k	section:main
+aware	foot/reader.ini	/^dpi-aware=no                        # Fixes the "massive font" scaling issue$/;"	k	section:main
+backend	picom/picom.conf	/^backend = "glx";$/;"	k
+background	foot/foot.ini	/^background=1a1b26$/;"	k	section:colors
+background	foot/reader.ini	/^background=1a1b26$/;"	k	section:colors
+base_activity	vim/vimscence.py	/^base_activity = {$/;"	v
+blink	foot/foot.ini	/^blink=yes$/;"	k	section:cursor
+blink	foot/reader.ini	/^blink=yes$/;"	k	section:cursor
+capslock	keyd/default.conf	/^capslock = overload(control, esc)$/;"	k	section:main
+client_id	vim/vimscence.py	/^    client_id = vim.eval('g:vimsence_client_id')$/;"	v
+client_id	vim/vimscence.py	/^client_id = '439476230543245312'$/;"	v
+colemak:main	keyd/default.conf	/^[colemak:main]$/;"	s
+colors	foot/foot.ini	/^[colors]$/;"	s
+colors	foot/reader.ini	/^[colors]$/;"	s
+config	vim/vimscence.py	/^    config = json.load(config_file)$/;"	v
+core	system-configs/pacman/pacman.conf	/^[core]$/;"	s
+cursor	foot/foot.ini	/^[cursor]$/;"	s
+cursor	foot/reader.ini	/^[cursor]$/;"	s
+custom_icons	vim/vimscence.py	/^    custom_icons = vim.eval('g:vimsence_custom_icons')$/;"	v
+d	vim/autoload/plug.vim	/^      nnoremap <silent> <buffer> d :set opfunc=<sid>delete_op<cr>g@$/;"	m
+d	vim/autoload/plug.vim	/^      xnoremap <silent> <buffer> d :<c-u>call <sid>delete_op(visualmode(), 1)<cr>$/;"	m
+damage	picom/picom.conf	/^use-damage = true;$/;"	k
+dbe	picom/picom.conf	/^dbe = false;$/;"	k
+dd	vim/autoload/plug.vim	/^      nmap     <silent> <buffer> dd d_$/;"	m
+default	sway/sway-portals.conf	/^default=gtk$/;"	k	section:preferred
+delta	picom/picom.conf	/^fade-delta = 4;$/;"	k
+disconnect	vim/vimscence.py	/^def disconnect():$/;"	f
+dvorak:main	keyd/default.conf	/^[dvorak:main]$/;"	s
+esc	keyd/default.conf	/^esc = capslock$/;"	k	section:main
+exclude	picom/picom.conf	/^focus-exclude = [ "class_g = 'Cairo-clock'" ];$/;"	k
+exclude	picom/picom.conf	/^shadow-exclude = [$/;"	k
+extra	system-configs/pacman/pacman.conf	/^[extra]$/;"	s
+f10	keyd/default.conf	/^f10 = toggle(dvorak)$/;"	k	section:main
+f2	keyd/default.conf	/^f2 = volumedown$/;"	k	section:media
+f3	keyd/default.conf	/^f3 = volumeup$/;"	k	section:media
+f4	keyd/default.conf	/^f4 = mute$/;"	k	section:media
+f6	keyd/default.conf	/^f6 = brightnessdown$/;"	k	section:media
+f7	keyd/default.conf	/^f7 = brightnessup$/;"	k	section:media
+f8	keyd/default.conf	/^f8 = toggle(colemak)$/;"	k	section:main
+fading	picom/picom.conf	/^fading = true;$/;"	k
+file_explorer_names	vim/vimscence.py	/^file_explorer_names = [$/;"	v
+file_explorers	vim/vimscence.py	/^file_explorers = [$/;"	v
+filetypedetect	vim/autoload/plug.vim	/^        augroup filetypedetect$/;"	a
+font	foot/foot.ini	/^font=Iosevka Term:size=17.5$/;"	k
+font	foot/reader.ini	/^font=Ubuntu Mono:size=17.5$/;"	k
+foreground	foot/foot.ini	/^foreground=c0caf5$/;"	k	section:colors
+foreground	foot/reader.ini	/^foreground=c0caf5$/;"	k	section:colors
+front	picom/picom.conf	/^glx-copy-from-front = false;$/;"	k
+g:_plug_bang	vim/autoload/plug.vim	/^    let g:_plug_bang = (s:is_win && has('gui_running') ? 'silent ' : '').'!'.escape(cmd, '#!%')$/;"	v
+g:loaded_plug	vim/autoload/plug.vim	/^let g:loaded_plug = 1$/;"	v
+g:plug_home	vim/autoload/plug.vim	/^  let g:plug_home = home$/;"	v
+g:plugs	vim/autoload/plug.vim	/^    let g:plugs[name] = spec$/;"	v
+g:plugs	vim/autoload/plug.vim	/^  let g:plugs = {}$/;"	v
+g:plugs_order	vim/autoload/plug.vim	/^  let g:plugs_order = []$/;"	v
+g:plugs_order	vim/autoload/plug.vim	/^  let g:plugs_order = get(g:, 'plugs_order', keys(g:plugs))$/;"	v
+get_directory	vim/vimscence.py	/^def get_directory():$/;"	f
+get_extension	vim/vimscence.py	/^def get_extension():$/;"	f
+get_filename	vim/vimscence.py	/^def get_filename():$/;"	f
+get_filetype	vim/vimscence.py	/^def get_filetype():$/;"	f
+global	system-configs/samba/smb.conf	/^[global]$/;"	s
+has_thumbnail	vim/vimscence.py	/^    has_thumbnail = list(set(has_thumbnail + list(custom_icons.values())))$/;"	v
+has_thumbnail	vim/vimscence.py	/^has_thumbnail = [item['name'] for item in config['filetypes']]$/;"	v
+homes	system-configs/samba/smb.conf	/^[homes]$/;"	s
+ids	keyd/default.conf	/^[ids]$/;"	s
+ignored_directories	vim/vimscence.py	/^ignored_directories = -1$/;"	v
+ignored_file_types	vim/vimscence.py	/^ignored_file_types = -1$/;"	v
+is_writable	vim/vimscence.py	/^def is_writable():$/;"	f
+key-bindings	foot/foot.ini	/^[key-bindings]$/;"	s
+key-bindings	foot/reader.ini	/^[key-bindings]$/;"	s
+launch	foot/foot.ini	/^launch=xdg-open ${url}$/;"	k	section:url
+launch	foot/reader.ini	/^launch=xdg-open ${url}$/;"	k	section:url
+left	foot/foot.ini	/^cursor-left=Control+b$/;"	k	section:search-bindings
+left	foot/reader.ini	/^cursor-left=Control+b$/;"	k	section:search-bindings
+letters	foot/foot.ini	/^label-letters=sadfjklewcmpgh$/;"	k	section:url
+letters	foot/reader.ini	/^label-letters=sadfjklewcmpgh$/;"	k	section:url
+lines	foot/foot.ini	/^lines=7000                          # Matches 7k history limit$/;"	k	section:scrollback
+lines	foot/reader.ini	/^lines=7000                          # Matches 7k history limit$/;"	k	section:scrollback
+logger	vim/vimscence.py	/^logger = logging.getLogger(__name__)$/;"	v
+main	foot/foot.ini	/^[main]$/;"	s
+main	foot/reader.ini	/^[main]$/;"	s
+main	keyd/default.conf	/^[main]$/;"	s
+media	keyd/default.conf	/^[media]$/;"	s
+mouse	foot/foot.ini	/^[mouse]$/;"	s
+mouse	foot/reader.ini	/^[mouse]$/;"	s
+multiplier	foot/foot.ini	/^multiplier=9.0$/;"	k	section:scrollback
+multiplier	foot/reader.ini	/^multiplier=9.0$/;"	k	section:scrollback
+music	system-configs/samba/smb.conf	/^[music]$/;"	s
+next	foot/foot.ini	/^find-next=Control+s$/;"	k	section:search-bindings
+next	foot/reader.ini	/^find-next=Control+s$/;"	k	section:search-bindings
+o	vim/autoload/plug.vim	/^      nmap <buffer> o <plug>(plug-preview)$/;"	m
+opacity	picom/picom.conf	/^active-opacity = 1.0;$/;"	k
+opacity	picom/picom.conf	/^frame-opacity = 1.0;$/;"	k
+opacity	picom/picom.conf	/^inactive-opacity = 0.90;$/;"	k
+options	system-configs/pacman/pacman.conf	/^[options]$/;"	s
+override	picom/picom.conf	/^inactive-opacity-override = false;$/;"	k
+pad	foot/foot.ini	/^pad=3x1                             # Matches Alacritty padding$/;"	k
+pad	foot/reader.ini	/^pad=3x1                             # Matches Alacritty padding$/;"	k
+plug#	vim/autoload/plug.vim	/^function! plug#(repo, ...)$/;"	f
+plug#begin	vim/autoload/plug.vim	/^function! plug#begin(...)$/;"	f
+plug#end	vim/autoload/plug.vim	/^function! plug#end()$/;"	f
+plug#helptags	vim/autoload/plug.vim	/^function! plug#helptags()$/;"	f
+plug#load	vim/autoload/plug.vim	/^function! plug#load(...)$/;"	f
+plug#shellescape	vim/autoload/plug.vim	/^function! plug#shellescape(arg, ...)$/;"	f
+preferred	sway/sway-portals.conf	/^[preferred]$/;"	s
+prev	foot/foot.ini	/^find-prev=Control+r$/;"	k	section:search-bindings
+prev	foot/reader.ini	/^find-prev=Control+r$/;"	k	section:search-bindings
+printers	system-configs/samba/smb.conf	/^[printers]$/;"	s
+q	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> q :call <SID>close_pane()<cr>$/;"	m
+q	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> q :q<cr>$/;"	m
+radius	picom/picom.conf	/^corner-radius = 0;$/;"	k
+radius	picom/picom.conf	/^shadow-radius = 7;$/;"	k
+rate	foot/foot.ini	/^blink-rate=300$/;"	k	section:cursor
+rate	foot/reader.ini	/^blink-rate=300$/;"	k	section:cursor
+reconnect	vim/vimscence.py	/^def reconnect():$/;"	f
+regular0	foot/foot.ini	/^regular0=282a36  # black$/;"	k	section:colors
+regular0	foot/reader.ini	/^regular0=282a36  # black$/;"	k	section:colors
+regular1	foot/foot.ini	/^regular1=ff5555  # red$/;"	k	section:colors
+regular1	foot/reader.ini	/^regular1=ff5555  # red$/;"	k	section:colors
+regular2	foot/foot.ini	/^regular2=50fa7b  # green$/;"	k	section:colors
+regular2	foot/reader.ini	/^regular2=50fa7b  # green$/;"	k	section:colors
+regular3	foot/foot.ini	/^regular3=f1fa8c  # yellow$/;"	k	section:colors
+regular3	foot/reader.ini	/^regular3=f1fa8c  # yellow$/;"	k	section:colors
+regular4	foot/foot.ini	/^regular4=bd93f9  # blue$/;"	k	section:colors
+regular4	foot/reader.ini	/^regular4=bd93f9  # blue$/;"	k	section:colors
+regular5	foot/foot.ini	/^regular5=ff79c6  # magenta$/;"	k	section:colors
+regular5	foot/reader.ini	/^regular5=ff79c6  # magenta$/;"	k	section:colors
+regular6	foot/foot.ini	/^regular6=8be9fd  # cyan$/;"	k	section:colors
+regular6	foot/reader.ini	/^regular6=8be9fd  # cyan$/;"	k	section:colors
+regular7	foot/foot.ini	/^regular7=f8f8f2  # white$/;"	k	section:colors
+regular7	foot/reader.ini	/^regular7=f8f8f2  # white$/;"	k	section:colors
+remap	vim/vimscence.py	/^remap = {item['name']: item['icon'] for item in config['filetypes'] if 'icon' in item}$/;"	v
+right	foot/foot.ini	/^cursor-right=Control+f$/;"	k	section:search-bindings
+right	foot/reader.ini	/^cursor-right=Control+f$/;"	k	section:search-bindings
+rightalt	keyd/default.conf	/^rightalt = layer(media)$/;"	k	section:main
+rpc_obj	vim/vimscence.py	/^rpc_obj = None$/;"	v
+rule	picom/picom.conf	/^opacity-rule = [$/;"	k
+s:TYPE	vim/autoload/plug.vim	/^let s:TYPE = {$/;"	v
+s:append_ul	vim/autoload/plug.vim	/^function! s:append_ul(lnum, text)$/;"	f
+s:ask	vim/autoload/plug.vim	/^function! s:ask(message, ...)$/;"	f
+s:ask_no_interrupt	vim/autoload/plug.vim	/^function! s:ask_no_interrupt(...)$/;"	f
+s:assign_name	vim/autoload/plug.vim	/^function! s:assign_name()$/;"	f
+s:assoc	vim/autoload/plug.vim	/^function! s:assoc(dict, key, val)$/;"	f
+s:bang	vim/autoload/plug.vim	/^function! s:bang(cmd, ...)$/;"	f
+s:bar	vim/autoload/plug.vim	/^function! s:bar()$/;"	f
+s:base_spec	vim/autoload/plug.vim	/^let s:base_spec = { 'branch': '', 'frozen': 0 }$/;"	v
+s:batchfile	vim/autoload/plug.vim	/^  function! s:batchfile(cmd)$/;"	f
+s:bullet_for	vim/autoload/plug.vim	/^function! s:bullet_for(job, ...)$/;"	f
+s:check_ruby	vim/autoload/plug.vim	/^function! s:check_ruby()$/;"	f
+s:checkout	vim/autoload/plug.vim	/^function! s:checkout(spec)$/;"	f
+s:checkout_command	vim/autoload/plug.vim	/^function! s:checkout_command(spec)$/;"	f
+s:chsh	vim/autoload/plug.vim	/^function! s:chsh(swap)$/;"	f
+s:clean	vim/autoload/plug.vim	/^function! s:clean(force)$/;"	f
+s:close_pane	vim/autoload/plug.vim	/^function! s:close_pane()$/;"	f
+s:compare_git_uri	vim/autoload/plug.vim	/^function! s:compare_git_uri(a, b)$/;"	f
+s:cpo_save	vim/autoload/plug.vim	/^let s:cpo_save = &cpo$/;"	v
+s:define_commands	vim/autoload/plug.vim	/^function! s:define_commands()$/;"	f
+s:delete	vim/autoload/plug.vim	/^function! s:delete(range, force)$/;"	f
+s:delete_op	vim/autoload/plug.vim	/^function! s:delete_op(type, ...)$/;"	f
+s:diff	vim/autoload/plug.vim	/^function! s:diff()$/;"	f
+s:dirpath	vim/autoload/plug.vim	/^  function! s:dirpath(path)$/;"	f
+s:disable_credential_helper	vim/autoload/plug.vim	/^function! s:disable_credential_helper()$/;"	f
+s:do	vim/autoload/plug.vim	/^function! s:do(pull, force, todo)$/;"	f
+s:doautocmd	vim/autoload/plug.vim	/^function! s:doautocmd(...)$/;"	f
+s:dobufread	vim/autoload/plug.vim	/^function! s:dobufread(names)$/;"	f
+s:err	vim/autoload/plug.vim	/^function! s:err(msg)$/;"	f
+s:esc	vim/autoload/plug.vim	/^function! s:esc(path)$/;"	f
+s:escrtp	vim/autoload/plug.vim	/^function! s:escrtp(path)$/;"	f
+s:extract_name	vim/autoload/plug.vim	/^function! s:extract_name(str, prefix, suffix)$/;"	f
+s:find_name	vim/autoload/plug.vim	/^function! s:find_name(lnum)$/;"	f
+s:finish	vim/autoload/plug.vim	/^function! s:finish(pull)$/;"	f
+s:finish_bindings	vim/autoload/plug.vim	/^function! s:finish_bindings()$/;"	f
+s:format_git_log	vim/autoload/plug.vim	/^function! s:format_git_log(line)$/;"	f
+s:format_message	vim/autoload/plug.vim	/^function! s:format_message(bullet, name, message)$/;"	f
+s:git_dir	vim/autoload/plug.vim	/^function! s:git_dir(dir) abort$/;"	f
+s:git_local_branch	vim/autoload/plug.vim	/^function! s:git_local_branch(dir) abort$/;"	f
+s:git_origin_branch	vim/autoload/plug.vim	/^function! s:git_origin_branch(spec)$/;"	f
+s:git_origin_url	vim/autoload/plug.vim	/^function! s:git_origin_url(dir) abort$/;"	f
+s:git_revision	vim/autoload/plug.vim	/^function! s:git_revision(dir) abort$/;"	f
+s:git_validate	vim/autoload/plug.vim	/^function! s:git_validate(spec, check_branch)$/;"	f
+s:git_version_requirement	vim/autoload/plug.vim	/^function! s:git_version_requirement(...)$/;"	f
+s:glob	vim/autoload/plug.vim	/^function! s:glob(from, pattern)$/;"	f
+s:glob_dir	vim/autoload/plug.vim	/^function! s:glob_dir(path)$/;"	f
+s:hash_match	vim/autoload/plug.vim	/^function! s:hash_match(a, b)$/;"	f
+s:infer_properties	vim/autoload/plug.vim	/^function! s:infer_properties(name, repo)$/;"	f
+s:install	vim/autoload/plug.vim	/^function! s:install(force, names)$/;"	f
+s:is_local_plug	vim/autoload/plug.vim	/^  function! s:is_local_plug(repo)$/;"	f
+s:is_managed	vim/autoload/plug.vim	/^function! s:is_managed(name)$/;"	f
+s:is_powershell	vim/autoload/plug.vim	/^function! s:is_powershell(shell)$/;"	f
+s:is_preview_window_open	vim/autoload/plug.vim	/^function! s:is_preview_window_open()$/;"	f
+s:is_updated	vim/autoload/plug.vim	/^function! s:is_updated(dir)$/;"	f
+s:is_win	vim/autoload/plug.vim	/^let s:is_win = has('win32')$/;"	v
+s:isabsolute	vim/autoload/plug.vim	/^function! s:isabsolute(dir) abort$/;"	f
+s:job_abort	vim/autoload/plug.vim	/^function! s:job_abort(cancel)$/;"	f
+s:job_cb	vim/autoload/plug.vim	/^function! s:job_cb(fn, job, ch, data)$/;"	f
+s:job_exit_cb	vim/autoload/plug.vim	/^function! s:job_exit_cb(self, data) abort$/;"	f
+s:job_out_cb	vim/autoload/plug.vim	/^function! s:job_out_cb(self, data) abort$/;"	f
+s:last_non_empty_line	vim/autoload/plug.vim	/^function! s:last_non_empty_line(lines)$/;"	f
+s:lastline	vim/autoload/plug.vim	/^function! s:lastline(msg)$/;"	f
+s:lazy	vim/autoload/plug.vim	/^function! s:lazy(plug, opt)$/;"	f
+s:lines	vim/autoload/plug.vim	/^function! s:lines(msg)$/;"	f
+s:load_plugin	vim/autoload/plug.vim	/^function! s:load_plugin(spec)$/;"	f
+s:loaded	vim/autoload/plug.vim	/^let s:loaded = get(s:, 'loaded', {})$/;"	v
+s:loaded_names	vim/autoload/plug.vim	/^function! s:loaded_names()$/;"	f
+s:lod	vim/autoload/plug.vim	/^function! s:lod(names, types, ...)$/;"	f
+s:lod_cmd	vim/autoload/plug.vim	/^  function! s:lod_cmd(cmd, bang, l1, l2, args, mods, names)$/;"	f
+s:lod_cmd	vim/autoload/plug.vim	/^  function! s:lod_cmd(cmd, bang, l1, l2, args, names)$/;"	f
+s:lod_ft	vim/autoload/plug.vim	/^function! s:lod_ft(pat, names)$/;"	f
+s:lod_map	vim/autoload/plug.vim	/^function! s:lod_map(map, names, with_prefix, prefix)$/;"	f
+s:log	vim/autoload/plug.vim	/^function! s:log(bullet, name, lines)$/;"	f
+s:log4	vim/autoload/plug.vim	/^function! s:log4(name, msg)$/;"	f
+s:logpos	vim/autoload/plug.vim	/^function! s:logpos(name)$/;"	f
+s:lpad	vim/autoload/plug.vim	/^function! s:lpad(str, len)$/;"	f
+s:mac_gui	vim/autoload/plug.vim	/^let s:mac_gui = has('gui_macvim') && has('gui_running')$/;"	v
+s:mark_aborted	vim/autoload/plug.vim	/^function! s:mark_aborted(name, message)$/;"	f
+s:me	vim/autoload/plug.vim	/^  let s:me = resolve(expand('<sfile>:p'))$/;"	v
+s:merge_command	vim/autoload/plug.vim	/^function! s:merge_command(spec)$/;"	f
+s:names	vim/autoload/plug.vim	/^function! s:names(...)$/;"	f
+s:new_window	vim/autoload/plug.vim	/^function! s:new_window()$/;"	f
+s:nvim	vim/autoload/plug.vim	/^let s:nvim = has('nvim-0.2') || (has('nvim') && exists('*jobwait') && !s:is_win)$/;"	v
+s:nvim_cb	vim/autoload/plug.vim	/^function! s:nvim_cb(job_id, data, event) dict abort$/;"	f
+s:parse_options	vim/autoload/plug.vim	/^function! s:parse_options(arg)$/;"	f
+s:path	vim/autoload/plug.vim	/^  function! s:path(path)$/;"	f
+s:plug_buf	vim/autoload/plug.vim	/^let s:plug_buf = get(s:, 'plug_buf', -1)$/;"	v
+s:plug_call	vim/autoload/plug.vim	/^  function! s:plug_call(fn, ...)$/;"	f
+s:plug_expand	vim/autoload/plug.vim	/^function! s:plug_expand(fmt)$/;"	f
+s:plug_fnamemodify	vim/autoload/plug.vim	/^function! s:plug_fnamemodify(fname, mods)$/;"	f
+s:plug_getcwd	vim/autoload/plug.vim	/^function! s:plug_getcwd()$/;"	f
+s:plug_src	vim/autoload/plug.vim	/^let s:plug_src = 'https:\/\/github.com\/junegunn\/vim-plug.git'$/;"	v
+s:plug_tab	vim/autoload/plug.vim	/^let s:plug_tab = get(s:, 'plug_tab', -1)$/;"	v
+s:plug_tempname	vim/autoload/plug.vim	/^function! s:plug_tempname()$/;"	f
+s:plug_window_exists	vim/autoload/plug.vim	/^function! s:plug_window_exists()$/;"	f
+s:prepare	vim/autoload/plug.vim	/^function! s:prepare(...)$/;"	f
+s:preview_commit	vim/autoload/plug.vim	/^function! s:preview_commit()$/;"	f
+s:progress_bar	vim/autoload/plug.vim	/^function! s:progress_bar(line, bar, total)$/;"	f
+s:progress_opt	vim/autoload/plug.vim	/^function! s:progress_opt(base)$/;"	f
+s:reap	vim/autoload/plug.vim	/^function! s:reap(name)$/;"	f
+s:regress_bar	vim/autoload/plug.vim	/^function! s:regress_bar()$/;"	f
+s:reload_plugins	vim/autoload/plug.vim	/^function! s:reload_plugins()$/;"	f
+s:remove_rtp	vim/autoload/plug.vim	/^function! s:remove_rtp()$/;"	f
+s:remove_triggers	vim/autoload/plug.vim	/^function! s:remove_triggers(name)$/;"	f
+s:reorg_rtp	vim/autoload/plug.vim	/^function! s:reorg_rtp()$/;"	f
+s:retry	vim/autoload/plug.vim	/^function! s:retry()$/;"	f
+s:revert	vim/autoload/plug.vim	/^function! s:revert()$/;"	f
+s:rm_rf	vim/autoload/plug.vim	/^function! s:rm_rf(dir)$/;"	f
+s:rtp	vim/autoload/plug.vim	/^function! s:rtp(spec)$/;"	f
+s:section	vim/autoload/plug.vim	/^function! s:section(flags)$/;"	f
+s:shellesc_cmd	vim/autoload/plug.vim	/^function! s:shellesc_cmd(arg, script)$/;"	f
+s:shellesc_ps1	vim/autoload/plug.vim	/^function! s:shellesc_ps1(arg)$/;"	f
+s:shellesc_sh	vim/autoload/plug.vim	/^function! s:shellesc_sh(arg)$/;"	f
+s:snapshot	vim/autoload/plug.vim	/^function! s:snapshot(force, ...) abort$/;"	f
+s:source	vim/autoload/plug.vim	/^function! s:source(from, ...)$/;"	f
+s:spawn	vim/autoload/plug.vim	/^function! s:spawn(name, spec, queue, opts)$/;"	f
+s:split_rtp	vim/autoload/plug.vim	/^function! s:split_rtp()$/;"	f
+s:status	vim/autoload/plug.vim	/^function! s:status()$/;"	f
+s:status_load	vim/autoload/plug.vim	/^function! s:status_load(lnum)$/;"	f
+s:status_update	vim/autoload/plug.vim	/^function! s:status_update() range$/;"	f
+s:switch_in	vim/autoload/plug.vim	/^function! s:switch_in()$/;"	f
+s:switch_out	vim/autoload/plug.vim	/^function! s:switch_out(...)$/;"	f
+s:syntax	vim/autoload/plug.vim	/^function! s:syntax()$/;"	f
+s:system	vim/autoload/plug.vim	/^function! s:system(cmd, ...)$/;"	f
+s:system_chomp	vim/autoload/plug.vim	/^function! s:system_chomp(...)$/;"	f
+s:tick	vim/autoload/plug.vim	/^function! s:tick()$/;"	f
+s:to_a	vim/autoload/plug.vim	/^function! s:to_a(v)$/;"	f
+s:to_s	vim/autoload/plug.vim	/^function! s:to_s(v)$/;"	f
+s:triggers	vim/autoload/plug.vim	/^let s:triggers = get(s:, 'triggers', {})$/;"	v
+s:trim	vim/autoload/plug.vim	/^function! s:trim(str)$/;"	f
+s:update	vim/autoload/plug.vim	/^function! s:update(force, names)$/;"	f
+s:update_finish	vim/autoload/plug.vim	/^function! s:update_finish()$/;"	f
+s:update_impl	vim/autoload/plug.vim	/^function! s:update_impl(pull, force, args) abort$/;"	f
+s:update_python	vim/autoload/plug.vim	/^function! s:update_python()$/;"	f
+s:update_ruby	vim/autoload/plug.vim	/^function! s:update_ruby()$/;"	f
+s:update_vim	vim/autoload/plug.vim	/^function! s:update_vim()$/;"	f
+s:upgrade	vim/autoload/plug.vim	/^function! s:upgrade()$/;"	f
+s:upgrade_specs	vim/autoload/plug.vim	/^function! s:upgrade_specs()$/;"	f
+s:version_requirement	vim/autoload/plug.vim	/^function! s:version_requirement(val, min)$/;"	f
+s:vim8	vim/autoload/plug.vim	/^let s:vim8 = has('patch-8.0.0039') && exists('*job_start')$/;"	v
+s:warn	vim/autoload/plug.vim	/^function! s:warn(cmd, msg)$/;"	f
+s:with_cd	vim/autoload/plug.vim	/^function! s:with_cd(cmd, dir, ...)$/;"	f
+s:wrap_cmds	vim/autoload/plug.vim	/^  function! s:wrap_cmds(cmds)$/;"	f
+scrollback	foot/foot.ini	/^[scrollback]$/;"	s
+scrollback	foot/foot.ini	/^pipe-scrollback=[sh -c "tempfile=$(mktemp); cat - > $tempfile; foot -e vim $tempfile; rm $tempfi/;"	k	section:key-bindings
+scrollback	foot/reader.ini	/^[scrollback]$/;"	s
+scrollback	foot/reader.ini	/^pipe-scrollback=[sh -c "tempfile=$(mktemp); cat - > $tempfile; foot -e vim $tempfile; rm $tempfi/;"	k	section:key-bindings
+search-bindings	foot/foot.ini	/^[search-bindings]$/;"	s
+search-bindings	foot/reader.ini	/^[search-bindings]$/;"	s
+shadow	picom/picom.conf	/^shadow = true;$/;"	k
+small_image	vim/vimscence.py	/^    small_image = vim.eval('g:vimsence_small_image')$/;"	v
+small_image	vim/vimscence.py	/^small_image = 'vim'$/;"	v
+small_text	vim/vimscence.py	/^    small_text = vim.eval('g:vimsence_small_text')$/;"	v
+small_text	vim/vimscence.py	/^small_text = 'Vim'$/;"	v
+start_time	vim/vimscence.py	/^start_time = int(time.time())$/;"	v
+stencil	picom/picom.conf	/^glx-no-stencil = true;$/;"	k
+step	picom/picom.conf	/^fade-in-step = 0.03;$/;"	k
+step	picom/picom.conf	/^fade-out-step = 0.03;$/;"	k
+style	foot/foot.ini	/^style=block$/;"	k	section:cursor
+style	foot/reader.ini	/^style=block$/;"	k	section:cursor
+style bg	tmux/tmux.conf	/^set -g status-style bg='#333333',fg='#d1d1d1'$/;"	k
+style bg	tmux/tmux.conf	/^set -g window-status-current-style bg='#800000',fg='#eeeeee',bold$/;"	k
+term	foot/foot.ini	/^term=foot                           # Better for Wayland than forcing 'alacritty'$/;"	k	section:main
+term	foot/reader.ini	/^term=foot                           # Better for Wayland than forcing 'alacritty'$/;"	k	section:main
+there is no real suffering at all, than to not know God	README.md	/^# there is no real suffering at all, than to not know God$/;"	c
+tmux plugin manager (tpm)	README.md	/^### tmux plugin manager (tpm)$/;"	S	chapter:there is no real suffering at all, than to not know God
+typing	foot/foot.ini	/^hide-when-typing=yes$/;"	k	section:mouse
+typing	foot/reader.ini	/^hide-when-typing=yes$/;"	k	section:mouse
+u	vim/vimscence.py	/^import utils as u$/;"	I	nameref:module:utils
+update_presence	vim/vimscence.py	/^def update_presence():$/;"	f
+url	foot/foot.ini	/^[url]$/;"	s
+url	foot/reader.ini	/^[url]$/;"	s
+url-bindings	foot/foot.ini	/^[url-bindings]$/;"	s
+url-bindings	foot/reader.ini	/^[url-bindings]$/;"	s
+vim plugin manager (vim-plug)	README.md	/^### vim plugin manager (vim-plug)$/;"	S	chapter:there is no real suffering at all, than to not know God
+visible	foot/foot.ini	/^toggle-url-visible=Control+Shift+o$/;"	k	section:url-bindings
+visible	foot/reader.ini	/^toggle-url-visible=Control+Shift+o$/;"	k	section:url-bindings
+vsync	picom/picom.conf	/^vsync = true;$/;"	k
+wintypes	picom/picom.conf	/^wintypes:$/;"	k
+x	picom/picom.conf	/^shadow-offset-x = -7;$/;"	k
+y	picom/picom.conf	/^shadow-offset-y = -7;$/;"	k

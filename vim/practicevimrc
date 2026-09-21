@@ -35,9 +35,9 @@ Plug 'dr-kino/cscope-maps'
 Plug 'preservim/tagbar'
 
 " Build and test dispatcher
-Plug 'tpope/vim-dispatch'
+"Plug 'tpope/vim-dispatch'
 " Managing tags
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 
 " Discord presence
 Plug 'vimsence/vimsence'
