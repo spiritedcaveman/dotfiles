@@ -31,6 +31,8 @@ Plug 'voldikss/vim-floaterm'
 Plug 'airblade/vim-gitgutter'
 " Maps shortcuts for cscope
 Plug 'dr-kino/cscope-maps'
+" Browse the tags
+Plug 'preservim/tagbar'
 
 "" fancy themes
 "Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
@@ -186,7 +188,7 @@ let g:mkdp_preview_options = {
 " =============================================================================
 
 " turn on to paste long buffer
-set pastetoggle=<F4>
+set pastetoggle=<F5>
 
 " instantly open FZF
 nnoremap <F3> :FZF<CR>
@@ -196,6 +198,8 @@ nnoremap <F2> :FloatermToggle<CR>
 " Toggle floating terminal from inside the terminal (Terminal mode)
 tnoremap <F2> <C-\><C-n>:FloatermToggle<CR>
 
+" Tagbar
+nmap <F4> :TagbarToggle<CR>
 
 " Automatically search for tags file in parent directories
 set tags=./tags;,tags;
@@ -227,17 +231,6 @@ endif
 " =============================================================================
 " --- Custom Cscope Shortcuts ---
 " =============================================================================
-
-" --- Complete Cscope Query Mappings (Ordered per Menu) ---
-nnoremap \a :cs find a <C-R>=expand("<cword>")<CR><CR>
-nnoremap \c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nnoremap \d :cs find d <C-R>=expand("<cword>")<CR><CR>
-nnoremap \e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nnoremap \f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nnoremap \g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nnoremap \i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nnoremap \s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nnoremap \t :cs find t <C-R>=expand("<cword>")<CR><CR>
 
 " --- Utility Cscope Commands ---
 nnoremap \h :cs help<CR>
