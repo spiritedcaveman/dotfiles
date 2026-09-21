@@ -26,7 +26,8 @@ Plug 'voldikss/vim-floaterm'
 Plug 'airblade/vim-gitgutter'
 " Magic
 Plug 'wincent/command-t'
-
+" Maps shortcuts for cscope
+Plug 'dr-kino/cscope-maps'
 
 " fancy themes
 Plug 'catppuccin/vim', { 'as': 'catppuccin', 'branch': 'main' }
@@ -68,8 +69,6 @@ let g:airline_theme = 'catppuccin_mocha'
 
 set number
 set relativenumber
-set foldcolumn=2   " Show fold column on the left (adjust width 1 to 4)
-set foldmethod=indent " Or syntax, to automatically calculate code folds
 set cursorline
 
 
@@ -179,7 +178,15 @@ let g:mkdp_preview_options = {
 " =============================================================================
 
 " turn on to paste long buffer
-set pastetoggle=<F2>
+set pastetoggle=<F4>
+
+" instantly open FZF
+nnoremap <F3> :FZF<CR>
+
+" Toggle floating terminal from Normal mode
+nnoremap <F2> :FloatermToggle<CR>
+" Toggle floating terminal from inside the terminal (Terminal mode)
+tnoremap <F2> <C-\><C-n>:FloatermToggle<CR>
 
 
 " Automatically search for tags file in parent directories
@@ -211,6 +218,43 @@ if has("cscope")
 endif
 
 
+" =============================================================================
+" --- Custom Cscope Shortcuts ---
+" =============================================================================
+
+" --- Complete Cscope Query Mappings (Ordered per Menu) ---
+nnoremap \a :cs find a <C-R>=expand("<cword>")<CR><CR>
+nnoremap \c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap \d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap \e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap \f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nnoremap \g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap \i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nnoremap \s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap \t :cs find t <C-R>=expand("<cword>")<CR><CR>
+
+" --- Utility Cscope Commands ---
+nnoremap \h :cs help<CR>
+nnoremap \r :cs reset<CR>
+nnoremap \o :cs show<CR>
+
+" #ifdef folding(need more hacks)
+set foldmethod=expr
+set foldexpr=PreprocessorFold(v:lnum)
+
+function! PreprocessorFold(lnum)
+    let line = getline(a:lnum)
+    if line =~# '^\s*#\s*if\(ndef\)\?'
+        return 'a1'
+    elseif line =~# '^\s*#\s*endif'
+        return 's1'
+    endif
+    return '='
+endfunction
+
+set foldcolumn=1   " Show fold column on the left (adjust width 1 to 4)
+"set foldmethod=indent " Or syntax, to automatically calculate code folds
+"set foldtext=foldtext() " Reset foldtext to standard display so text remains untouched
 
 " =============================================================================
 " x86 code reading
