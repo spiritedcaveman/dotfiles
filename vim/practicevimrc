@@ -33,6 +33,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'dr-kino/cscope-maps'
 " Browse the tags
 Plug 'preservim/tagbar'
+" Vimwiki
+Plug 'vimwiki/vimwiki'
+
 
 " Build and test dispatcher
 "Plug 'tpope/vim-dispatch'
@@ -285,6 +288,20 @@ let g:NERDTreeChDirMode = 0
 " make sure Vim isn't auto-changing directory based on the active tab/buffer
 set noautochdir
 
+
+" =============================================================================
+" --- vim wiki ---
+" =============================================================================
+
+
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': 'md'}]
+
+" all markdown files in system as part of vimwiki
+let g:vimwiki_global_ext = 0
+
+" turn off support for other extension
+let g:vimwiki_ext2syntax = {}
 
 
 
