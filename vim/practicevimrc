@@ -294,7 +294,7 @@ set noautochdir
 " =============================================================================
 
 
-let g:vimwiki_list = [{'path': '~/vimwiki/',
+let g:vimwiki_list = [{'path': '~/mnt/WD1TB/DDrive/',
                       \ 'syntax': 'markdown', 'ext': 'md'}]
 
 " all markdown files in system as part of vimwiki
