@@ -35,6 +35,8 @@ input * {
 ### Key bindings
 # Basics:
 bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec kitty --config ~/.config/kitty/kitty.conf
+
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 
