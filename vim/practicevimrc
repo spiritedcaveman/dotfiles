@@ -211,6 +211,10 @@ nnoremap <silent> <leader>m :History<CR>
 " Search through currently open buffers
 nnoremap <silent> <leader>b :Buffers<CR>
 
+" Fucntion calling and getting called Cscope shortcut
+nnoremap <leader>d :cs find d <C-R><C-W><CR>
+nnoremap <leader>c :cs find c <C-R><C-W><CR>
+
 
 " Automatically search for tags file in parent directories
 set tags=./tags;,tags;

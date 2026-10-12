@@ -7,7 +7,10 @@ exec foot --server
 
 
 ### Variables
+# win principal, alt secondary
 set $mod Mod4
+set $mod2 Mod1
+
 set $left h
 set $down j
 set $up k
@@ -40,6 +43,8 @@ bindsym $mod+Shift+Return exec kitty --config ~/.config/kitty/kitty.conf
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 
+bindsym $mod2+f exec MOZ_ENABLE_WAYLAND=1 firefox
+
 # Reload/Exit
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit Sway?' -B 'Yes' 'swaymsg exit'
@@ -67,10 +72,7 @@ bindsym $mod+Shift+Right move right
 ################################################################################
 # 20 workspace fix
 
-# win principal, alt secondary
-set $mod Mod4
-set $mod2 Mod1
-#
+
 # # alt principal, win secondary
 # set $mod Mod1
 # set $mod2 Mod4
