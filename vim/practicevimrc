@@ -35,7 +35,8 @@ Plug 'dr-kino/cscope-maps'
 Plug 'preservim/tagbar'
 " Vimwiki
 Plug 'vimwiki/vimwiki'
-
+" Kernel Coding style
+Plug 'gregkh/kernel-coding-style'
 
 " Build and test dispatcher
 "Plug 'tpope/vim-dispatch'
@@ -115,10 +116,10 @@ highlight ColorColumn ctermbg=234 ctermfg=NONE
 set mouse=a
 set laststatus=2
 
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+"noremap <Up> <Nop>
+"noremap <Down> <Nop>
+"noremap <Left> <Nop>
+"noremap <Right> <Nop>
 
 " Force Vim to render highlights smoothly while scrolling
 set ttyfast
@@ -219,7 +220,10 @@ nnoremap <leader>c :cs find c <C-R><C-W><CR>
 " Automatically search for tags file in parent directories
 set tags=./tags;,tags;
 
-
+"" Linux Kernel Coding Style Configuration
+" Trigger style formatting manually using \lc
+let g:linuxsty_patterns = [ "/home/spiritedcaveman/Documents/kernel/linux-upstream" ]
+nnoremap <silent> <leader>lc :LinuxCodingStyle<cr>
 
 " =============================================================================
 " --- CSCOPE --- 
