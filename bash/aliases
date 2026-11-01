@@ -33,3 +33,6 @@ alias swayimg='WAYLAND_DISPLAY=wayland-1 swayimg'
 
 #reader terminal
 alias reader='foot -c ~/.config/foot/reader.ini -e'
+
+# mail clien
+alias mutt='neomutt'
