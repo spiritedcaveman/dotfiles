@@ -127,6 +127,13 @@ bindsym $mod2+Shift+0 move workspace 20; workspace 20
 
 ################################################################################
 
+# keypress input rate
+input "type:keyboard" {
+    repeat_delay 300
+    repeat_rate 50
+}
+
+
 # Layout & Window Behavior
 bindsym $mod+ctrl+h splith
 bindsym $mod+ctrl+v splitv

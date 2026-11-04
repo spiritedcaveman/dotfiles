@@ -24,8 +24,9 @@ alias nosleep='systemd-inhibit --what=idle:sleep --who="spiritedcaveman" \
 --why="Preventing sleep temporarily" sleep infinity'
 
 alias ..='cd ..'
-alias ker6='cd ~/Documents/kernel/v6-0'
+#alias ker6='cd ~/Documents/kernel/v6-0'
 alias kernel='cd ~/Documents/kernel/linux-upstream'
+alias perf='cd ~/Documents/exercises/perfbook'
 
 # Hardcoded display alias
 alias swayimg='WAYLAND_DISPLAY=wayland-1 swayimg'
@@ -34,5 +35,31 @@ alias swayimg='WAYLAND_DISPLAY=wayland-1 swayimg'
 #reader terminal
 alias reader='foot -c ~/.config/foot/reader.ini -e'
 
-# mail clien
+# mail client
 alias mutt='neomutt'
+
+# sysctl
+alias sysctl='/sbin/sysctl'
+
+
+
+
+
+#######################
+# web
+#######################
+
+# picture on term
+
+alias w3m='w3m -sixel'
+
+W3M_BIN="w3m -sixel"
+
+wmm() {
+    if [ -n "$1" ]; then
+        $W3M_BIN "https://lore.kernel.org/linux-mm/?q=$1"
+    else
+        $W3M_BIN "https://lore.kernel.org/linux-mm/"
+    fi
+}
+

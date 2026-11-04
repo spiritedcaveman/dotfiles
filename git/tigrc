@@ -1,0 +1,72 @@
+# =========================================================================
+# 1. VIEW CONFIGURATION & DEFAULTS FOR KERNEL ENGINE
+# =========================================================================
+# Order commits topologically (hides misleading time stamps from branch rebases)
+set commit-order = topo
+
+# Increase diff context lines so you can see the broader surrounding C code context
+set diff-context = 10
+
+# Configure log options to track renames, copy histories, and always display merges
+set log-options = --cc --stat --follow
+
+# Wrap search around the bottom/top of the screen
+set wrap-search = yes
+
+# Automatically focus on the diff view when you hit Enter on a commit
+set focus-child = yes
+set split-view-height = 70%
+
+# Configure the Blame view columns to be compact but highly descriptive
+set blame-view = date:default author:abbreviated id:yes,color line-number:yes,interval=5 text
+
+# =========================================================================
+# 2. BINDINGS FOR KERNEL SUBMISSIONS & UPSTREAM REVIEW
+# =========================================================================
+
+# --- MM / Linux Filtering Shorthands ---
+# Filter main view instantly to only track mm/ directory changes
+bind generic M !git log --oneline -- mm/
+
+# --- Upstream Tracking & Git Magic ---
+# Copy the current commit SHA to the system clipboard (requires xclip)
+bind generic Y !@sh -c "echo -n %(commit) | xclip -selection clipboard"
+
+# Format the current commit as a clean upstream patch inside the current directory
+bind main    P !git format-patch -1 %(commit)
+
+# Run checkpatch.pl on the selected commit to verify kernel code style compliance
+bind main    K !./scripts/checkpatch.pl --git %(commit)
+
+# Find out what commit introduced a line using git blame on the selected file line
+bind diff    B !git blame -L %(text),+1 %(file)
+
+# Show the exact mailing list thread or lore.kernel.org reference via standard commit notes
+set show-notes = yes
+bind main    N !@sh -c "xdg-open https://kernel.org"
+
+# --- Quick Git Navigation ---
+# Cherry-pick a fix from another subsystem or branch
+bind main    C ?git cherry-pick %(commit)
+
+# Revert a bad MM commit quickly during local debugging
+bind main    R ?git revert %(commit)
+
+## =========================================================================
+## 3. INTERFACE VISUALS (Optimized for deep reading of complex C code)
+## =========================================================================
+#color cursor          white blue bold
+#color title-focus     white blue
+#color date            yellow default
+#color author          cyan default
+#color main-head       magenta default
+#color main-tag        green default bold
+#color main-remote     yellow default
+#
+## Distinct diff coloring to catch line changes instantly
+#color diff-header     yellow default
+#color diff-index      magenta default
+#color diff-chunk      cyan default
+#color diff-add        green default
+#color diff-del        red default
+#

@@ -1,5 +1,3 @@
 # Kernel Feeds
 https://lore.kernel.org/linux-mm/new.atom "Memory Management"
-https://lore.kernel.org/linux-fsdevel/new.atom "FS Devel"
-https://lore.kernel.org/linux-btrfs/new.atom "Btrfs (CoW)"
-https://lore.kernel.org/lkml/new.atom "LKML Firehose"
+https://lwn.net/headlines/newrss "LWN news"

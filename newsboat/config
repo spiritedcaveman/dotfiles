@@ -8,7 +8,7 @@ bind-key G end
 
 # BROWSER (Stay in the terminal)
 # This opens the full patch in w3m when you hit 'o'
-browser "w3m %u"
+browser "xdg-open"
 
 # UI CLEANUP
 show-read-feeds no
