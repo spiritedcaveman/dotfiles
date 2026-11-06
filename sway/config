@@ -31,8 +31,8 @@ output * bg #282A36 solid_color
 input * {
     xkb_layout "us"
     # xkb_variant "colemak"
-    repeat_delay 300
-    repeat_rate 60
+    repeat_delay 313
+    repeat_rate 55
 }
 
 ### Key bindings

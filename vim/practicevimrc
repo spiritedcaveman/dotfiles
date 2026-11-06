@@ -225,6 +225,21 @@ set tags=./tags;,tags;
 let g:linuxsty_patterns = [ "/home/spiritedcaveman/Documents/kernel/linux-upstream" ]
 nnoremap <silent> <leader>lc :LinuxCodingStyle<cr>
 
+
+
+" =============================================================================
+" --- tmux-navigator --- 
+" =============================================================================
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <ctrl-h> :<C-U>TmuxNavigateLeft<cr>
+nnoremap <silent> <ctrl-j> :<C-U>TmuxNavigateDown<cr>
+nnoremap <silent> <ctrl-k> :<C-U>TmuxNavigateUp<cr>
+nnoremap <silent> <ctrl-l> :<C-U>TmuxNavigateRight<cr>
+nnoremap <silent> <ctrl-\> :<C-U>TmuxNavigatePrevious<cr>
+
+
 " =============================================================================
 " --- CSCOPE --- 
 " =============================================================================
