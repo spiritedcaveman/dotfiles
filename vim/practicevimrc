@@ -190,6 +190,12 @@ let g:mkdp_preview_options = {
 " Advanced hacks
 " =============================================================================
 
+" stop doing the <C-z> nonsense
+nnoremap <C-z> <Nop>
+vnoremap <C-z> <Nop>
+inoremap <C-z> <Nop>
+
+
 " turn on to paste long buffer
 set pastetoggle=<F5>
 
@@ -213,8 +219,8 @@ nnoremap <silent> <leader>m :History<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 
 " Fucntion calling and getting called Cscope shortcut
-nnoremap <leader>d :cs find d <C-R><C-W><CR>
-nnoremap <leader>c :cs find c <C-R><C-W><CR>
+" nnoremap <leader>d :cs find d <C-R><C-W><CR>
+" nnoremap <leader>c :cs find c <C-R><C-W><CR>
 
 
 " Automatically search for tags file in parent directories
@@ -244,6 +250,19 @@ nnoremap <silent> <ctrl-\> :<C-U>TmuxNavigatePrevious<cr>
 " --- CSCOPE --- 
 " =============================================================================
 
+"set cscopeprg=gtags-cscope
+"set cscopetag
+"set cscopeverbose
+"set cscopequickfix=s+,c+,d+,i+,t+,e+,a+
+"autocmd QuickFixCmdPost cscope cwindow
+
+if filereadable("GTAGS")
+    cs add GTAGS
+elseif filereadable("../GTAGS")
+    cs add ../GTAGS ..
+elseif filereadable("../../GTAGS")
+    cs add ../../GTAGS ../..
+endif
 
 if has("cscope")
     set cscopetag
@@ -262,6 +281,24 @@ if has("cscope")
     set nocsverb
 endif
 
+if has("cscope")
+    set csprg=gtags-cscope
+    set csto=0
+    set cst
+    set nocsverb
+
+    " Auto-load GTAGS if found in current or parent directories
+    let gtags_file = findfile("GTAGS", ".;")
+    if !empty(gtags_file)
+        execute "cs add " . gtags_file
+    endif
+    set csverb
+
+    " Update GTAGS incrementally in the background on file save
+    autocmd BufWritePost *.c,*.h silent! !global -u &
+endif
+
+
 " =============================================================================
 " --- Custom Cscope Shortcuts ---
 " =============================================================================
@@ -270,6 +307,22 @@ endif
 nnoremap \h :cs help<CR>
 nnoremap \r :cs reset<CR>
 nnoremap \o :cs show<CR>
+
+
+" --- Symbol / Reference / Caller / File Queries ---
+nnoremap <leader>cs :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>cd :cs find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <leader>ci :cs find i <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <leader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>
+
+" --- Split variants (open result in horizontal split) ---
+nnoremap <leader>ss :scs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>sg :scs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>sc :scs find c <C-R>=expand("<cword>")<CR><CR>
+
 
 " #ifdef folding(need more hacks)
 set foldmethod=expr
