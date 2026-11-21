@@ -39,9 +39,13 @@ Plug 'vimwiki/vimwiki'
 Plug 'gregkh/kernel-coding-style'
 
 " Build and test dispatcher
-"Plug 'tpope/vim-dispatch'
+" Plug 'tpope/vim-dispatch'
+"
 " Managing tags
-"Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags'
+
+" Alternative (or addition) to ctags and cscopse.
+Plug 'eranfrie/gitgrep.vim'
 
 " Discord presence
 Plug 'vimsence/vimsence'
@@ -246,56 +250,46 @@ nnoremap <silent> <ctrl-l> :<C-U>TmuxNavigateRight<cr>
 nnoremap <silent> <ctrl-\> :<C-U>TmuxNavigatePrevious<cr>
 
 
-" =============================================================================
-" --- CSCOPE --- 
-" =============================================================================
 
-"set cscopeprg=gtags-cscope
-"set cscopetag
-"set cscopeverbose
-"set cscopequickfix=s+,c+,d+,i+,t+,e+,a+
-"autocmd QuickFixCmdPost cscope cwindow
-
-if filereadable("GTAGS")
-    cs add GTAGS
-elseif filereadable("../GTAGS")
-    cs add ../GTAGS ..
-elseif filereadable("../../GTAGS")
-    cs add ../../GTAGS ../..
-endif
+" =============================================================================
+" --- CSCOPE ---
+" =============================================================================
 
 if has("cscope")
-    set cscopetag
-    set cscopeprg=cscope
+        set cscopetag
+        set cscopequickfix=
+        set csto=0 cst nocsverb
 
-    " Walk up directories to find cscope.out in kernel root
-    let s:cscope_file = findfile("cscope.out", ".;")
-    if !empty(s:cscope_file)
-        silent execute "cs add" . fnameescape(s:cscope_file)
-    elseif $CSCOPE_DB != ""
-        silent cs add $CSCOPE_DB
-    endif
+        function! s:AddDB(db_file, prg)
+                let l:root = fnamemodify(a:db_file, ":h")
+                if empty(l:root) | let l:root = "." | endif
+                let &cscopeprg = a:prg
+                let l:cmd = "cs add " . fnameescape(a:db_file)
+                let l:cmd .= " " . fnameescape(l:root)
+                silent execute l:cmd
+        endfunction
 
-    set csto=0
-    set cst
-    set nocsverb
-endif
+        function! s:AttachDB()
+                if !empty(cscope_connection()) | return | endif
 
-if has("cscope")
-    set csprg=gtags-cscope
-    set csto=0
-    set cst
-    set nocsverb
+                let l:g = findfile("GTAGS", ".;")
+                if !empty(l:g) && executable("gtags-cscope")
+                        call s:AddDB(l:g, "gtags-cscope")
+                        return
+                endif
 
-    " Auto-load GTAGS if found in current or parent directories
-    let gtags_file = findfile("GTAGS", ".;")
-    if !empty(gtags_file)
-        execute "cs add " . gtags_file
-    endif
-    set csverb
+                let l:c = findfile("cscope.out", ".;")
+                if !empty(l:c) && executable("cscope")
+                        call s:AddDB(l:c, "cscope")
+                endif
+        endfunction
 
-    " Update GTAGS incrementally in the background on file save
-    autocmd BufWritePost *.c,*.h silent! !global -u &
+        augroup KernelDB
+                autocmd!
+                autocmd VimEnter,BufEnter * call s:AttachDB()
+        augroup END
+
+        set csverb
 endif
 
 
@@ -322,7 +316,10 @@ nnoremap <leader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>ss :scs find s <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>sg :scs find g <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>sc :scs find c <C-R>=expand("<cword>")<CR><CR>
-
+nnoremap <leader>sd :scs find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>sf :scs find f <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <leader>si :scs find i <C-R>=expand("<cfile>")<CR><CR>
+nnoremap <leader>se :scs find e <C-R>=expand("<cword>")<CR><CR>
 
 " #ifdef folding(need more hacks)
 set foldmethod=expr

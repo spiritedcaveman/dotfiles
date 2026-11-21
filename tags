@@ -32,6 +32,7 @@ DEBUG_CFLAGS	system-configs/pacman/makepkg.conf	/^DEBUG_CFLAGS="-g"$/;"	k
 DEBUG_CXXFLAGS	system-configs/pacman/makepkg.conf	/^DEBUG_CXXFLAGS="$DEBUG_CFLAGS"$/;"	k
 DLAGENTS	system-configs/pacman/makepkg.conf	/^DLAGENTS=('file::\/usr\/bin\/curl -qgC - -o %o %u'$/;"	k
 DOC_DIRS	system-configs/pacman/makepkg.conf	/^DOC_DIRS=(usr\/{,local\/}{,share\/}{doc,gtk-doc})$/;"	k
+DOWN	endcord/config.ini	/^S-DOWN = "t"$/;"	k	section:command_bindings
 DownloadUser	system-configs/pacman/pacman.conf	/^DownloadUser = alpm$/;"	k	section:options
 HoldPkg	system-configs/pacman/pacman.conf	/^HoldPkg     = pacman glibc$/;"	k	section:options
 I	tmux/tmux.conf	/^set -g window-status-current-format " #I:#W#F "$/;"	k
@@ -42,6 +43,7 @@ Include	system-configs/pacman/pacman.conf	/^Include = \/etc\/pacman.d\/mirrorlis
 L	vim/autoload/plug.vim	/^    nnoremap <silent> <buffer> L :call <SID>status_load(line('.'))<cr>$/;"	m
 L	vim/autoload/plug.vim	/^    xnoremap <silent> <buffer> L :call <SID>status_load(line('.'))<cr>$/;"	m
 LDFLAGS	system-configs/pacman/makepkg.conf	/^LDFLAGS="-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \\$/;"	k
+LEFT	endcord/config.ini	/^M-LEFT = "s"$/;"	k	section:command_bindings
 LIB_DIRS	system-configs/pacman/makepkg.conf	/^LIB_DIRS=('lib:usr\/lib' 'lib32:usr\/lib32')$/;"	k
 LTOFLAGS	system-configs/pacman/makepkg.conf	/^LTOFLAGS="-flto=auto"$/;"	k
 LocalFileSigLevel	system-configs/pacman/pacman.conf	/^LocalFileSigLevel = Optional$/;"	k	section:options
@@ -61,6 +63,7 @@ PlugStatus	vim/autoload/plug.vim	/^  command! -nargs=0 -bar PlugStatus  call s:s
 PlugUpdate	vim/autoload/plug.vim	/^  command! -nargs=* -bar -bang -complete=customlist,s:names PlugUpdate  call s:update(<bang>0, [/;"	c
 PlugUpgrade	vim/autoload/plug.vim	/^  command! -nargs=0 -bar PlugUpgrade if s:upgrade() | execute 'source' s:esc(s:me) | endif$/;"	c
 R	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> R  :call <SID>retry()<cr>$/;"	m
+RIGHT	endcord/config.ini	/^M-RIGHT = "s"$/;"	k	section:command_bindings
 S	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> S  :PlugStatus<cr>$/;"	m
 SRCEXT	system-configs/pacman/makepkg.conf	/^SRCEXT='.src.tar.gz'$/;"	k
 STRIP_BINARIES	system-configs/pacman/makepkg.conf	/^STRIP_BINARIES="--strip-all"$/;"	k
@@ -72,12 +75,26 @@ Server role	system-configs/samba/smb.conf	/^Server role: ROLE_STANDALONE$/;"	k
 SigLevel	system-configs/pacman/pacman.conf	/^SigLevel    = Required DatabaseOptional$/;"	k	section:options
 U	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> U  :call <SID>status_update()<cr>$/;"	m
 U	vim/autoload/plug.vim	/^  xnoremap <silent> <buffer> U  :call <SID>status_update()<cr>$/;"	m
+UP	endcord/config.ini	/^S-UP = "t"$/;"	k	section:command_bindings
 VCSCLIENTS	system-configs/pacman/makepkg.conf	/^VCSCLIENTS=('bzr::breezy'$/;"	k
 WD1TB	system-configs/samba/smb.conf	/^[WD1TB]$/;"	s
 X	vim/autoload/plug.vim	/^    nnoremap <silent> <buffer> X :call <SID>revert()<cr>$/;"	m
 [[	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> [[ :silent! call <SID>section('b')<cr>$/;"	m
 ]]	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> ]] :silent! call <SID>section('')<cr>$/;"	m
+ack_throttling	endcord/config.ini	/^ack_throttling = 5$/;"	k	section:main
+activity_icons	endcord/config.ini	/^activity_icons = "🎮︎📺︎♪📺︎🎮︎"$/;"	k	section:theme
+add_reaction	endcord/config.ini	/^add_reaction = "M-r"$/;"	k	section:keybindings
 adversity is a privilege	README.md	/^## adversity is a privilege$/;"	s	chapter:there is no real suffering at all, than to not know God
+app_string	endcord/config.ini	/^app_string = "- (%app) "$/;"	k	section:theme
+aspell_lang	endcord/config.ini	/^aspell_lang = "en_US"$/;"	k	section:main
+aspell_mode	endcord/config.ini	/^aspell_mode = "normal"$/;"	k	section:main
+assist	endcord/config.ini	/^assist = True$/;"	k	section:main
+assist_limit	endcord/config.ini	/^assist_limit = 50$/;"	k	section:main
+assist_score_cutoff	endcord/config.ini	/^assist_score_cutoff = 15$/;"	k	section:main
+assist_skip_app_command	endcord/config.ini	/^assist_skip_app_command = False$/;"	k	section:main
+assist_swap_binding	endcord/config.ini	/^assist_swap_binding = True$/;"	k	section:main
+attach_next	endcord/config.ini	/^attach_next = "M-."$/;"	k	section:keybindings
+attach_prev	endcord/config.ini	/^attach_prev = "M-,"$/;"	k	section:keybindings
 aware	foot/foot.ini	/^dpi-aware=no                        # Fixes the "massive font" scaling issue$/;"	k	section:main
 aware	foot/reader.ini	/^dpi-aware=no                        # Fixes the "massive font" scaling issue$/;"	k	section:main
 backend	picom/picom.conf	/^backend = "glx";$/;"	k
@@ -86,30 +103,139 @@ background	foot/reader.ini	/^background=1a1b26$/;"	k	section:colors
 base_activity	vim/vimscence.py	/^base_activity = {$/;"	v
 blink	foot/foot.ini	/^blink=yes$/;"	k	section:cursor
 blink	foot/reader.ini	/^blink=yes$/;"	k	section:cursor
+blocked_mode	endcord/config.ini	/^blocked_mode = 2$/;"	k	section:main
+border_corners	endcord/config.ini	/^border_corners = "╭╰╮╯"$/;"	k	section:theme
+browser	endcord/config.ini	/^browser = "C-o"$/;"	k	section:keybindings
+cache_typed	endcord/config.ini	/^cache_typed = True$/;"	k	section:main
+call_fast_mixer	endcord/config.ini	/^call_fast_mixer = False$/;"	k	section:main
+call_mic_noise_suppression	endcord/config.ini	/^call_mic_noise_suppression = False$/;"	k	section:main
+call_opus_mode	endcord/config.ini	/^call_opus_mode = "voip"$/;"	k	section:main
+call_silence_threshold	endcord/config.ini	/^call_silence_threshold = -30$/;"	k	section:main
+calls	endcord/config.ini	/^calls = True$/;"	k	section:main
+cancel	endcord/config.ini	/^cancel = "C-x"$/;"	k	section:keybindings
+capabilities	endcord/config.ini	/^capabilities = None$/;"	k	section:main
 capslock	keyd/default.conf	/^capslock = overload(control, esc)$/;"	k	section:main
+channel_info	endcord/config.ini	/^channel_info = "M-i"$/;"	k	section:keybindings
+chat_date_separator	endcord/config.ini	/^chat_date_separator = "─"$/;"	k	section:theme
+chat_down	endcord/config.ini	/^chat_down = "DOWN"$/;"	k	section:keybindings
+chat_up	endcord/config.ini	/^chat_up = "UP"$/;"	k	section:keybindings
+check_for_updates	endcord/config.ini	/^check_for_updates = 1$/;"	k	section:main
+check_update_interval	endcord/config.ini	/^check_update_interval = 1$/;"	k	section:main
 client_id	vim/vimscence.py	/^    client_id = vim.eval('g:vimsence_client_id')$/;"	v
 client_id	vim/vimscence.py	/^client_id = '439476230543245312'$/;"	v
+client_properties	endcord/config.ini	/^client_properties = "default"$/;"	k	section:main
 colemak:main	keyd/default.conf	/^[colemak:main]$/;"	s
+color_chat_blocked	endcord/config.ini	/^color_chat_blocked = [242, -1]$/;"	k	section:theme
+color_chat_code	endcord/config.ini	/^color_chat_code = [253, 233]$/;"	k	section:theme
+color_chat_deleted	endcord/config.ini	/^color_chat_deleted = [95, -1]$/;"	k	section:theme
+color_chat_edited	endcord/config.ini	/^color_chat_edited = [241, -1]$/;"	k	section:theme
+color_chat_mention	endcord/config.ini	/^color_chat_mention = [-2, 234]$/;"	k	section:theme
+color_chat_pending	endcord/config.ini	/^color_chat_pending = [242, -1]$/;"	k	section:theme
+color_chat_selected	endcord/config.ini	/^color_chat_selected = [233, 255]$/;"	k	section:theme
+color_chat_separator	endcord/config.ini	/^color_chat_separator = [242, -1, 'i']$/;"	k	section:theme
+color_chat_spoiler	endcord/config.ini	/^color_chat_spoiler = [239, 239]$/;"	k	section:theme
+color_chat_standout	endcord/config.ini	/^color_chat_standout = [153, 234]$/;"	k	section:theme
+color_chat_url	endcord/config.ini	/^color_chat_url = [153, -1, 'u']$/;"	k	section:theme
+color_cursor	endcord/config.ini	/^color_cursor = [233, 255]$/;"	k	section:theme
+color_default	endcord/config.ini	/^color_default = [-1, -1]$/;"	k	section:theme
+color_extra_line	endcord/config.ini	/^color_extra_line = [233, 245]$/;"	k	section:theme
+color_extra_window	endcord/config.ini	/^color_extra_window = [-1, -1]$/;"	k	section:theme
+color_extra_window_low	endcord/config.ini	/^color_extra_window_low = [245, -1]$/;"	k	section:theme
+color_extra_window_standout	endcord/config.ini	/^color_extra_window_standout = [153, -1]$/;"	k	section:theme
+color_format_forum	endcord/config.ini	/^color_format_forum = [[-1, -1], [242, -2, 0, 0, 12], [25, -2, 0, 15, 20]]$/;"	k	section:theme
+color_format_interaction	endcord/config.ini	/^color_format_interaction = [[245, -1], [242, -2, 0, 1, 5]]$/;"	k	section:theme
+color_format_message	endcord/config.ini	/^color_format_message = [[-1, -1], [242, -2, 0, 0, 7], [25, -2, 0, 8, 9], [25, -2, 0, 19, 20]]$/;"	k	section:theme
+color_format_message_grouped	endcord/config.ini	/^color_format_message_grouped = [[-1, -1], [242, -2, 0, 1, 2]]$/;"	k	section:theme
+color_format_newline	endcord/config.ini	/^color_format_newline = [[-1, -1], [242, -2, 0, 1, 2]]$/;"	k	section:theme
+color_format_reactions	endcord/config.ini	/^color_format_reactions = [[245, -1], [242, -2, 0, 1, 5]]$/;"	k	section:theme
+color_format_reply	endcord/config.ini	/^color_format_reply = [[245, -1], [242, -2, 0, 1, 5], [25, -2, 0, 14, 15], [25, -2, 0, 25, 26]]$/;"	k	section:theme
+color_green	endcord/config.ini	/^color_green = [46, -1]$/;"	k	section:theme
+color_input_line	endcord/config.ini	/^color_input_line = [255, -1]$/;"	k	section:theme
+color_misspelled	endcord/config.ini	/^color_misspelled = [222, -1]$/;"	k	section:theme
+color_orange	endcord/config.ini	/^color_orange = [208, -1]$/;"	k	section:theme
+color_prompt	endcord/config.ini	/^color_prompt = [255, -1]$/;"	k	section:theme
+color_red	endcord/config.ini	/^color_red = [196, -1]$/;"	k	section:theme
+color_scrollbar	endcord/config.ini	/^color_scrollbar = [-1, -1]$/;"	k	section:theme
+color_status_line	endcord/config.ini	/^color_status_line = [233, 255]$/;"	k	section:theme
+color_subtitle_line	endcord/config.ini	/^color_subtitle_line = [245, -1]$/;"	k	section:theme
+color_title_line	endcord/config.ini	/^color_title_line = [233, 255]$/;"	k	section:theme
+color_tree_active	endcord/config.ini	/^color_tree_active = [255, 234]$/;"	k	section:theme
+color_tree_active_mentioned	endcord/config.ini	/^color_tree_active_mentioned = [197, 234]$/;"	k	section:theme
+color_tree_category	endcord/config.ini	/^color_tree_category = [153, -1]$/;"	k	section:theme
+color_tree_default	endcord/config.ini	/^color_tree_default = [255, -1]$/;"	k	section:theme
+color_tree_mentioned	endcord/config.ini	/^color_tree_mentioned = [197, -1]$/;"	k	section:theme
+color_tree_muted	endcord/config.ini	/^color_tree_muted = [242, -1]$/;"	k	section:theme
+color_tree_selected	endcord/config.ini	/^color_tree_selected = [233, 255]$/;"	k	section:theme
+color_tree_selected_mentioned	endcord/config.ini	/^color_tree_selected_mentioned = [124, 255]$/;"	k	section:theme
+color_tree_server	endcord/config.ini	/^color_tree_server = [153, -1]$/;"	k	section:theme
+color_tree_unseen	endcord/config.ini	/^color_tree_unseen = [-2, -2, 'b']$/;"	k	section:theme
 colors	foot/foot.ini	/^[colors]$/;"	s
 colors	foot/reader.ini	/^[colors]$/;"	s
+command_bindings	endcord/config.ini	/^[command_bindings]$/;"	s
+command_palette	endcord/config.ini	/^command_palette = "C-\/"$/;"	k	section:keybindings
+compact	endcord/config.ini	/^compact = False$/;"	k	section:theme
 config	vim/vimscence.py	/^    config = json.load(config_file)$/;"	v
+convert_timezone	endcord/config.ini	/^convert_timezone = True$/;"	k	section:main
+copy	endcord/config.ini	/^copy = "M-c"$/;"	k	section:keybindings
+copy_channel_link	endcord/config.ini	/^copy_channel_link = "M-u"$/;"	k	section:keybindings
+copy_message_link	endcord/config.ini	/^copy_message_link = "M-u"$/;"	k	section:keybindings
 core	system-configs/pacman/pacman.conf	/^[core]$/;"	s
 cursor	foot/foot.ini	/^[cursor]$/;"	s
 cursor	foot/reader.ini	/^[cursor]$/;"	s
+cursor_bar	endcord/config.ini	/^cursor_bar = True$/;"	k	section:main
+cursor_off_time	endcord/config.ini	/^cursor_off_time = 0.5$/;"	k	section:main
+cursor_on_time	endcord/config.ini	/^cursor_on_time = 0.7$/;"	k	section:main
+custom_host	endcord/config.ini	/^custom_host = None$/;"	k	section:main
 custom_icons	vim/vimscence.py	/^    custom_icons = vim.eval('g:vimsence_custom_icons')$/;"	v
+custom_media_blacklist	endcord/config.ini	/^custom_media_blacklist = None$/;"	k	section:main
+custom_media_hint	endcord/config.ini	/^custom_media_hint = False$/;"	k	section:main
+custom_media_player	endcord/config.ini	/^custom_media_player = None$/;"	k	section:main
+custom_media_terminal	endcord/config.ini	/^custom_media_terminal = False$/;"	k	section:main
+custom_notification_sound	endcord/config.ini	/^custom_notification_sound = None$/;"	k	section:main
+custom_ringtone_incoming	endcord/config.ini	/^custom_ringtone_incoming = None$/;"	k	section:main
+custom_ringtone_outgoing	endcord/config.ini	/^custom_ringtone_outgoing = None$/;"	k	section:main
+custom_user_agent	endcord/config.ini	/^custom_user_agent = None$/;"	k	section:main
+cut	endcord/config.ini	/^cut = "M-x"$/;"	k	section:keybindings
+cycle_status	endcord/config.ini	/^cycle_status = "M-d"$/;"	k	section:keybindings
 d	vim/autoload/plug.vim	/^      nnoremap <silent> <buffer> d :set opfunc=<sid>delete_op<cr>g@$/;"	m
 d	vim/autoload/plug.vim	/^      xnoremap <silent> <buffer> d :<c-u>call <sid>delete_op(visualmode(), 1)<cr>$/;"	m
 damage	picom/picom.conf	/^use-damage = true;$/;"	k
 dbe	picom/picom.conf	/^dbe = false;$/;"	k
 dd	vim/autoload/plug.vim	/^      nmap     <silent> <buffer> dd d_$/;"	m
+debug	endcord/config.ini	/^debug = False$/;"	k	section:main
 default	sway/sway-portals.conf	/^default=gtk$/;"	k	section:preferred
+default_stickers	endcord/config.ini	/^default_stickers = True$/;"	k	section:main
+delete	endcord/config.ini	/^delete = "C-d"$/;"	k	section:keybindings
+delete_word	endcord/config.ini	/^delete_word = "C-BACKSPACE"$/;"	k	section:keybindings
+delete_word_forward	endcord/config.ini	/^delete_word_forward = "C-DEL"$/;"	k	section:keybindings
 delta	picom/picom.conf	/^fade-delta = 4;$/;"	k
+desktop_notifications	endcord/config.ini	/^desktop_notifications = True$/;"	k	section:main
 disconnect	vim/vimscence.py	/^def disconnect():$/;"	f
+do_not_turn_off	endcord/config.ini	/^do_not_turn_off = True$/;"	k	section:main
+download	endcord/config.ini	/^download = "C-l"$/;"	k	section:keybindings
+download_msg	endcord/config.ini	/^download_msg = 25$/;"	k	section:main
+downloads_path	endcord/config.ini	/^downloads_path = None$/;"	k	section:main
+draw_scrollbar	endcord/config.ini	/^draw_scrollbar = True$/;"	k	section:main
 dvorak:main	keyd/default.conf	/^[dvorak:main]$/;"	s
+dynamic_name_len	endcord/config.ini	/^dynamic_name_len = True$/;"	k	section:theme
+easter_eggs	endcord/config.ini	/^easter_eggs = True$/;"	k	section:main
+edit	endcord/config.ini	/^edit = "C-e"$/;"	k	section:keybindings
+edited_string	endcord/config.ini	/^edited_string = "(edited)"$/;"	k	section:theme
+emoji_as_text	endcord/config.ini	/^emoji_as_text = False$/;"	k	section:main
+end_left	endcord/config.ini	/^end_left = "HOME"$/;"	k	section:keybindings
+end_right	endcord/config.ini	/^end_right = "END"$/;"	k	section:keybindings
 esc	keyd/default.conf	/^esc = capslock$/;"	k	section:main
 exclude	picom/picom.conf	/^focus-exclude = [ "class_g = 'Cairo-clock'" ];$/;"	k
 exclude	picom/picom.conf	/^shadow-exclude = [$/;"	k
+extend	foot/foot.ini	/^select-extend=BTN_LEFT-5 # select-extend=BTN_RIGHT$/;"	k	section:mouse-bindings
+extensions	endcord/config.ini	/^extensions = True$/;"	k	section:main
+external_editor	endcord/config.ini	/^external_editor = Vim$/;"	k	section:main
 extra	system-configs/pacman/pacman.conf	/^[extra]$/;"	s
+extra_down	endcord/config.ini	/^extra_down = "M-DOWN"$/;"	k	section:keybindings
+extra_line_delay	endcord/config.ini	/^extra_line_delay = 5$/;"	k	section:main
+extra_select	endcord/config.ini	/^extra_select = "M-ENTER"$/;"	k	section:keybindings
+extra_up	endcord/config.ini	/^extra_up = "M-UP"$/;"	k	section:keybindings
+extra_window_height	endcord/config.ini	/^extra_window_height = 6$/;"	k	section:theme
 f10	keyd/default.conf	/^f10 = toggle(dvorak)$/;"	k	section:main
 f2	keyd/default.conf	/^f2 = volumedown$/;"	k	section:media
 f3	keyd/default.conf	/^f3 = volumeup$/;"	k	section:media
@@ -118,13 +244,36 @@ f6	keyd/default.conf	/^f6 = brightnessdown$/;"	k	section:media
 f7	keyd/default.conf	/^f7 = brightnessup$/;"	k	section:media
 f8	keyd/default.conf	/^f8 = toggle(colemak)$/;"	k	section:main
 fading	picom/picom.conf	/^fading = true;$/;"	k
+fallback_keybinding_parser	endcord/config.ini	/^fallback_keybinding_parser = False$/;"	k	section:main
 file_explorer_names	vim/vimscence.py	/^file_explorer_names = [$/;"	v
 file_explorers	vim/vimscence.py	/^file_explorers = [$/;"	v
 filetypedetect	vim/autoload/plug.vim	/^        augroup filetypedetect$/;"	a
-font	foot/foot.ini	/^font=Iosevka Term:size=17.5$/;"	k
+font	foot/foot.ini	/^font=Iosevka Term:style=Medium:size=17.5:antialias=true:autohint=true, Symbols Nerd Font:size=17/;"	k
 font	foot/reader.ini	/^font=Ubuntu Mono:size=17.5$/;"	k
 foreground	foot/foot.ini	/^foreground=c0caf5$/;"	k	section:colors
 foreground	foot/reader.ini	/^foreground=c0caf5$/;"	k	section:colors
+format_date	endcord/config.ini	/^format_date = " %B %d, %Y "$/;"	k	section:theme
+format_forum	endcord/config.ini	/^format_forum = "[%timestamp] - <%msg_count> - %thread_name"$/;"	k	section:theme
+format_forum_timestamp	endcord/config.ini	/^format_forum_timestamp = "%Y-%m-%d"$/;"	k	section:theme
+format_interaction	endcord/config.ini	/^format_interaction = " ╭──⤙ %global_name used [%command]"$/;"	k	section:theme
+format_message	endcord/config.ini	/^format_message = "[%timestamp] <%global_name> %app%edited\\n%content"$/;"	k	section:theme
+format_message_grouped	endcord/config.ini	/^format_message_grouped = " ├  %content %edited"$/;"	k	section:theme
+format_newline	endcord/config.ini	/^format_newline = " │  %content"$/;"	k	section:theme
+format_one_reaction	endcord/config.ini	/^format_one_reaction = "[%count:%reaction]"$/;"	k	section:theme
+format_prompt	endcord/config.ini	/^format_prompt = "[%channel] > "$/;"	k	section:theme
+format_reactions	endcord/config.ini	/^format_reactions = " ╰──⤙ %reactions"$/;"	k	section:theme
+format_reactions_newline	endcord/config.ini	/^format_reactions_newline = "      %reactions"$/;"	k	section:theme
+format_reply	endcord/config.ini	/^format_reply = " ╭──🡲 [%timestamp] <%global_name>: %content"$/;"	k	section:theme
+format_rich	endcord/config.ini	/^format_rich = "%type %name - %state - %details"$/;"	k	section:theme
+format_search_message	endcord/config.ini	/^format_search_message = "%channel: [%date] <%global_name> | %content"$/;"	k	section:theme
+format_status_line_l	endcord/config.ini	/^format_status_line_l = " ⠀%status_dot %nick %warn_state %unreads %action %typing"$/;"	k	section:theme
+format_status_line_r	endcord/config.ini	/^format_status_line_r = "%vim_mode %slowmode"$/;"	k	section:theme
+format_subtitle_line	endcord/config.ini	/^format_subtitle_line = "─%tabs"$/;"	k	section:theme
+format_tabs	endcord/config.ini	/^format_tabs = "%name"$/;"	k	section:theme
+format_timestamp	endcord/config.ini	/^format_timestamp = "%H:%M"$/;"	k	section:theme
+format_title_line_l	endcord/config.ini	/^format_title_line_l = " %server: %channel_no_tab"$/;"	k	section:theme
+format_title_line_r	endcord/config.ini	/^format_title_line_r = None$/;"	k	section:theme
+format_title_tree	endcord/config.ini	/^format_title_tree = " %app_name  %task"$/;"	k	section:theme
 front	picom/picom.conf	/^glx-copy-from-front = false;$/;"	k
 g:_plug_bang	vim/autoload/plug.vim	/^    let g:_plug_bang = (s:is_win && has('gui_running') ? 'silent ' : '').'!'.escape(cmd, '#!%')$/;"	v
 g:loaded_plug	vim/autoload/plug.vim	/^let g:loaded_plug = 1$/;"	v
@@ -133,48 +282,114 @@ g:plugs	vim/autoload/plug.vim	/^    let g:plugs[name] = spec$/;"	v
 g:plugs	vim/autoload/plug.vim	/^  let g:plugs = {}$/;"	v
 g:plugs_order	vim/autoload/plug.vim	/^  let g:plugs_order = []$/;"	v
 g:plugs_order	vim/autoload/plug.vim	/^  let g:plugs_order = get(g:, 'plugs_order', keys(g:plugs))$/;"	v
+game_detection	endcord/config.ini	/^game_detection = True$/;"	k	section:main
+game_detection_download_delay	endcord/config.ini	/^game_detection_download_delay = 7$/;"	k	section:main
 get_directory	vim/vimscence.py	/^def get_directory():$/;"	f
 get_extension	vim/vimscence.py	/^def get_extension():$/;"	f
 get_filename	vim/vimscence.py	/^def get_filename():$/;"	f
 get_filetype	vim/vimscence.py	/^def get_filetype():$/;"	f
+gif_download_type	endcord/config.ini	/^gif_download_type = 1$/;"	k	section:main
 global	system-configs/samba/smb.conf	/^[global]$/;"	s
+go_replied	endcord/config.ini	/^go_replied = "C-g"$/;"	k	section:keybindings
 has_thumbnail	vim/vimscence.py	/^    has_thumbnail = list(set(has_thumbnail + list(custom_icons.values())))$/;"	v
 has_thumbnail	vim/vimscence.py	/^has_thumbnail = [item['name'] for item in config['filetypes']]$/;"	v
+hide_spam	endcord/config.ini	/^hide_spam = True$/;"	k	section:main
 homes	system-configs/samba/smb.conf	/^[homes]$/;"	s
+idle_timeout	endcord/config.ini	/^idle_timeout = 2$/;"	k	section:main
 ids	keyd/default.conf	/^[ids]$/;"	s
 ignored_directories	vim/vimscence.py	/^ignored_directories = -1$/;"	v
 ignored_file_types	vim/vimscence.py	/^ignored_file_types = -1$/;"	v
+inline_media	endcord/config.ini	/^inline_media = True$/;"	k	section:main
+inline_media_height	endcord/config.ini	/^inline_media_height = 14$/;"	k	section:main
+inline_media_quality	endcord/config.ini	/^inline_media_quality = "low"$/;"	k	section:main
+input_left	endcord/config.ini	/^input_left = "LEFT"$/;"	k	section:keybindings
+input_right	endcord/config.ini	/^input_right = "RIGHT"$/;"	k	section:keybindings
+insert_newline	endcord/config.ini	/^insert_newline = "C-n"$/;"	k	section:keybindings
 is_writable	vim/vimscence.py	/^def is_writable():$/;"	f
+k	endcord/config.ini	/^C-k = "c"$/;"	k	section:command_bindings
+keep_deleted	endcord/config.ini	/^keep_deleted = False$/;"	k	section:main
 key-bindings	foot/foot.ini	/^[key-bindings]$/;"	s
 key-bindings	foot/reader.ini	/^[key-bindings]$/;"	s
+keybindings	endcord/config.ini	/^[keybindings]$/;"	s
 launch	foot/foot.ini	/^launch=xdg-open ${url}$/;"	k	section:url
+launch	foot/foot.ini	/^show-urls-launch=Control+Shift+j$/;"	k	section:key-bindings
 launch	foot/reader.ini	/^launch=xdg-open ${url}$/;"	k	section:url
 left	foot/foot.ini	/^cursor-left=Control+b$/;"	k	section:search-bindings
 left	foot/reader.ini	/^cursor-left=Control+b$/;"	k	section:search-bindings
 letters	foot/foot.ini	/^label-letters=sadfjklewcmpgh$/;"	k	section:url
 letters	foot/reader.ini	/^label-letters=sadfjklewcmpgh$/;"	k	section:url
-lines	foot/foot.ini	/^lines=7000                          # Matches 7k history limit$/;"	k	section:scrollback
+limit_cache_deleted	endcord/config.ini	/^limit_cache_deleted = 30$/;"	k	section:main
+limit_channel_cache	endcord/config.ini	/^limit_channel_cache = 10$/;"	k	section:main
+limit_channel_name	endcord/config.ini	/^limit_channel_name = 15$/;"	k	section:theme
+limit_chat_buffer	endcord/config.ini	/^limit_chat_buffer = 100$/;"	k	section:main
+limit_command_history	endcord/config.ini	/^limit_command_history = 75$/;"	k	section:main
+limit_prompt	endcord/config.ini	/^limit_prompt = 15$/;"	k	section:theme
+limit_tab_len	endcord/config.ini	/^limit_tab_len = 20$/;"	k	section:theme
+limit_tabs_string	endcord/config.ini	/^limit_tabs_string = 0$/;"	k	section:theme
+limit_thread_name	endcord/config.ini	/^limit_thread_name = 0$/;"	k	section:theme
+limit_typing_string	endcord/config.ini	/^limit_typing_string = 30$/;"	k	section:theme
+limit_username	endcord/config.ini	/^limit_username = 10$/;"	k	section:theme
+lines	foot/foot.ini	/^lines=999999$/;"	k	section:scrollback
 lines	foot/reader.ini	/^lines=7000                          # Matches 7k history limit$/;"	k	section:scrollback
+linux_notification_sound	endcord/config.ini	/^linux_notification_sound = "message"$/;"	k	section:main
+linux_ringtone_incoming	endcord/config.ini	/^linux_ringtone_incoming = "phone-incoming-call"$/;"	k	section:main
+linux_ringtone_outgoing	endcord/config.ini	/^linux_ringtone_outgoing = "phone-outgoing-calling"$/;"	k	section:main
 logger	vim/vimscence.py	/^logger = logging.getLogger(__name__)$/;"	v
+main	endcord/config.ini	/^[main]$/;"	s
 main	foot/foot.ini	/^[main]$/;"	s
 main	foot/reader.ini	/^[main]$/;"	s
 main	keyd/default.conf	/^[main]$/;"	s
+max_thumb_cache_age	endcord/config.ini	/^max_thumb_cache_age = 7$/;"	k	section:main
 media	keyd/default.conf	/^[media]$/;"	s
+media_ascii_palette	endcord/config.ini	/^media_ascii_palette = "  ..',;:c*loexk#O0XNW"$/;"	k	section:theme
+media_bar_ch	endcord/config.ini	/^media_bar_ch = "━"$/;"	k	section:theme
+media_cap_fps	endcord/config.ini	/^media_cap_fps = 30$/;"	k	section:main
+media_color_bg	endcord/config.ini	/^media_color_bg = 16$/;"	k	section:theme
+media_font_aspect_ratio	endcord/config.ini	/^media_font_aspect_ratio = None$/;"	k	section:main
+media_mute	endcord/config.ini	/^media_mute = False$/;"	k	section:main
+media_pause	endcord/config.ini	/^media_pause = "SPC"$/;"	k	section:keybindings
+media_replay	endcord/config.ini	/^media_replay = "z"$/;"	k	section:keybindings
+media_saturation	endcord/config.ini	/^media_saturation = 1.2$/;"	k	section:theme
+media_seek_backward	endcord/config.ini	/^media_seek_backward = "LEFT"$/;"	k	section:keybindings
+media_seek_forward	endcord/config.ini	/^media_seek_forward = "RIGHT"$/;"	k	section:keybindings
+media_truecolor	endcord/config.ini	/^media_truecolor = True$/;"	k	section:theme
+media_use_blocks	endcord/config.ini	/^media_use_blocks = True$/;"	k	section:theme
+media_volume_down	endcord/config.ini	/^media_volume_down = "DOWN"$/;"	k	section:keybindings
+media_volume_up	endcord/config.ini	/^media_volume_up = "UP"$/;"	k	section:keybindings
+member_list	endcord/config.ini	/^member_list = True$/;"	k	section:main
+member_list_auto_open	endcord/config.ini	/^member_list_auto_open = False$/;"	k	section:main
+member_list_width	endcord/config.ini	/^member_list_width = 20$/;"	k	section:theme
+message_grouping	endcord/config.ini	/^message_grouping = True$/;"	k	section:main
+message_spacing	endcord/config.ini	/^message_spacing = True$/;"	k	section:main
+mouse	endcord/config.ini	/^mouse = True$/;"	k	section:main
 mouse	foot/foot.ini	/^[mouse]$/;"	s
 mouse	foot/reader.ini	/^[mouse]$/;"	s
+mouse-bindings	foot/foot.ini	/^[mouse-bindings]$/;"	s
+mouse_scroll_selection	endcord/config.ini	/^mouse_scroll_selection = False$/;"	k	section:main
+mouse_scroll_sensitivity	endcord/config.ini	/^mouse_scroll_sensitivity = 3$/;"	k	section:main
+mpv_path	endcord/config.ini	/^mpv_path = "mpv"$/;"	k	section:main
 multiplier	foot/foot.ini	/^multiplier=9.0$/;"	k	section:scrollback
 multiplier	foot/reader.ini	/^multiplier=9.0$/;"	k	section:scrollback
 music	system-configs/samba/smb.conf	/^[music]$/;"	s
+native_file_dialog	endcord/config.ini	/^native_file_dialog = "auto"$/;"	k	section:main
+native_media_player	endcord/config.ini	/^native_media_player = False$/;"	k	section:main
+new_tab_at_end	endcord/config.ini	/^new_tab_at_end = False$/;"	k	section:main
 next	foot/foot.ini	/^find-next=Control+s$/;"	k	section:search-bindings
 next	foot/reader.ini	/^find-next=Control+s$/;"	k	section:search-bindings
+notification_when_focused	endcord/config.ini	/^notification_when_focused = False$/;"	k	section:main
+notifications_pfp	endcord/config.ini	/^notifications_pfp = True$/;"	k	section:main
 o	vim/autoload/plug.vim	/^      nmap <buffer> o <plug>(plug-preview)$/;"	m
+only_one_open_server	endcord/config.ini	/^only_one_open_server = False$/;"	k	section:main
 opacity	picom/picom.conf	/^active-opacity = 1.0;$/;"	k
 opacity	picom/picom.conf	/^frame-opacity = 1.0;$/;"	k
 opacity	picom/picom.conf	/^inactive-opacity = 0.90;$/;"	k
+open_external_editor	endcord/config.ini	/^open_external_editor = "M-e"$/;"	k	section:keybindings
 options	system-configs/pacman/pacman.conf	/^[options]$/;"	s
 override	picom/picom.conf	/^inactive-opacity-override = false;$/;"	k
 pad	foot/foot.ini	/^pad=3x1                             # Matches Alacritty padding$/;"	k
 pad	foot/reader.ini	/^pad=3x1                             # Matches Alacritty padding$/;"	k
+paste	endcord/config.ini	/^paste = "C-v"$/;"	k	section:keybindings
+paste	foot/foot.ini	/^clipboard-paste=BTN_RIGHT$/;"	k	section:mouse-bindings
 plug#	vim/autoload/plug.vim	/^function! plug#(repo, ...)$/;"	f
 plug#begin	vim/autoload/plug.vim	/^function! plug#begin(...)$/;"	f
 plug#end	vim/autoload/plug.vim	/^function! plug#end()$/;"	f
@@ -184,14 +399,22 @@ plug#shellescape	vim/autoload/plug.vim	/^function! plug#shellescape(arg, ...)$/;
 preferred	sway/sway-portals.conf	/^[preferred]$/;"	s
 prev	foot/foot.ini	/^find-prev=Control+r$/;"	k	section:search-bindings
 prev	foot/reader.ini	/^find-prev=Control+r$/;"	k	section:search-bindings
+preview_upload	endcord/config.ini	/^preview_upload = "M-v"$/;"	k	section:keybindings
 printers	system-configs/samba/smb.conf	/^[printers]$/;"	s
+profile_info	endcord/config.ini	/^profile_info = "M-p"$/;"	k	section:keybindings
+proxy	endcord/config.ini	/^proxy = None$/;"	k	section:main
+q	endcord/config.ini	/^M-q = "v"$/;"	k	section:command_bindings
 q	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> q :call <SID>close_pane()<cr>$/;"	m
 q	vim/autoload/plug.vim	/^  nnoremap <silent> <buffer> q :q<cr>$/;"	m
+quit	endcord/config.ini	/^quit = None$/;"	k	section:keybindings
+quote_character	endcord/config.ini	/^quote_character = "║"$/;"	k	section:theme
 radius	picom/picom.conf	/^corner-radius = 0;$/;"	k
 radius	picom/picom.conf	/^shadow-radius = 7;$/;"	k
 rate	foot/foot.ini	/^blink-rate=300$/;"	k	section:cursor
 rate	foot/reader.ini	/^blink-rate=300$/;"	k	section:cursor
+reactions_separator	endcord/config.ini	/^reactions_separator = " "$/;"	k	section:theme
 reconnect	vim/vimscence.py	/^def reconnect():$/;"	f
+redo	endcord/config.ini	/^redo = "M-S-z"$/;"	k	section:keybindings
 regular0	foot/foot.ini	/^regular0=282a36  # black$/;"	k	section:colors
 regular0	foot/reader.ini	/^regular0=282a36  # black$/;"	k	section:colors
 regular1	foot/foot.ini	/^regular1=ff5555  # red$/;"	k	section:colors
@@ -209,9 +432,17 @@ regular6	foot/reader.ini	/^regular6=8be9fd  # cyan$/;"	k	section:colors
 regular7	foot/foot.ini	/^regular7=f8f8f2  # white$/;"	k	section:colors
 regular7	foot/reader.ini	/^regular7=f8f8f2  # white$/;"	k	section:colors
 remap	vim/vimscence.py	/^remap = {item['name']: item['icon'] for item in config['filetypes'] if 'icon' in item}$/;"	v
+remember_collapsed_channels	endcord/config.ini	/^remember_collapsed_channels = True$/;"	k	section:main
+remember_state	endcord/config.ini	/^remember_state = True$/;"	k	section:main
+remember_tabs	endcord/config.ini	/^remember_tabs = True$/;"	k	section:main
+remove_previous_notification	endcord/config.ini	/^remove_previous_notification = True$/;"	k	section:main
+reply	endcord/config.ini	/^reply = "C-r"$/;"	k	section:keybindings
+reply_mention	endcord/config.ini	/^reply_mention = False$/;"	k	section:main
 right	foot/foot.ini	/^cursor-right=Control+f$/;"	k	section:search-bindings
 right	foot/reader.ini	/^cursor-right=Control+f$/;"	k	section:search-bindings
 rightalt	keyd/default.conf	/^rightalt = layer(media)$/;"	k	section:main
+rpc	endcord/config.ini	/^rpc = True$/;"	k	section:main
+rpc_external	endcord/config.ini	/^rpc_external = True$/;"	k	section:main
 rpc_obj	vim/vimscence.py	/^rpc_obj = None$/;"	v
 rule	picom/picom.conf	/^opacity-rule = [$/;"	k
 s:TYPE	vim/autoload/plug.vim	/^let s:TYPE = {$/;"	v
@@ -357,17 +588,38 @@ s:vim8	vim/autoload/plug.vim	/^let s:vim8 = has('patch-8.0.0039') && exists('*jo
 s:warn	vim/autoload/plug.vim	/^function! s:warn(cmd, msg)$/;"	f
 s:with_cd	vim/autoload/plug.vim	/^function! s:with_cd(cmd, dir, ...)$/;"	f
 s:wrap_cmds	vim/autoload/plug.vim	/^  function! s:wrap_cmds(cmds)$/;"	f
+save_summaries	endcord/config.ini	/^save_summaries = True$/;"	k	section:main
+screen_update_delay	endcord/config.ini	/^screen_update_delay = 0.01$/;"	k	section:main
+scroll_bottom	endcord/config.ini	/^scroll_bottom = "C-b"$/;"	k	section:keybindings
 scrollback	foot/foot.ini	/^[scrollback]$/;"	s
 scrollback	foot/foot.ini	/^pipe-scrollback=[sh -c "tempfile=$(mktemp); cat - > $tempfile; foot -e vim $tempfile; rm $tempfi/;"	k	section:key-bindings
 scrollback	foot/reader.ini	/^[scrollback]$/;"	s
 scrollback	foot/reader.ini	/^pipe-scrollback=[sh -c "tempfile=$(mktemp); cat - > $tempfile; foot -e vim $tempfile; rm $tempfi/;"	k	section:key-bindings
+scrollbar_character	endcord/config.ini	/^scrollbar_character = "┃"$/;"	k	section:theme
+search	endcord/config.ini	/^search = "C-f"$/;"	k	section:keybindings
 search-bindings	foot/foot.ini	/^[search-bindings]$/;"	s
 search-bindings	foot/reader.ini	/^[search-bindings]$/;"	s
+search_gif	endcord/config.ini	/^search_gif = "M-f"$/;"	k	section:keybindings
+select_all	endcord/config.ini	/^select_all = "M-a"$/;"	k	section:keybindings
+select_end_left	endcord/config.ini	/^select_end_left = "S-HOME"$/;"	k	section:keybindings
+select_end_right	endcord/config.ini	/^select_end_right = "S-END"$/;"	k	section:keybindings
+select_left	endcord/config.ini	/^select_left = "S-LEFT"$/;"	k	section:keybindings
+select_right	endcord/config.ini	/^select_right = "S-RIGHT"$/;"	k	section:keybindings
+select_word_left	endcord/config.ini	/^select_word_left = "C-S-LEFT"$/;"	k	section:keybindings
+select_word_right	endcord/config.ini	/^select_word_right = "C-S-RIGHT"$/;"	k	section:keybindings
+send_message	endcord/config.ini	/^send_message = "ENTER"$/;"	k	section:keybindings
+send_typing	endcord/config.ini	/^send_typing = True$/;"	k	section:main
+send_x_super_properties	endcord/config.ini	/^send_x_super_properties = True$/;"	k	section:main
 shadow	picom/picom.conf	/^shadow = true;$/;"	k
+show_pending_messages	endcord/config.ini	/^show_pending_messages = True$/;"	k	section:main
+show_pinned	endcord/config.ini	/^show_pinned = "M-n"$/;"	k	section:keybindings
+show_reactions	endcord/config.ini	/^show_reactions = "M-w"$/;"	k	section:keybindings
 small_image	vim/vimscence.py	/^    small_image = vim.eval('g:vimsence_small_image')$/;"	v
 small_image	vim/vimscence.py	/^small_image = 'vim'$/;"	v
 small_text	vim/vimscence.py	/^    small_text = vim.eval('g:vimsence_small_text')$/;"	v
 small_text	vim/vimscence.py	/^small_text = 'Vim'$/;"	v
+smart_chat_lines	endcord/config.ini	/^smart_chat_lines = True$/;"	k	section:theme
+spoil	endcord/config.ini	/^spoil = "M-s"$/;"	k	section:keybindings
 start_time	vim/vimscence.py	/^start_time = int(time.time())$/;"	v
 stencil	picom/picom.conf	/^glx-no-stencil = true;$/;"	k
 step	picom/picom.conf	/^fade-in-step = 0.03;$/;"	k
@@ -376,22 +628,65 @@ style	foot/foot.ini	/^style=block$/;"	k	section:cursor
 style	foot/reader.ini	/^style=block$/;"	k	section:cursor
 style bg	tmux/tmux.conf	/^set -g status-style bg='#333333',fg='#d1d1d1'$/;"	k
 style bg	tmux/tmux.conf	/^set -g window-status-current-style bg='#800000',fg='#eeeeee',bold$/;"	k
+switch_tab_modifier	endcord/config.ini	/^switch_tab_modifier = "M-NUM"$/;"	k	section:keybindings
+syntax_highlight	endcord/config.ini	/^syntax_highlight = True$/;"	k	section:main
+syntax_token_colors	endcord/config.ini	/^syntax_token_colors = [133, 185, 102, 173, 133, 173, 111, -1, 167, 111, -1, -1]$/;"	k	section:theme
+tab_spaces	endcord/config.ini	/^tab_spaces = 8$/;"	k	section:main
+tabs_separator	endcord/config.ini	/^tabs_separator = "|"$/;"	k	section:theme
 term	foot/foot.ini	/^term=foot                           # Better for Wayland than forcing 'alacritty'$/;"	k	section:main
 term	foot/reader.ini	/^term=foot                           # Better for Wayland than forcing 'alacritty'$/;"	k	section:main
+theme	endcord/config.ini	/^[theme]$/;"	s
+theme	endcord/config.ini	/^theme = None$/;"	k	section:main
 there is no real suffering at all, than to not know God	README.md	/^# there is no real suffering at all, than to not know God$/;"	c
 tmux plugin manager (tpm)	README.md	/^### tmux plugin manager (tpm)$/;"	S	chapter:there is no real suffering at all, than to not know God
+toggle_member_list	endcord/config.ini	/^toggle_member_list = "M-m"$/;"	k	section:keybindings
+toggle_ping	endcord/config.ini	/^toggle_ping = "C-p"$/;"	k	section:keybindings
+toggle_tab	endcord/config.ini	/^toggle_tab = "M-t"$/;"	k	section:keybindings
+toggle_tree	endcord/config.ini	/^toggle_tree = "M-t"$/;"	k	section:keybindings
+tree_collapse_threads	endcord/config.ini	/^tree_collapse_threads = "M-h"$/;"	k	section:keybindings
+tree_dm_status	endcord/config.ini	/^tree_dm_status = "●"$/;"	k	section:theme
+tree_down	endcord/config.ini	/^tree_down = "C-DOWN"$/;"	k	section:keybindings
+tree_drop_down_corner	endcord/config.ini	/^tree_drop_down_corner = "╰"$/;"	k	section:theme
+tree_drop_down_folder	endcord/config.ini	/^tree_drop_down_folder = "+"$/;"	k	section:theme
+tree_drop_down_forum	endcord/config.ini	/^tree_drop_down_forum = "◆"$/;"	k	section:theme
+tree_drop_down_hline	endcord/config.ini	/^tree_drop_down_hline = "─"$/;"	k	section:theme
+tree_drop_down_intersect	endcord/config.ini	/^tree_drop_down_intersect = "├"$/;"	k	section:theme
+tree_drop_down_pointer	endcord/config.ini	/^tree_drop_down_pointer = "🡲"$/;"	k	section:theme
+tree_drop_down_thread	endcord/config.ini	/^tree_drop_down_thread = "⤙"$/;"	k	section:theme
+tree_drop_down_vline	endcord/config.ini	/^tree_drop_down_vline = "│"$/;"	k	section:theme
+tree_drop_down_voice	endcord/config.ini	/^tree_drop_down_voice = "○"$/;"	k	section:theme
+tree_join_thread	endcord/config.ini	/^tree_join_thread = "M-j"$/;"	k	section:keybindings
+tree_select	endcord/config.ini	/^tree_select = "C-SPACE"$/;"	k	section:keybindings
+tree_show_folders	endcord/config.ini	/^tree_show_folders = True$/;"	k	section:main
+tree_up	endcord/config.ini	/^tree_up = "C-UP"$/;"	k	section:keybindings
+tree_width	endcord/config.ini	/^tree_width = 32$/;"	k	section:theme
+trim_embed_url_size	endcord/config.ini	/^trim_embed_url_size = 40$/;"	k	section:main
 typing	foot/foot.ini	/^hide-when-typing=yes$/;"	k	section:mouse
 typing	foot/reader.ini	/^hide-when-typing=yes$/;"	k	section:mouse
 u	vim/vimscence.py	/^import utils as u$/;"	I	nameref:module:utils
+undo	endcord/config.ini	/^undo = "M-z"$/;"	k	section:keybindings
 update_presence	vim/vimscence.py	/^def update_presence():$/;"	f
+upload	endcord/config.ini	/^upload = "C-u"$/;"	k	section:keybindings
 url	foot/foot.ini	/^[url]$/;"	s
 url	foot/reader.ini	/^[url]$/;"	s
 url-bindings	foot/foot.ini	/^[url-bindings]$/;"	s
 url-bindings	foot/reader.ini	/^[url-bindings]$/;"	s
+use_nick_when_available	endcord/config.ini	/^use_nick_when_available = True$/;"	k	section:main
+username_role_colors	endcord/config.ini	/^username_role_colors = True$/;"	k	section:theme
+view_media	endcord/config.ini	/^view_media = "C-w"$/;"	k	section:keybindings
 vim plugin manager (vim-plug)	README.md	/^### vim plugin manager (vim-plug)$/;"	S	chapter:there is no real suffering at all, than to not know God
+vim_mode	endcord/config.ini	/^vim_mode = True$/;"	k	section:main
 visible	foot/foot.ini	/^toggle-url-visible=Control+Shift+o$/;"	k	section:url-bindings
 visible	foot/reader.ini	/^toggle-url-visible=Control+Shift+o$/;"	k	section:url-bindings
 vsync	picom/picom.conf	/^vsync = true;$/;"	k
 wintypes	picom/picom.conf	/^wintypes:$/;"	k
+word_left	endcord/config.ini	/^word_left = "C-LEFT"$/;"	k	section:keybindings
+word_right	endcord/config.ini	/^word_right = "C-RIGHT"$/;"	k	section:keybindings
+wrap_around	endcord/config.ini	/^wrap_around = True$/;"	k	section:main
 x	picom/picom.conf	/^shadow-offset-x = -7;$/;"	k
 y	picom/picom.conf	/^shadow-offset-y = -7;$/;"	k
+y DOWN	endcord/config.ini	/^C-y DOWN = "r"$/;"	k	section:command_bindings
+y UP	endcord/config.ini	/^C-y UP = "r"$/;"	k	section:command_bindings
+yt_dlp_format	endcord/config.ini	/^yt_dlp_format = 18$/;"	k	section:main
+yt_dlp_path	endcord/config.ini	/^yt_dlp_path = "yt-dlp"$/;"	k	section:main
+yt_in_mpv	endcord/config.ini	/^yt_in_mpv = True$/;"	k	section:main
