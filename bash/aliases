@@ -8,6 +8,7 @@ alias ip='ip -color=auto'
 
 alias tree='tree -C'
 
+alias global='global --color=auto'
 
 alias fusion= 'QT_STYLE_OVERRIDE=Fusion'
 

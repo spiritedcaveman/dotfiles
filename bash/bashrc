@@ -237,3 +237,4 @@ countdown() {
     echo -e "\nDone!"
 }
 
+export GTAGSCOLOR=always
