@@ -43,6 +43,8 @@ alias mutt='neomutt'
 alias sysctl='/sbin/sysctl'
 
 
+alias x86g='git ls-files '*.c' '*.h' '*.S' ':!arch/*' 'arch/x86/*.c' 'arch/x86/*.h' 'arch/x86/*.S' | gtags -f -'
+
 
 
 

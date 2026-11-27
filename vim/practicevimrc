@@ -251,45 +251,57 @@ nnoremap <silent> <ctrl-\> :<C-U>TmuxNavigatePrevious<cr>
 
 
 
+
 " =============================================================================
 " --- CSCOPE ---
 " =============================================================================
 
 if has("cscope")
-        set cscopetag
-        set cscopequickfix=
-        set csto=0 cst nocsverb
+	set cscopetag
+	set cscopequickfix=
+	set csto=0 cst nocsverb
 
-        function! s:AddDB(db_file, prg)
-                let l:root = fnamemodify(a:db_file, ":h")
-                if empty(l:root) | let l:root = "." | endif
-                let &cscopeprg = a:prg
-                let l:cmd = "cs add " . fnameescape(a:db_file)
-                let l:cmd .= " " . fnameescape(l:root)
-                silent execute l:cmd
-        endfunction
+	function! s:AddDB(db_file, prg)
+		let l:root = fnamemodify(a:db_file, ":h")
+		if empty(l:root) | let l:root = "." | endif
+		let &cscopeprg = a:prg
+		let l:cmd = "cs add " . fnameescape(a:db_file)
+		let l:cmd .= " " . fnameescape(l:root)
+		silent execute l:cmd
+	endfunction
 
-        function! s:AttachDB()
-                if !empty(cscope_connection()) | return | endif
+	function! s:AttachDB()
+		if !empty(cscope_connection()) | return | endif
 
-                let l:g = findfile("GTAGS", ".;")
-                if !empty(l:g) && executable("gtags-cscope")
-                        call s:AddDB(l:g, "gtags-cscope")
-                        return
-                endif
+		let l:g = findfile("GTAGS", ".;")
+		if !empty(l:g) && executable("gtags-cscope")
+			call s:AddDB(l:g, "gtags-cscope")
+			return
+		endif
 
-                let l:c = findfile("cscope.out", ".;")
-                if !empty(l:c) && executable("cscope")
-                        call s:AddDB(l:c, "cscope")
-                endif
-        endfunction
+		let l:c = findfile("cscope.out", ".;")
+		if !empty(l:c) && executable("cscope")
+			call s:AddDB(l:c, "cscope")
+		endif
+	endfunction
 
-        augroup KernelDB
-                autocmd!
-                autocmd VimEnter,BufEnter * call s:AttachDB()
-        augroup END
 
-        set csverb
+	function! s:StripDotSlash()
+		let l:name = expand("%")
+		if l:name =~# '^\./' && !&modified
+			let l:clean = substitute(l:name, '^\./', '', '')
+			if empty(bufname(l:clean))
+				silent keepalt file `=l:clean`
+			endif
+		endif
+	endfunction
+
+	augroup KernelDB
+		autocmd!
+		autocmd VimEnter,BufEnter * call s:AttachDB()
+		autocmd BufEnter ./* call s:StripDotSlash()
+	augroup END
+	set csverb
 endif
 
 

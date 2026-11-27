@@ -87,6 +87,30 @@ fi
 
 export W3M_DIR="$HOME/.config/w3m"
 
+faint() {
+  local SESSION="${1:-i_faint}"
+  if ! tmux has-session -t "$SESSION" 2>/dev/null; then
+    tmux new-session -d -s "$SESSION" -n "win-1"
+    for i in {2..9}; do
+      tmux new-window -t "$SESSION:$i" -n "win-$i"
+    done
+    tmux select-window -t "$SESSION:1"
+  fi
+  tmux attach-session -t "$SESSION"
+}
+
+
+faint3() {
+  local SESSION="${1:-i_faint}"
+  if ! tmux has-session -t "$SESSION" 2>/dev/null; then
+    tmux new-session -d -s "$SESSION"
+    for i in {1..8}; do
+      tmux split-window -t "$SESSION"
+      tmux select-layout -t "$SESSION" tiled
+    done
+  fi
+  tmux attach-session -t "$SESSION"
+}
 
 
 
